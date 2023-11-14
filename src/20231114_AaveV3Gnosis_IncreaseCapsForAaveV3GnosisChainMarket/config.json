@@ -1,0 +1,34 @@
+{
+  "rootOptions": {
+    "author": "Alice Rozengarden (@Rozengarden - Aave-chan initiative)",
+    "pools": [
+      "AaveV3Gnosis"
+    ],
+    "title": "Increase Caps for Aave V3 GnosisChain Market",
+    "shortName": "IncreaseCapsForAaveV3GnosisChainMarket",
+    "date": "20231114",
+    "discussion": "https://governance.aave.com/t/arfc-increase-caps-for-aave-v3-gnosischain-market/15464",
+    "snapshot": "TODO"
+  },
+  "poolOptions": {
+    "AaveV3Gnosis": {
+      "configs": {
+        "CAPS_UPDATE": [
+          {
+            "asset": "WETH",
+            "supplyCap": "6_000",
+            "borrowCap": "5_000"
+          },
+          {
+            "asset": "GNO",
+            "supplyCap": "40_000",
+            "borrowCap": "EngineFlags.KEEP_CURRENT"
+          }
+        ]
+      },
+      "features": [
+        "CAPS_UPDATE"
+      ]
+    }
+  }
+}
