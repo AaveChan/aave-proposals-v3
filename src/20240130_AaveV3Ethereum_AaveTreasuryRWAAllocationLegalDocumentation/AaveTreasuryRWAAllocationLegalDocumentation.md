@@ -10,9 +10,7 @@ Following [AIP-331](https://app.aave.com/governance/proposal/331/) giving mandat
 
 ## Motivation
 
-The A-C Prime Foundation is a Cayman island foundation company created by Centrifuge on behalf of the Aave DAO. It is the legal entity that will represent the Aave DAO off-chain. It will be the entity that will be able to sign contracts, hold assets, and enter into agreements on behalf of the Aave DAO.
-
-This AIP proposes the activation of the A-C Prime Foundation. and the pre-approval of a investment in the Anemoy Liquid Treasury Fund 1 with an initial investment of the equivalent of $1m in shares.
+This AIP payload serves as a DAO resolution providing biding approval from the Aave DAO to bring about a real-world asset specialised single-purpose vehicle, and approve and ratify the legals documents.
 
 ## Specification
 
