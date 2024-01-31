@@ -17,7 +17,7 @@ contract AaveV3Ethereum_AddPYUSDToAaveV3EthereumPool_20240131_Test is ProtocolV3
   AaveV3Ethereum_AddPYUSDToAaveV3EthereumPool_20240131 internal proposal;
 
   function setUp() public {
-    vm.createSelectFork(vm.rpcUrl('mainnet'), 19128871);
+    vm.createSelectFork(vm.rpcUrl('mainnet'), 19129276);
     proposal = new AaveV3Ethereum_AddPYUSDToAaveV3EthereumPool_20240131();
   }
 

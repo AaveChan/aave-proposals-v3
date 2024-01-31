@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 import {GovV3Helpers, IPayloadsControllerCore, PayloadsControllerUtils} from 'aave-helpers/GovV3Helpers.sol';
-import {AaveV3EthereumPool} from 'aave-address-book/AaveV3EthereumPool.sol';
+import {AaveV3Ethereum} from 'aave-address-book/AaveV3Ethereum.sol';
 import {EthereumScript} from 'aave-helpers/ScriptUtils.sol';
 import {AaveV3Ethereum_AddPYUSDToAaveV3EthereumPool_20240131} from './AaveV3Ethereum_AddPYUSDToAaveV3EthereumPool_20240131.sol';
 
