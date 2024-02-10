@@ -34,7 +34,7 @@ export const emissionManager: FeatureModule<EmissionManager[]> = {
         constants: cfg.map(
           (cfg) =>
             `address public constant ${cfg.asset}_EMISSION_ADMIN = ${translateJsAddressToSol(
-              cfg.address
+              cfg.admin
             )};`
         ),
         execute: cfg.map(
