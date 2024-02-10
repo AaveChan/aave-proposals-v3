@@ -11,6 +11,7 @@ import {
   PriceFeedUpdate,
   RateStrategyUpdate,
   FreezeUpdate,
+  EmissionManager,
 } from './features/types';
 import {FlashBorrower} from './features/flashBorrower';
 
@@ -84,6 +85,7 @@ export enum FEATURE {
   RATE_UPDATE_V3 = 'RATE_UPDATE_V3',
   RATE_UPDATE_V2 = 'RATE_UPDATE_V2',
   FREEZE = 'FREEZE',
+  EMISSION_MANAGER = 'EMISSION_MANAGER',
   OTHERS = 'OTHERS',
 }
 
@@ -126,6 +128,7 @@ export interface PoolConfig {
     [FEATURE.RATE_UPDATE_V3]?: RateStrategyUpdate[]; // TODO: type could be improved
     [FEATURE.RATE_UPDATE_V2]?: RateStrategyUpdate[];
     [FEATURE.FREEZE]?: FreezeUpdate[];
+    [FEATURE.EMISSION_MANAGER]?: EmissionManager[];
     [FEATURE.OTHERS]?: {};
   };
   cache: PoolCache;

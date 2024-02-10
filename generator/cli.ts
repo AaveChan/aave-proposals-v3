@@ -22,6 +22,7 @@ import {eModeUpdates} from './features/eModesUpdates';
 import {eModeAssets} from './features/eModesAssets';
 import {priceFeedsUpdates} from './features/priceFeedsUpdates';
 import {freezeUpdates} from './features/freeze';
+import {emissionManager} from './features/emission';
 import {assetListing, assetListingCustom} from './features/assetListing';
 import {generateFiles, writeFiles} from './generator';
 import {CHAIN_ID_CLIENT_MAP} from '@bgd-labs/js-utils';
@@ -72,6 +73,7 @@ const FEATURE_MODULES_V3 = [
   assetListing,
   assetListingCustom,
   freezeUpdates,
+  emissionManager,
   PLACEHOLDER_MODULE,
 ];
 

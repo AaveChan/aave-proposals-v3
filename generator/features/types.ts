@@ -105,3 +105,8 @@ export interface TokenStream {
 export interface FreezeUpdate extends AssetSelector {
   shouldBeFrozen: boolean;
 }
+
+export interface EmissionManager {
+  asset: Hex;
+  admin: Hex;
+}
