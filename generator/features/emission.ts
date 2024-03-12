@@ -9,7 +9,7 @@ import {
 
 export const emissionManager: FeatureModule<EmissionManager[]> = {
   value: FEATURE.EMISSION_MANAGER,
-  description: 'Set Emission admin',
+  description: 'SetEmissionAdmin',
   async cli({pool}) {
     const response: EmissionManager[] = [];
     const assets = await assetsSelectPrompt({
@@ -44,6 +44,19 @@ export const emissionManager: FeatureModule<EmissionManager[]> = {
 	      ${cfg.asset}_EMISSION_ADMIN
 	    );`
         ),
+      },
+      test: {
+        fn: [
+          `function test_isEmmissionAdmin() external {
+            ${TEST_EXECUTE_PROPOSAL}
+            assertEq(
+              IEmissionManager(${pool}.EMISSION_MANAGER).getEmissionAdmin(
+	        ${translateAssetToAssetLibUnderlying(cfg.asset, pool)}
+              ),
+	      ${translateJsAddressToSol(cfg.admin)}
+            );
+          }`,
+        ],
       },
     };
     return response;
