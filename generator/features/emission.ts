@@ -1,5 +1,6 @@
 import {CodeArtifact, FEATURE, FeatureModule} from '../types';
 import {Hex} from 'viem';
+import {TEST_EXECUTE_PROPOSAL} from '../utils/constants';
 import {EmissionManager} from './types';
 import {addressPrompt, translateJsAddressToSol} from '../prompts/addressPrompt';
 import {
@@ -46,8 +47,9 @@ export const emissionManager: FeatureModule<EmissionManager[]> = {
         ),
       },
       test: {
-        fn: [
-          `function test_isEmmissionAdmin() external {
+        fn: cfg.map(
+          (cfg) =>
+            `function test_isEmmissionAdmin() external {
             ${TEST_EXECUTE_PROPOSAL}
             assertEq(
               IEmissionManager(${pool}.EMISSION_MANAGER).getEmissionAdmin(
@@ -55,8 +57,8 @@ export const emissionManager: FeatureModule<EmissionManager[]> = {
               ),
 	      ${translateJsAddressToSol(cfg.admin)}
             );
-          }`,
-        ],
+          }`
+        ),
       },
     };
     return response;
