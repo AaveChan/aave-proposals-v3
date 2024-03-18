@@ -39,15 +39,22 @@ This AIP grants permission to whitelist any Contango Protocol, Cian Protocol and
 
 This AIP will whitelist the following contracts:
 
-| Network  | Protocol   | Address                                                                                                                          | Contract Name                    |
-| -------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
-| Ethereum | Index Coop | [0x45c00508C14601fd1C1e296eB3C0e3eEEdCa45D0](https://etherscan.io/address/0x45c00508C14601fd1C1e296eB3C0e3eEEdCa45D0)            | FlashMintLeveraged               |
-| Ethereum | Index Coop | [0x6e8ac99B2ec2e08600c7d0Aab970f31e9b11957a](https://etherscan.io/address/0x6e8ac99B2ec2e08600c7d0Aab970f31e9b11957a)            | ETH2x-FLI AaveMigrationExtension |
-| Ethereum | Index Coop | [0x3a657Ec8a755d2E43DDbfDeaDc15899EDaf8dcf8](https://etherscan.io/address/0x3a657Ec8a755d2E43DDbfDeaDc15899EDaf8dcf8)            | BTC2x-FLI AaveMigrationExtension |
-| Ethereum | CIAN       | [0x85105b7E11c442Ca6fF6b4d90d7a439f68376Ac4](https://etherscan.io/address/0x85105b7e11c442ca6ff6b4d90d7a439f68376ac4)            | FlashloanHelper                  |
-| Ethereum | Contango   | [0xab515542d621574f9b5212d50593cD0C07e641bD](https://etherscan.io/address/0xab515542d621574f9b5212d50593cD0C07e641bD)            | PermissionedAaveWrapper          |
-| Arbitrum | Contango   | [0x5e2aDC1F256f990D73a69875E06AF8A8404e3a03](https://arbiscan.io/address/0x5e2aDC1F256f990D73a69875E06AF8A8404e3a03)             | PermissionedAaveWrapper          |
-| Optimism | Contango   | [0xab515542d621574f9b5212d50593cD0C07e641bD](https://optimistic.etherscan.io/address/0xab515542d621574f9b5212d50593cd0c07e641bd) | PermissionedAaveWrapper          |
+| Network   | Protocol   | Address                                                                                                                          | Contract Name                    |
+| --------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| Ethereum  | Index Coop | [0x45c00508C14601fd1C1e296eB3C0e3eEEdCa45D0](https://etherscan.io/address/0x45c00508C14601fd1C1e296eB3C0e3eEEdCa45D0)            | FlashMintLeveraged               |
+| Ethereum  | Index Coop | [0x6e8ac99B2ec2e08600c7d0Aab970f31e9b11957a](https://etherscan.io/address/0x6e8ac99B2ec2e08600c7d0Aab970f31e9b11957a)            | ETH2x-FLI AaveMigrationExtension |
+| Ethereum  | Index Coop | [0x3a657Ec8a755d2E43DDbfDeaDc15899EDaf8dcf8](https://etherscan.io/address/0x3a657Ec8a755d2E43DDbfDeaDc15899EDaf8dcf8)            | BTC2x-FLI AaveMigrationExtension |
+| Ethereum  | CIAN       | [0x85105b7E11c442Ca6fF6b4d90d7a439f68376Ac4](https://etherscan.io/address/0x85105b7e11c442ca6ff6b4d90d7a439f68376ac4)            | FlashloanHelper                  |
+| Ethereum  | Contango   | [0xab515542d621574f9b5212d50593cD0C07e641bD](https://etherscan.io/address/0xab515542d621574f9b5212d50593cD0C07e641bD)            | PermissionedAaveWrapper          |
+| Arbitrum  | Contango   | [0x5e2aDC1F256f990D73a69875E06AF8A8404e3a03](https://arbiscan.io/address/0x5e2aDC1F256f990D73a69875E06AF8A8404e3a03)             | PermissionedAaveWrapper          |
+| Optimism  | Contango   | [0xab515542d621574f9b5212d50593cD0C07e641bD](https://optimistic.etherscan.io/address/0xab515542d621574f9b5212d50593cd0c07e641bd) | PermissionedAaveWrapper          |
+| Base      | Contango   | [0xab515542d621574f9b5212d50593cD0C07e641bD](https://basescan.org/address/0xab515542d621574f9b5212d50593cd0c07e641bd)            | PermissionedAaveWrapper          |
+| Avalanche | Contango   | [0xab515542d621574f9b5212d50593cD0C07e641bD](https://snowtrace.io/address/0xab515542d621574f9b5212d50593cd0c07e641bd)            | PermissionedAaveWrapper          |
+| Polygon   | Contango   | [0xab515542d621574f9b5212d50593cD0C07e641bD](https://polygonscan.com/address/0xab515542d621574f9b5212d50593cd0c07e641bd)         | PermissionedAaveWrapper          |
+| Metis     | Contango   | [0xab515542d621574f9b5212d50593cD0C07e641bD](https://explorer.metis.io/address/0xab515542d621574f9b5212d50593cd0c07e641bd)       | PermissionedAaveWrapper          |
+| Gnosis    | Contango   | [0xab515542d621574f9b5212d50593cD0C07e641bD](https://gnosisscan.io/address/0xab515542d621574f9b5212d50593cd0c07e641bd)           | PermissionedAaveWrapper          |
+| BNB       | Contango   | [0xab515542d621574f9b5212d50593cD0C07e641bD](https://bscscan.com/address/0xab515542d621574f9b5212d50593cd0c07e641bd)             | PermissionedAaveWrapper          |
+| Scroll    | Contango   | [0xab515542d621574f9b5212d50593cD0C07e641bD](https://scrollscan.com/address/0xab515542d621574f9b5212d50593cd0c07e641bd)          | PermissionedAaveWrapper          |
 
 ## References
 
