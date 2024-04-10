@@ -33,6 +33,6 @@ contract AaveV3BNB_OnboardingWBETH_20240409_Test is ProtocolV3TestBase {
     (address aTokenAddress, , ) = AaveV3BNB.AAVE_PROTOCOL_DATA_PROVIDER.getReserveTokensAddresses(
       proposal.wBETH()
     );
-    assertGe(IERC20(aTokenAddress).balanceOf(address(AaveV3BNB.COLLECTOR)), 10 ** 18);
+    assertGe(IERC20(aTokenAddress).balanceOf(address(AaveV3BNB.COLLECTOR)), 10 ** 15);
   }
 }

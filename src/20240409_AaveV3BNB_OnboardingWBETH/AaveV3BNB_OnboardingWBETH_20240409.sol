@@ -18,7 +18,7 @@ contract AaveV3BNB_OnboardingWBETH_20240409 is AaveV3PayloadBNB {
   using SafeERC20 for IERC20;
 
   address public constant wBETH = 0xa2E3356610840701BDf5611a53974510Ae27E2e1;
-  uint256 public constant wBETH_SEED_AMOUNT = 1e18;
+  uint256 public constant wBETH_SEED_AMOUNT = 1e15;
 
   function _postExecute() internal override {
     IERC20(wBETH).forceApprove(address(AaveV3BNB.POOL), wBETH_SEED_AMOUNT);
