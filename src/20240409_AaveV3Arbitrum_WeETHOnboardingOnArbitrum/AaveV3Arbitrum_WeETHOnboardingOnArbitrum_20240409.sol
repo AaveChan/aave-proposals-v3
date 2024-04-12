@@ -31,7 +31,7 @@ contract AaveV3Arbitrum_WeETHOnboardingOnArbitrum_20240409 is AaveV3PayloadArbit
     listings[0] = IAaveV3ConfigEngine.Listing({
       asset: weETH,
       assetSymbol: 'weETH',
-      priceFeed: 0x0000000000000000000000000000000000000000,
+      priceFeed: 0x517276B5972C4Db7E88B9F76Ee500E888a2D73C3,
       eModeCategory: AaveV3ArbitrumEModes.ETH_CORRELATED,
       enabledToBorrow: EngineFlags.ENABLED,
       stableRateModeEnabled: EngineFlags.DISABLED,
