@@ -7,7 +7,15 @@ snapshot: "https://snapshot.org/#/aave.eth/proposal/0x4ee3ae8c9046a2b50eb1fcaa52
 
 ## Simple Summary
 
+This proposal aims to onboard FRAX to the Aave v3 Lido Instance.
+
 ## Motivation
+
+The integration of FRAX into the Aave v3 Lido Instance is driven by the following factors:
+
+- FRAX Adoption: Frax is also taking a new place in Aave ecosystem with harmonization between FRAX and USDC parameters.
+- Liquidity Enhancement: The inclusion of this widely-used stablecoin is expected to boost liquidity in the Lido Instance, potentially attracting more users and increasing overall platform activity.
+- Strategic Alignment: This move aligns with Aave’s goal of offering a comprehensive suite of high-quality assets, keeping the protocol at the forefront of DeFi liquidity.
 
 ## Specification
 
