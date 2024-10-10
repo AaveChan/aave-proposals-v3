@@ -30,7 +30,6 @@ The table below illustrates the configured risk parameters for **FRAX**
 | Variable Slope 1          |                                      5.5 % |
 | Variable Slope 2          |                                       75 % |
 | Uoptimal                  |                                       90 % |
-| Stable Borrowing          |                                   DISABLED |
 | Flashloanable             |                                    ENABLED |
 | Siloed Borrowing          |                                   DISABLED |
 | Borrowable in Isolation   |                                   DISABLED |

@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import {AaveV3EthereumLido, AaveV3EthereumLidoEModes} from 'aave-address-book/AaveV3EthereumLido.sol';
+import {AaveV3EthereumLido} from 'aave-address-book/AaveV3EthereumLido.sol';
 import {AaveV3PayloadEthereumLido} from 'aave-helpers/src/v3-config-engine/AaveV3PayloadEthereumLido.sol';
-import {EngineFlags} from 'aave-v3-periphery/contracts/v3-config-engine/EngineFlags.sol';
-import {IAaveV3ConfigEngine} from 'aave-v3-periphery/contracts/v3-config-engine/IAaveV3ConfigEngine.sol';
+import {EngineFlags} from 'aave-v3-origin/contracts/extensions/v3-config-engine/EngineFlags.sol';
+import {IAaveV3ConfigEngine} from 'aave-v3-origin/contracts/extensions/v3-config-engine/IAaveV3ConfigEngine.sol';
 import {IERC20} from 'solidity-utils/contracts/oz-common/interfaces/IERC20.sol';
 import {SafeERC20} from 'solidity-utils/contracts/oz-common/SafeERC20.sol';
-import {IEmissionManager} from 'aave-v3-periphery/contracts/rewards/interfaces/IEmissionManager.sol';
+import {IEmissionManager} from 'aave-v3-origin/contracts/rewards/interfaces/IEmissionManager.sol';
 /**
  * @title Onboard FRAX to Aave V3 Lido Instance
  * @author Aave Chan Initiative
@@ -20,15 +20,15 @@ contract AaveV3EthereumLido_OnboardFRAXToAaveV3LidoInstance_20241009 is AaveV3Pa
   address public constant FRAX = 0x853d955aCEf822Db058eb8505911ED77F175b99e;
   uint256 public constant FRAX_SEED_AMOUNT = 1e18;
   address public constant FRAX_LM_ADMIN = 0xac140648435d03f784879cd789130F22Ef588Fcd;
-
+  event debug(uint256 here);
   function _postExecute() internal override {
     IERC20(FRAX).forceApprove(address(AaveV3EthereumLido.POOL), FRAX_SEED_AMOUNT);
-    //AaveV3EthereumLido.POOL.supply(
-    //  FRAX,
-    //  FRAX_SEED_AMOUNT,
-    //  address(AaveV3EthereumLido.COLLECTOR),
-    //  0
-    //);
+    AaveV3EthereumLido.POOL.supply(
+      FRAX,
+      FRAX_SEED_AMOUNT,
+      address(AaveV3EthereumLido.COLLECTOR),
+      0
+    );
 
     (address aFRAX, , ) = AaveV3EthereumLido.AAVE_PROTOCOL_DATA_PROVIDER.getReserveTokensAddresses(
       FRAX
@@ -44,9 +44,7 @@ contract AaveV3EthereumLido_OnboardFRAXToAaveV3LidoInstance_20241009 is AaveV3Pa
       asset: FRAX,
       assetSymbol: 'FRAX',
       priceFeed: 0x45D270263BBee500CF8adcf2AbC0aC227097b036,
-      eModeCategory: AaveV3EthereumLidoEModes.NONE,
       enabledToBorrow: EngineFlags.ENABLED,
-      stableRateModeEnabled: EngineFlags.DISABLED,
       borrowableInIsolation: EngineFlags.DISABLED,
       withSiloedBorrowing: EngineFlags.DISABLED,
       flashloanable: EngineFlags.ENABLED,

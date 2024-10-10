@@ -1,6 +1,8 @@
 import {ConfigFile} from '../../generator/types';
 export const config: ConfigFile = {
   rootOptions: {
+    configFile: 'src/20241009_AaveV3EthereumLido_OnboardFRAXToAaveV3LidoInstance/config.ts',
+    force: true,
     author: 'Aave Chan Initiative',
     pools: ['AaveV3EthereumLido'],
     title: 'Onboard FRAX to Aave V3 Lido Instance',

@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 import {GovV3Helpers} from 'aave-helpers/src/GovV3Helpers.sol';
 import {AaveV3EthereumLido} from 'aave-address-book/AaveV3EthereumLido.sol';
 import {IERC20} from 'solidity-utils/contracts/oz-common/interfaces/IERC20.sol';
-import {IEmissionManager} from 'aave-v3-periphery/contracts/rewards/interfaces/IEmissionManager.sol';
+import {IEmissionManager} from 'aave-v3-origin/contracts/rewards/interfaces/IEmissionManager.sol';
 
 import 'forge-std/Test.sol';
 import {ProtocolV3TestBase, ReserveConfig} from 'aave-helpers/src/ProtocolV3TestBase.sol';
@@ -18,7 +18,7 @@ contract AaveV3EthereumLido_OnboardFRAXToAaveV3LidoInstance_20241009_Test is Pro
   AaveV3EthereumLido_OnboardFRAXToAaveV3LidoInstance_20241009 internal proposal;
 
   function setUp() public {
-    vm.createSelectFork(vm.rpcUrl('mainnet'), 20929931);
+    vm.createSelectFork(vm.rpcUrl('mainnet'), 20936937);
     proposal = new AaveV3EthereumLido_OnboardFRAXToAaveV3LidoInstance_20241009();
   }
 
