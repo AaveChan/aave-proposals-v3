@@ -20,7 +20,7 @@ export const config: ConfigFile = {
             params: {
               optimalUtilizationRate: '',
               baseVariableBorrowRate: '6.25',
-              variableRateSlope1: '',
+              variableRateSlope1: '0.75',
               variableRateSlope2: '',
             },
           },
