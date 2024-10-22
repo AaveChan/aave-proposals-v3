@@ -52,8 +52,8 @@ contract AaveV3EthereumLido_OnboardUSDSAndSUSDSToAaveV3_20240913 is AaveV3Payloa
       liqProtocolFee: 10_00,
       rateStrategyParams: IAaveV3ConfigEngine.InterestRateInputData({
         optimalUsageRatio: 90_00,
-        baseVariableBorrowRate: 0,
-        variableRateSlope1: 5_50,
+        baseVariableBorrowRate: 6_25,
+        variableRateSlope1: 75,
         variableRateSlope2: 75_00
       })
     });
