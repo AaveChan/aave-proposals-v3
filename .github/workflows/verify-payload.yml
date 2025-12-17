@@ -1,0 +1,59 @@
+name: Verify Payload
+
+on:
+  workflow_dispatch:
+    inputs:
+      chainId:
+        description: "Chain ID"
+        required: true
+      transactionHash:
+        description: "Transaction Hash"
+        required: true
+      chainAlias:
+        description: "Chain Alias"
+        required: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      ETHERSCAN_API_KEY: ${{ secrets.ETHERSCAN_API_KEY }}
+      RPC_AVALANCHE: ${{ secrets.RPC_AVALANCHE }}
+      RPC_BNB: ${{ secrets.RPC_BNB }}
+      RPC_METIS: ${{ secrets.RPC_METIS }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          ref: main
+
+      - name: Pull latest changes
+        run: git config pull.ff only && git pull origin main
+
+      - name: tmp show env
+        run: echo ${{ secrets.ETHERSCAN_API_KEY }} ${{ secrets.RPC_AVALANCHE }}
+
+      - name: Install dependencies yarn
+        run: yarn install
+
+      - name: Install foundry
+        uses: foundry-rs/foundry-toolchain@v1
+
+      - name: Install forge dependencies
+        run: forge install
+
+      - name: Create verify.json
+        run: |
+          cat <<EOF > verify.json
+          {
+            "transactions": [
+              {
+                "hash": "${{ github.event.inputs.transactionHash }}"
+              }
+            ],
+            "chain": ${{ github.event.inputs.chainId }}
+          }
+          EOF
+      - name: Run verification command
+        run: FOUNDRY_PROFILE=${{ github.event.inputs.chainAlias }} npx catapulta-verify -b verify.json
