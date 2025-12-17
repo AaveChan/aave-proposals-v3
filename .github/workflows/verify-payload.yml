@@ -31,9 +31,6 @@ jobs:
       - name: Pull latest changes
         run: git config pull.ff only && git pull origin main
 
-      - name: tmp show env
-        run: echo ${{ secrets.ETHERSCAN_API_KEY }} ${{ secrets.RPC_AVALANCHE }}
-
       - name: Install dependencies yarn
         run: yarn install
 
