@@ -29,6 +29,13 @@ jobs:
         with:
           ref: main
 
+      - name: check RPC setup
+        run: |
+          echo "RPC_AVALANCHE is set to $RPC_AVALANCHE"
+          echo "RPC_BNB is set to $RPC_BNB"
+          echo "RPC_METIS is set to $RPC_METIS"
+          echo "RPC_BASE is set to $RPC_BASE"
+
       - name: Pull latest changes
         run: git config pull.ff only && git pull origin main
 
