@@ -21,6 +21,7 @@ jobs:
       RPC_AVALANCHE: ${{ secrets.RPC_AVALANCHE }}
       RPC_BNB: ${{ secrets.RPC_BNB }}
       RPC_METIS: ${{ secrets.RPC_METIS }}
+      RPC_BASE: ${{ secrets.RPC_BASE }}
 
     steps:
       - name: Checkout repository
