@@ -5,10 +5,21 @@ concurrency:
   cancel-in-progress: true
 
 on:
-  pull_request:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      contract_address:
+        description: "Smart contract address to verify"
+        required: true
+      source_code_path:
+        description: "Path to the source code file"
+        required: true
+      contract_name:
+        description: "Name of the contract to verify"
+        required: true
+      chain:
+        description: "Blockchain network (e.g., mainnet, avalanche, plasma)"
+        required: false
+        default: "mainnet"
 
 jobs:
   lint:
@@ -40,4 +51,4 @@ jobs:
           ZKSYNC: "true"
 
       - name: Verify contract
-        run: forge verify-contract 0x00CeE4a3a05d8e82e55a9CBA5a48231456437ca4 src/20251205_AaveV3Ethereum_UpdateFEBSUSDePTEModes/AaveV3Ethereum_UpdateFEBSUSDePTEModes_20251205.sol:AaveV3Ethereum_UpdateFEBSUSDePTEModes_20251205 --chain mainnet --watch
+        run: forge verify-contract ${{ inputs.contract_address }} ${{ inputs.source_code_path }}:${{ inputs.contract_name }} --chain ${{ inputs.chain }} --watch
