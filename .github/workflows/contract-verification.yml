@@ -51,4 +51,6 @@ jobs:
           ZKSYNC: "true"
 
       - name: Verify contract
+        env:
+          ETHERSCAN_API_KEY: ${{ secrets.ETHERSCAN_API_KEY }}
         run: forge verify-contract ${{ inputs.contract_address }} ${{ inputs.source_code_path }}:${{ inputs.contract_name }} --chain ${{ inputs.chain }} --watch
