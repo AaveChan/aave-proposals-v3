@@ -33,7 +33,7 @@ jobs:
         run: npm run lint --check
 
   test-sol:
-    name: Foundry build n test
+    name: Foundry contract verification
     runs-on: ubuntu-latest
     env:
       ETHERSCAN_API_KEY: ${{ secrets.ETHERSCAN_API_KEY }}
