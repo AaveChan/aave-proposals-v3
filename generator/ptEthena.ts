@@ -1,14 +1,14 @@
 /**
- * PT Ethena listing generator for Aave V3 Ethereum
+ * PT Ethena listing generator for any Aave V3 chain
  *
  * Uses the standard generator pipeline (assetListing + eModeCreations build functions,
  * generateFiles/writeFiles) and adds the PT-specific extras:
- *   - _preExecute  (collector seed transfer)
+ *   - _preExecute  (commented-out collector seed transfer)
  *   - setLiquidationProtocolFee calls
- *   - IAgentHub.addAllowedMarket whitelisting
- *   - _findFirstUnusedEmodeCategory helper
+ *   - IAgentHub.addAllowedMarket whitelisting (optional, per-chain)
+ *   - _findFirstUnusedEmodeCategory helper (when agent hub is enabled)
  *
- * New imports (MiscEthereum, IAgentHub, IPool) are auto-detected by importsResolver.
+ * New imports (MiscX, IAgentHub, IPool, GovernanceV3X) are auto-detected by importsResolver.
  *
  * Usage: npm run generate:pt-ethena
  */
@@ -16,7 +16,8 @@ import 'dotenv/config';
 import {select, confirm} from '@inquirer/prompts';
 import {getContract} from 'viem';
 import {getClient, IERC20Metadata_ABI} from '@bgd-labs/toolbox';
-import {VOTING_NETWORK, FEATURE, CodeArtifact, PoolConfigs} from './types';
+import {VOTING_NETWORK, FEATURE, CodeArtifact, PoolConfigs, V3_POOLS} from './types';
+import type {PoolIdentifierV3} from './types';
 import {assetListing} from './features/assetListing';
 import {eModeCreations} from './features/eModesCreation';
 import {generateFiles, writeFiles} from './generator';
@@ -32,14 +33,7 @@ import type {Hex} from 'viem';
 // Constants
 // ---------------------------------------------------------------------------
 
-const POOL = 'AaveV3Ethereum' as const;
-
-/** PT_USDe assets already listed on Aave (from address book) */
-const PT_USDE_ASSETS = getAssets(POOL).filter((a) => a.startsWith('PT_USDe_'));
-/** PT_sUSDE assets already listed on Aave (from address book) */
-const PT_SUSDE_ASSETS = getAssets(POOL).filter((a) => a.startsWith('PT_sUSDE_'));
-
-// Standard PT listing params — same across all Pendle PT proposals
+/** Standard PT listing params — same across all Pendle PT proposals */
 const PT_BORROW_UPDATE = {
   enabledToBorrow: 'DISABLED',
   flashloanable: 'ENABLED',
@@ -65,15 +59,11 @@ const PT_RATE_PARAMS = {
   variableRateSlope2: '300',
 } as const;
 
-// Standard eMode borrowable sets
-const STABLECOINS = ['USDC', 'USDT', 'USDe', 'USDtb'] as const;
-const USDE_ONLY = ['USDe'] as const;
-
 // ---------------------------------------------------------------------------
 // Prompt helpers
 // ---------------------------------------------------------------------------
 
-async function promptNewPt(kind: 'PT_USDe' | 'PT_sUSDe') {
+async function promptNewPt(kind: 'PT_USDe' | 'PT_sUSDe', pool: PoolIdentifierV3) {
   console.log(`\n--- New ${kind} ---`);
 
   const address = await addressPrompt({message: `  ${kind} address`, required: true});
@@ -83,7 +73,10 @@ async function promptNewPt(kind: 'PT_USDe' | 'PT_sUSDe') {
   try {
     const erc20 = getContract({
       abi: IERC20Metadata_ABI,
-      client: getClient(CHAIN_TO_CHAIN_ID[getPoolChain(POOL)], {}),
+      client: getClient(
+        CHAIN_TO_CHAIN_ID[getPoolChain(pool) as keyof typeof CHAIN_TO_CHAIN_ID],
+        {},
+      ),
       address: address as Hex,
     });
     onChainSymbol = ((await erc20.read.symbol()) as string).replaceAll('-', '_');
@@ -147,33 +140,40 @@ function patchSeedAmount(artifact: CodeArtifact, symbol: string, seedTokens: str
 }
 
 /**
- * eModeCreations.build() references new PTs via AaveV3EthereumAssets.SYMBOL_UNDERLYING,
+ * eModeCreations.build() references new PTs via ${pool}Assets.SYMBOL_UNDERLYING,
  * but they aren't in the address book yet — replace with the contract constant instead.
  */
-function patchNewPtInEmodeArtifact(artifact: CodeArtifact, symbol: string) {
+function patchNewPtInEmodeArtifact(artifact: CodeArtifact, symbol: string, pool: string) {
   if (!artifact.code?.fn) return;
   artifact.code.fn = artifact.code.fn.map((f) =>
-    f.replaceAll(`AaveV3EthereumAssets.${symbol}_UNDERLYING`, symbol),
+    f.replaceAll(`${pool}Assets.${symbol}_UNDERLYING`, symbol),
   );
 }
 
 // ---------------------------------------------------------------------------
-// Custom PT Ethena CodeArtifact (preExecute + liqFee + agent hub)
+// Custom PT Ethena CodeArtifact (preExecute + liqFee + optional agent hub)
 // ---------------------------------------------------------------------------
 
-function buildPtEthenaArtifact(usdeSymbol: string, susdeSymbol: string): CodeArtifact {
+function buildPtEthenaArtifact(
+  usdeSymbol: string,
+  susdeSymbol: string,
+  pool: string,
+  gov: string,
+  misc: string,
+  withAgentHub: boolean,
+): CodeArtifact {
   const preExecuteFn = `
 function _preExecute() internal override {
   // Uncomment if seed tokens need to be sourced from the Collector
   // (e.g. if direct funding to the executor was sent to the wrong address)
-  // AaveV3Ethereum.COLLECTOR.transfer(
+  // ${pool}.COLLECTOR.transfer(
   //   IERC20(${usdeSymbol}),
-  //   GovernanceV3Ethereum.EXECUTOR_LVL_1,
+  //   ${gov}.EXECUTOR_LVL_1,
   //   ${usdeSymbol}_SEED_AMOUNT
   // );
-  // AaveV3Ethereum.COLLECTOR.transfer(
+  // ${pool}.COLLECTOR.transfer(
   //   IERC20(${susdeSymbol}),
-  //   GovernanceV3Ethereum.EXECUTOR_LVL_1,
+  //   ${gov}.EXECUTOR_LVL_1,
   //   ${susdeSymbol}_SEED_AMOUNT
   // );
 }`;
@@ -187,27 +187,34 @@ function _findFirstUnusedEmodeCategory(IPool pool) private view returns (uint8) 
   revert NoAvailableEmodeCategory();
 }`;
 
-  const agentHubExecute = `
-AaveV3Ethereum.POOL_CONFIGURATOR.setLiquidationProtocolFee(${usdeSymbol}, 1000);
-AaveV3Ethereum.POOL_CONFIGURATOR.setLiquidationProtocolFee(${susdeSymbol}, 1000);
-
-uint8 nextID = _findFirstUnusedEmodeCategory(AaveV3Ethereum.POOL);
+  const agentHubLines = withAgentHub
+    ? `
+uint8 nextID = _findFirstUnusedEmodeCategory(${pool}.POOL);
 
 // whitelist the new eModes on automated chaos-agents [agentId 0: EModeCategoryUpdate_Core]
-IAgentHub(MiscEthereum.AGENT_HUB).addAllowedMarket(0, address(uint160(nextID - 1)));
-IAgentHub(MiscEthereum.AGENT_HUB).addAllowedMarket(0, address(uint160(nextID - 2)));
-IAgentHub(MiscEthereum.AGENT_HUB).addAllowedMarket(0, address(uint160(nextID - 3)));
-IAgentHub(MiscEthereum.AGENT_HUB).addAllowedMarket(0, address(uint160(nextID - 4)));
+IAgentHub(${misc}.AGENT_HUB).addAllowedMarket(0, address(uint160(nextID - 1)));
+IAgentHub(${misc}.AGENT_HUB).addAllowedMarket(0, address(uint160(nextID - 2)));
+IAgentHub(${misc}.AGENT_HUB).addAllowedMarket(0, address(uint160(nextID - 3)));
+IAgentHub(${misc}.AGENT_HUB).addAllowedMarket(0, address(uint160(nextID - 4)));
 
 // whitelist the new pt-assets on automated chaos-agents [agentId 1: PendleDiscountRateUpdate_Core]
-IAgentHub(MiscEthereum.AGENT_HUB).addAllowedMarket(1, ${usdeSymbol});
-IAgentHub(MiscEthereum.AGENT_HUB).addAllowedMarket(1, ${susdeSymbol});`;
+IAgentHub(${misc}.AGENT_HUB).addAllowedMarket(1, ${usdeSymbol});
+IAgentHub(${misc}.AGENT_HUB).addAllowedMarket(1, ${susdeSymbol});`
+    : '';
+
+  const liqFeeExecute = `
+${pool}.POOL_CONFIGURATOR.setLiquidationProtocolFee(${usdeSymbol}, 1000);
+${pool}.POOL_CONFIGURATOR.setLiquidationProtocolFee(${susdeSymbol}, 1000);
+${agentHubLines}`;
+
+  const constants = withAgentHub ? ['error NoAvailableEmodeCategory();'] : [];
+  const fn = [preExecuteFn, ...(withAgentHub ? [findFirstUnusedFn] : [])];
 
   return {
     code: {
-      constants: ['error NoAvailableEmodeCategory();'],
-      fn: [preExecuteFn, findFirstUnusedFn],
-      execute: [agentHubExecute],
+      constants,
+      fn,
+      execute: [liqFeeExecute],
     },
   };
 }
@@ -219,22 +226,50 @@ IAgentHub(MiscEthereum.AGENT_HUB).addAllowedMarket(1, ${susdeSymbol});`;
 console.log('\nPT Ethena listing generator');
 console.log('Generates all proposal files via the standard generator pipeline\n');
 
-// 1. Select old PT tokens from address book (collateral in new eModes)
-const oldPtUsde = await select({
-  message: 'Select old PT_USDe (from address book) to include in eModes as collateral:',
-  choices: PT_USDE_ASSETS.map((a) => ({name: a, value: a})),
-});
+// 1. Select pool
+const POOL = (await select({
+  message: 'Select pool:',
+  choices: V3_POOLS.map((p) => ({name: p, value: p})),
+})) as PoolIdentifierV3;
 
-const oldPtSusde = await select({
-  message: 'Select old PT_sUSDE (from address book) to include in eModes as collateral:',
-  choices: PT_SUSDE_ASSETS.map((a) => ({name: a, value: a})),
-});
+const chain = getPoolChain(POOL);
+const GOV = `GovernanceV3${chain}`;
+const MISC = `Misc${chain}`;
 
-// 2. New PT listing configs
-const newPtUsde = await promptNewPt('PT_USDe');
-const newPtSusde = await promptNewPt('PT_sUSDe');
+// Derive stablecoins available on this pool (for eMode borrowable assets)
+const poolAssetSet = new Set(getAssets(POOL));
+const STABLECOINS = ['USDC', 'USDT', 'USDe', 'USDtb'].filter((a) => poolAssetSet.has(a));
+const USDE_ONLY = ['USDe'];
 
-// 3. eMode parameters — defaults from the established PT Ethena pattern
+// 2. Select old PT tokens from address book (optional — skipped on first listing)
+const PT_USDE_ASSETS = getAssets(POOL).filter((a) => a.startsWith('PT_USDe_'));
+const PT_SUSDE_ASSETS = getAssets(POOL).filter((a) => a.startsWith('PT_sUSDE_'));
+
+let oldPtUsde: string | undefined;
+if (PT_USDE_ASSETS.length > 0) {
+  oldPtUsde = await select({
+    message: 'Select old PT_USDe (from address book) to include in eModes as collateral:',
+    choices: PT_USDE_ASSETS.map((a) => ({name: a, value: a})),
+  });
+} else {
+  console.log('No existing PT_USDe found in address book — first PT_USDe listing on this pool.');
+}
+
+let oldPtSusde: string | undefined;
+if (PT_SUSDE_ASSETS.length > 0) {
+  oldPtSusde = await select({
+    message: 'Select old PT_sUSDE (from address book) to include in eModes as collateral:',
+    choices: PT_SUSDE_ASSETS.map((a) => ({name: a, value: a})),
+  });
+} else {
+  console.log('No existing PT_sUSDE found in address book — first PT_sUSDE listing on this pool.');
+}
+
+// 3. New PT listing configs
+const newPtUsde = await promptNewPt('PT_USDe', POOL);
+const newPtSusde = await promptNewPt('PT_sUSDe', POOL);
+
+// 4. eMode parameters — defaults from the established PT Ethena pattern
 console.log('\n--- eMode parameters (% values, e.g. 87.2 → 87.20%) ---');
 const eModeParams = {
   usdeStablecoins: await promptEmodeParams(`${newPtUsde.symbol}__Stablecoins`, {
@@ -259,7 +294,13 @@ const eModeParams = {
   }),
 };
 
-// 4. Proposal metadata
+// 5. Optional: agent hub whitelisting (enabled by default on Ethereum)
+const withAgentHub = await confirm({
+  message: `Add IAgentHub whitelisting? (${MISC}.AGENT_HUB)`,
+  default: chain === 'Ethereum',
+});
+
+// 6. Proposal metadata
 console.log('\n--- Proposal metadata ---');
 const discussion = await stringPrompt({message: 'Forum discussion link', required: false});
 const snapshot = await stringPrompt({
@@ -287,7 +328,7 @@ const options = {
   discussion: discussion || 'TODO',
   snapshot: snapshot || 'direct-to-aip',
   date,
-  pools: [POOL] as (typeof POOL)[],
+  pools: [POOL],
   votingNetwork: VOTING_NETWORK.AVALANCHE,
 };
 
@@ -325,31 +366,31 @@ const listingCfg: Listing[] = [
 
 // — eMode creation config —
 // new PT symbols are placed first in collaterals; eModeCreations.build() will generate
-// AaveV3EthereumAssets.SYMBOL_UNDERLYING for them — we patch that out afterwards.
+// ${POOL}Assets.SYMBOL_UNDERLYING for them — we patch that out afterwards.
 const eModeCfg: EModeCategoryCreation[] = [
   {
     ...eModeParams.usdeStablecoins,
     label: `${newPtUsde.symbol}__Stablecoins`,
-    collateralAssets: [newPtUsde.symbol, 'USDe', oldPtUsde],
-    borrowableAssets: [...STABLECOINS],
+    collateralAssets: [newPtUsde.symbol, 'USDe', ...(oldPtUsde ? [oldPtUsde] : [])],
+    borrowableAssets: STABLECOINS,
   },
   {
     ...eModeParams.usdeUsde,
     label: `${newPtUsde.symbol}__USDe`,
-    collateralAssets: [newPtUsde.symbol, 'USDe', oldPtUsde],
-    borrowableAssets: [...USDE_ONLY],
+    collateralAssets: [newPtUsde.symbol, 'USDe', ...(oldPtUsde ? [oldPtUsde] : [])],
+    borrowableAssets: USDE_ONLY,
   },
   {
     ...eModeParams.susdeStablecoins,
     label: `${newPtSusde.symbol}__Stablecoins`,
-    collateralAssets: [newPtSusde.symbol, 'sUSDe', oldPtSusde],
-    borrowableAssets: [...STABLECOINS],
+    collateralAssets: [newPtSusde.symbol, 'sUSDe', ...(oldPtSusde ? [oldPtSusde] : [])],
+    borrowableAssets: STABLECOINS,
   },
   {
     ...eModeParams.susdeUsde,
     label: `${newPtSusde.symbol}__USDe`,
-    collateralAssets: [newPtSusde.symbol, 'sUSDe', oldPtSusde],
-    borrowableAssets: [...USDE_ONLY],
+    collateralAssets: [newPtSusde.symbol, 'sUSDe', ...(oldPtSusde ? [oldPtSusde] : [])],
+    borrowableAssets: USDE_ONLY,
   },
 ];
 
@@ -364,11 +405,18 @@ patchSeedAmount(listingArtifact, newPtSusde.symbol, newPtSusde.seedTokens);
 
 // eModeCreations artifact — fix new PT collateral references (not yet in address book)
 const eModesArtifact = eModeCreations.build({pool: POOL, cfg: eModeCfg, options, cache});
-patchNewPtInEmodeArtifact(eModesArtifact, newPtUsde.symbol);
-patchNewPtInEmodeArtifact(eModesArtifact, newPtSusde.symbol);
+patchNewPtInEmodeArtifact(eModesArtifact, newPtUsde.symbol, POOL);
+patchNewPtInEmodeArtifact(eModesArtifact, newPtSusde.symbol, POOL);
 
-// PT-specific extras: preExecute + liqFee + agent hub whitelisting
-const ptEthenaArtifact = buildPtEthenaArtifact(newPtUsde.symbol, newPtSusde.symbol);
+// PT-specific extras: preExecute + liqFee + optional agent hub whitelisting
+const ptEthenaArtifact = buildPtEthenaArtifact(
+  newPtUsde.symbol,
+  newPtSusde.symbol,
+  POOL,
+  GOV,
+  MISC,
+  withAgentHub,
+);
 
 // ---------------------------------------------------------------------------
 // Assemble pool config and generate all files
@@ -396,4 +444,6 @@ await writeFiles(options, files);
 
 console.log('\nDone! All files generated via the standard generator pipeline.');
 console.log('The payload .sol includes: newListings, eModeCategoryCreations,');
-console.log('_preExecute (collector seed), _postExecute (supply + liqFee + agent hub).');
+console.log(
+  '_preExecute (commented-out collector seed), _postExecute (supply + liqFee + agent hub).',
+);

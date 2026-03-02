@@ -100,17 +100,18 @@ export function prefixWithImports(code: string) {
   if (findMatch(code, 'forceApprove')) {
     imports += `import {SafeERC20} from 'openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol';\n`;
   }
-  if (findMatch(code, 'GovernanceV3Ethereum')) {
-    imports += `import {GovernanceV3Ethereum} from 'aave-address-book/GovernanceV3Ethereum.sol';\n`;
-  }
-  if (findMatch(code, 'GovernanceV3InkWhitelabel')) {
-    imports += `import {GovernanceV3InkWhitelabel} from 'aave-address-book/GovernanceV3InkWhitelabel.sol';\n`;
+  // Generic GovernanceV3X imports (covers all chains: Ethereum, Arbitrum, InkWhitelabel, etc.)
+  for (const govImport of new Set(
+    [...code.matchAll(/\bGovernanceV3[A-Z]\w*\b/g)].map((m) => m[0]),
+  )) {
+    imports += `import {${govImport}} from 'aave-address-book/${govImport}.sol';\n`;
   }
   if (findMatch(code, 'IEmissionManager')) {
     imports += `import {IEmissionManager} from 'aave-v3-origin/contracts/rewards/interfaces/IEmissionManager.sol';\n`;
   }
-  if (findMatch(code, 'MiscEthereum')) {
-    imports += `import {MiscEthereum} from 'aave-address-book/MiscEthereum.sol';\n`;
+  // Generic MiscX imports (covers all chains: MiscEthereum, MiscArbitrum, etc.)
+  for (const miscImport of new Set([...code.matchAll(/\bMisc[A-Z]\w*\b/g)].map((m) => m[0]))) {
+    imports += `import {${miscImport}} from 'aave-address-book/${miscImport}.sol';\n`;
   }
   if (findMatch(code, 'IAgentHub')) {
     imports += `import {IAgentHub} from '../interfaces/chaos-agents/IAgentHub.sol';\n`;
