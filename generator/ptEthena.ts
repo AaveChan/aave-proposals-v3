@@ -20,7 +20,7 @@ import {VOTING_NETWORK, FEATURE, CodeArtifact, PoolConfigs, V3_POOLS} from './ty
 import type {PoolIdentifierV3} from './types';
 import {assetListing} from './features/assetListing';
 import {eModeCreations} from './features/eModesCreation';
-import {generateFiles, writeFiles} from './generator';
+import {writeConfigOnly} from './generator';
 import {getAssets, getDate, pascalCase, CHAIN_TO_CHAIN_ID, getPoolChain} from './common';
 import {addressPrompt} from './prompts/addressPrompt';
 import {percentPrompt} from './prompts/percentPrompt';
@@ -433,17 +433,14 @@ const poolConfigs: PoolConfigs = {
   },
 };
 
-console.log(`\nFolder: src/${date}_${POOL}_${options.shortName}`);
-console.log(`Contract: ${POOL}_${options.shortName}_${date}.sol`);
+const folderName = `src/${date}_${POOL}_${options.shortName}`;
+console.log(`\nFolder: ${folderName}`);
 
-const proceed = await confirm({message: 'Generate files?', default: true});
+const proceed = await confirm({message: 'Generate config?', default: true});
 if (!proceed) process.exit(0);
 
-const files = await generateFiles(options, poolConfigs);
-await writeFiles(options, files);
+const configPath = await writeConfigOnly(options, poolConfigs);
 
-console.log('\nDone! All files generated via the standard generator pipeline.');
-console.log('The payload .sol includes: newListings, eModeCategoryCreations,');
-console.log(
-  '_preExecute (commented-out collector seed), _postExecute (supply + liqFee + agent hub).',
-);
+console.log(`\nConfig written to ${configPath}`);
+console.log(`\nTo generate all proposal files run:`);
+console.log(`  npm run generate -- --configFile ${folderName}/config.ts`);
