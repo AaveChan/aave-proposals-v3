@@ -9,6 +9,7 @@
     "generate:bgd": "tsx generator/cli -a 'BGD Labs @bgdlabs'",
     "generate:aci": "tsx generator/cli -a 'Aavechan Initiative @aci'",
     "generate:aci-sky": "tsx generator/cli -a 'TTT (implemented by Aavechan Initiative @aci via Skyward)'",
+    "generate:pt-ethena": "tsx generator/ptEthena",
     "prepare": "husky install"
   },
   "engines": {

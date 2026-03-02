@@ -109,6 +109,15 @@ export function prefixWithImports(code: string) {
   if (findMatch(code, 'IEmissionManager')) {
     imports += `import {IEmissionManager} from 'aave-v3-origin/contracts/rewards/interfaces/IEmissionManager.sol';\n`;
   }
+  if (findMatch(code, 'MiscEthereum')) {
+    imports += `import {MiscEthereum} from 'aave-address-book/MiscEthereum.sol';\n`;
+  }
+  if (findMatch(code, 'IAgentHub')) {
+    imports += `import {IAgentHub} from '../interfaces/chaos-agents/IAgentHub.sol';\n`;
+  }
+  if (findMatch(code, '\\bIPool\\b')) {
+    imports += `import {IPool} from 'aave-v3-origin/contracts/interfaces/IPool.sol';\n`;
+  }
 
   return imports + '\n' + code;
 }
