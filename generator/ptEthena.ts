@@ -321,7 +321,10 @@ const options = {
   votingNetwork: VOTING_NETWORK.AVALANCHE,
 };
 
-const cache = {blockNumber: 0};
+const blockNumber = Number(
+  await getClient(CHAIN_TO_CHAIN_ID[chain as keyof typeof CHAIN_TO_CHAIN_ID], {}).getBlockNumber(),
+);
+const cache = {blockNumber};
 
 // — Listing config —
 const listingCfg: Listing[] = [
@@ -416,6 +419,8 @@ const poolConfigs: PoolConfigs = {
     configs: {
       [FEATURE.ASSET_LISTING]: listingCfg,
       [FEATURE.EMODES_CREATION]: eModeCfg,
+      // Persisted so ptEthena.ts can rebuild the artifact when re-run with --configFile
+      [FEATURE.OTHERS]: ptEthenaArtifact.code,
     },
     cache,
   },
