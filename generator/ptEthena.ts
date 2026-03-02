@@ -160,7 +160,6 @@ function buildPtEthenaArtifact(
   pool: string,
   gov: string,
   misc: string,
-  withAgentHub: boolean,
 ): CodeArtifact {
   const preExecuteFn = `
 function _preExecute() internal override {
@@ -187,8 +186,10 @@ function _findFirstUnusedEmodeCategory(IPool pool) private view returns (uint8) 
   revert NoAvailableEmodeCategory();
 }`;
 
-  const agentHubLines = withAgentHub
-    ? `
+  const liqFeeExecute = `
+${pool}.POOL_CONFIGURATOR.setLiquidationProtocolFee(${usdeSymbol}, 1000);
+${pool}.POOL_CONFIGURATOR.setLiquidationProtocolFee(${susdeSymbol}, 1000);
+
 uint8 nextID = _findFirstUnusedEmodeCategory(${pool}.POOL);
 
 // whitelist the new eModes on automated chaos-agents [agentId 0: EModeCategoryUpdate_Core]
@@ -199,16 +200,10 @@ IAgentHub(${misc}.AGENT_HUB).addAllowedMarket(0, address(uint160(nextID - 4)));
 
 // whitelist the new pt-assets on automated chaos-agents [agentId 1: PendleDiscountRateUpdate_Core]
 IAgentHub(${misc}.AGENT_HUB).addAllowedMarket(1, ${usdeSymbol});
-IAgentHub(${misc}.AGENT_HUB).addAllowedMarket(1, ${susdeSymbol});`
-    : '';
+IAgentHub(${misc}.AGENT_HUB).addAllowedMarket(1, ${susdeSymbol});`;
 
-  const liqFeeExecute = `
-${pool}.POOL_CONFIGURATOR.setLiquidationProtocolFee(${usdeSymbol}, 1000);
-${pool}.POOL_CONFIGURATOR.setLiquidationProtocolFee(${susdeSymbol}, 1000);
-${agentHubLines}`;
-
-  const constants = withAgentHub ? ['error NoAvailableEmodeCategory();'] : [];
-  const fn = [preExecuteFn, ...(withAgentHub ? [findFirstUnusedFn] : [])];
+  const constants = ['error NoAvailableEmodeCategory();'];
+  const fn = [preExecuteFn, findFirstUnusedFn];
 
   return {
     code: {
@@ -294,13 +289,7 @@ const eModeParams = {
   }),
 };
 
-// 5. Optional: agent hub whitelisting (enabled by default on Ethereum)
-const withAgentHub = await confirm({
-  message: `Add IAgentHub whitelisting? (${MISC}.AGENT_HUB)`,
-  default: chain === 'Ethereum',
-});
-
-// 6. Proposal metadata
+// 5. Proposal metadata
 console.log('\n--- Proposal metadata ---');
 const discussion = await stringPrompt({message: 'Forum discussion link', required: false});
 const snapshot = await stringPrompt({
@@ -415,7 +404,6 @@ const ptEthenaArtifact = buildPtEthenaArtifact(
   POOL,
   GOV,
   MISC,
-  withAgentHub,
 );
 
 // ---------------------------------------------------------------------------
