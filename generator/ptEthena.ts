@@ -164,21 +164,23 @@ function patchNewPtInEmodeArtifact(artifact: CodeArtifact, symbol: string) {
 function buildPtEthenaArtifact(usdeSymbol: string, susdeSymbol: string): CodeArtifact {
   const preExecuteFn = `
 function _preExecute() internal override {
-  AaveV3Ethereum.COLLECTOR.transfer(
-    IERC20(${usdeSymbol}),
-    GovernanceV3Ethereum.EXECUTOR_LVL_1,
-    ${usdeSymbol}_SEED_AMOUNT
-  );
-  AaveV3Ethereum.COLLECTOR.transfer(
-    IERC20(${susdeSymbol}),
-    GovernanceV3Ethereum.EXECUTOR_LVL_1,
-    ${susdeSymbol}_SEED_AMOUNT
-  );
+  // Uncomment if seed tokens need to be sourced from the Collector
+  // (e.g. if direct funding to the executor was sent to the wrong address)
+  // AaveV3Ethereum.COLLECTOR.transfer(
+  //   IERC20(${usdeSymbol}),
+  //   GovernanceV3Ethereum.EXECUTOR_LVL_1,
+  //   ${usdeSymbol}_SEED_AMOUNT
+  // );
+  // AaveV3Ethereum.COLLECTOR.transfer(
+  //   IERC20(${susdeSymbol}),
+  //   GovernanceV3Ethereum.EXECUTOR_LVL_1,
+  //   ${susdeSymbol}_SEED_AMOUNT
+  // );
 }`;
 
   const findFirstUnusedFn = `
 function _findFirstUnusedEmodeCategory(IPool pool) private view returns (uint8) {
-  // eMode id 0 is skipped intentially as it is the reserved default
+  // eMode id 0 is skipped intentionally as it is the reserved default
   for (uint8 i = 1; i < 256; i++) {
     if (pool.getEModeCategoryCollateralConfig(i).liquidationThreshold == 0) return i;
   }
