@@ -48,7 +48,6 @@ That’s not the outcome we want. We’re professionals. We want a graceful wind
 
 - Implementation: [AaveV3Ethereum](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260302_AaveV3Ethereum_ACIIsLeavingAave/AaveV3Ethereum_ACIIsLeavingAave_20260302.sol)
 - Tests: [AaveV3Ethereum](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260302_AaveV3Ethereum_ACIIsLeavingAave/AaveV3Ethereum_ACIIsLeavingAave_20260302.t.sol)
-- Snapshot: Direct-to-AIP
 - [Discussion](TODO)
 
 ## Copyright
