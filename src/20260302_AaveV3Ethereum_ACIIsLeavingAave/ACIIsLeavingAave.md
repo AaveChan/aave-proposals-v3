@@ -8,7 +8,7 @@ discussions: "https://governance.aave.com/t/direct-to-aip-aci-stream-settlement/
 
 Cancel ACI’s GHO stream (ID 100070) on the Aave Collector and transfer 120 days worth of stream to `treasury.aci.eth`. The remaining balance returns to the Collector.
 
-ACI is departing the Aave DAO. The full context is in our departure post (linked separately).
+ACI is departing the Aave DAO. The full context is in our [departure post](https://governance.aave.com/t/aci-is-leaving-aave/24205).
 
 ## Motivation
 
@@ -48,7 +48,7 @@ That’s not the outcome we want. We’re professionals. We want a graceful wind
 
 - Implementation: [AaveV3Ethereum](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260302_AaveV3Ethereum_ACIIsLeavingAave/AaveV3Ethereum_ACIIsLeavingAave_20260302.sol)
 - Tests: [AaveV3Ethereum](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260302_AaveV3Ethereum_ACIIsLeavingAave/AaveV3Ethereum_ACIIsLeavingAave_20260302.t.sol)
-- [Discussion](TODO)
+- [Discussion](https://governance.aave.com/t/direct-to-aip-aci-stream-settlement/24206)
 
 ## Copyright
 
