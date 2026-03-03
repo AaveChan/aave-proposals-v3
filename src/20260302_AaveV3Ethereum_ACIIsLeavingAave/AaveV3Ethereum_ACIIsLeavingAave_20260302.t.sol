@@ -24,7 +24,11 @@ contract AaveV3Ethereum_ACIIsLeavingAave_20260302_Test is ProtocolV3TestBase {
    * @dev executes the generic test suite including e2e and config snapshots
    */
   function test_defaultProposalExecution() public {
-    defaultTest('AaveV3Ethereum_ACIIsLeavingAave_20260302', AaveV3EthereumLido.POOL, address(proposal));
+    defaultTest(
+      'AaveV3Ethereum_ACIIsLeavingAave_20260302',
+      AaveV3EthereumLido.POOL,
+      address(proposal)
+    );
   }
 
   function test_streamCanceled() public {
