@@ -36,20 +36,24 @@ contract AaveV3InkWhitelabel_TransferCollectorRevenue_20260304_Test is ProtocolV
   function test_transfers() public {
     address safe = proposal.INK_TYDRO_TEAM_SAFE();
     address collector = address(AaveV3InkWhitelabel.COLLECTOR);
-    address[] memory tokens = proposal.getTokens();
+    address[] memory reserves = AaveV3InkWhitelabel.POOL.getReservesList();
 
-    uint256[] memory balancesBefore = new uint256[](tokens.length);
-    uint256[] memory collectorBalancesBefore = new uint256[](tokens.length);
-    for (uint256 i = 0; i < tokens.length; i++) {
-      balancesBefore[i] = IERC20(tokens[i]).balanceOf(safe);
-      collectorBalancesBefore[i] = IERC20(tokens[i]).balanceOf(collector);
+    uint256[] memory balancesBefore = new uint256[](reserves.length);
+    uint256[] memory collectorBalancesBefore = new uint256[](reserves.length);
+    for (uint256 i = 0; i < reserves.length; i++) {
+      address aToken = AaveV3InkWhitelabel.POOL.getReserveAToken(reserves[i]);
+      balancesBefore[i] = IERC20(aToken).balanceOf(safe);
+      collectorBalancesBefore[i] = IERC20(aToken).balanceOf(collector);
     }
 
+    emit log_named_address('Proposal address', address(proposal));
+    emit log_named_address('Executor address', address(this));
     executePayload(vm, address(proposal));
 
-    for (uint256 i = 0; i < tokens.length; i++) {
-      uint256 balanceAfter = IERC20(tokens[i]).balanceOf(safe);
-      uint256 collectorBalanceAfter = IERC20(tokens[i]).balanceOf(collector);
+    for (uint256 i = 0; i < reserves.length; i++) {
+      address aToken = AaveV3InkWhitelabel.POOL.getReserveAToken(reserves[i]);
+      uint256 balanceAfter = IERC20(aToken).balanceOf(safe);
+      uint256 collectorBalanceAfter = IERC20(aToken).balanceOf(collector);
 
       assertGe(balanceAfter, balancesBefore[i] + collectorBalancesBefore[i]);
       assertEq(collectorBalanceAfter, 0);
