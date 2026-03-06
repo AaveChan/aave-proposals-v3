@@ -53,7 +53,7 @@ contract AaveV3InkWhitelabel_TransferCollectorRevenue_20260304_Test is ProtocolV
       uint256 balanceAfter = IERC20(aToken).balanceOf(safe);
       uint256 collectorBalanceAfter = IERC20(aToken).balanceOf(collector);
 
-      assertGe(balanceAfter, balancesBefore[i] + collectorBalancesBefore[i]);
+      assertEq(balanceAfter, balancesBefore[i] + collectorBalancesBefore[i]);
       assertEq(collectorBalanceAfter, 0);
     }
   }
