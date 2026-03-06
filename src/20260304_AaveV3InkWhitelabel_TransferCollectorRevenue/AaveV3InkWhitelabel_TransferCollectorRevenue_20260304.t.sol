@@ -46,9 +46,7 @@ contract AaveV3InkWhitelabel_TransferCollectorRevenue_20260304_Test is ProtocolV
       collectorBalancesBefore[i] = IERC20(aToken).balanceOf(collector);
     }
 
-    emit log_named_address('Proposal address', address(proposal));
-    emit log_named_address('Executor address', address(this));
-    executePayload(vm, address(proposal));
+    executePayload(vm, address(proposal), AaveV3InkWhitelabel.POOL);
 
     for (uint256 i = 0; i < reserves.length; i++) {
       address aToken = AaveV3InkWhitelabel.POOL.getReserveAToken(reserves[i]);
