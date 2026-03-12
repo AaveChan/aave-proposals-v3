@@ -8,7 +8,7 @@ discussions: "https://governance.aave.com/t/post-mortem-exchange-rate-misallignm
 
 A technical incident affecting the CAPO risk oracle caused the reported wstETH/stETH exchange rate cap to fall below the currently valid market exchange rate on Ethereum Core and Prime instances.
 
-This resulted in an approximately 2.85% decrease in the effective exchange rate used by the protocol, triggering roughly 10938 wstETH in E-Mode liquidations.
+This resulted in an approximately 2.85% decrease in the effective exchange rate used by the protocol, triggering roughly 10,938 wstETH in E-Mode liquidations.
 
 During this, protocol incurred no bad debt. However, liquidators captured approximately 512 ETH in liquidation bonuses and value realized through the exchange rate deviation. Since then, Aave has been able to recapture 141 ETH of liquidation bonus revenue through BuilderNet refunds, in addition to roughly 13 ETH in liquidation fees. These recovered funds will be used to compensate impacted users who were liquidated as a result of the incident, with DAO treasury funds to cover any excess. Active work is ongoing to contact relevant ecosystem players to further recoup possible liquidation-linked revenue.
 
@@ -61,7 +61,7 @@ This created a mismatch:
 
 As a result, the calculated maximum exchange rate was roughly 1.1939, which was below the already configured/prevalent exchange rate. That lower CAPO-derived value then overrode the existing exchange rate used by the protocol, producing an effective downward move of around 2.855%.
 
-That artificial decrease in the oracle rate triggered liquidations, particularly in E-Mode, affecting the positions with a health factor lower than 1.0288, resulting in roughly 10938 wstETH of liquidation volume.
+That artificial decrease in the oracle rate triggered liquidations, particularly in E-Mode, affecting the positions with a health factor lower than 1.0288, resulting in roughly 10,938 wstETH of liquidation volume.
 
 In practical terms, for the configuration to work correctly at the smart contract level, the snapshot timestamp would have needed to be aligned with the constrained onchain snapshot ratio update, and likely adjusted again over subsequent updates until the onchain value converged with the offchain-calculated level. Because that alignment did not occur, the timestamp and ratio reflected different effective reference points.
 
@@ -88,7 +88,7 @@ More broadly, in order for this configuration to function correctly under the ex
 The incident had the following impact:
 
 - approximately 2.85% downward deviation in the effective exchange rate used by the protocol,
-- roughly 10938 wstETH in E-Mode liquidation volume across 34 accounts.
+- roughly 10,938 wstETH in E-Mode liquidation volume across 34 accounts.
 - approximately 116 ETH in liquidation bonuses captured by third-party liquidators and Aave Liquidation Protocol fees.
 - approximately 382 ETH in profit captured by third-party liquidators stemming from the underpricing of the oracle.
 - no bad debt accrued by the protocol.
@@ -98,8 +98,8 @@ The incident had the following impact:
 Following the incident, we took immediate steps to contain further risk and restore alignment on the impacted instances:
 
 - Temporarily reduced the wstETH borrow cap to 1 on Aave Core and Aave Prime, the two impacted instances by this oracle configuration, in order to minimize additional exposure while remediation was underway.
-- Aligned the snapshot ratio parameter with the current snapshot timestamp reference window through manual Risk Steward intervention, so that the configured onchain parameters move back into a consistent state and uncap the oracle, reverting to its true value.
-- Following the reversion of the oracle price, we are proposing the reinstating of the wstETH borrow caps back to its original levels.
+- Aligned the snapshot ratio parameter with the current snapshot timestamp reference window through manual Risk Steward intervention, so that the configured onchain parameters moved back into a consistent state and uncap the oracle, reverting to its true value.
+- Following the reversion of the oracle price, we are proposing the reinstating of the wstETH borrow caps back to their original levels.
   | **Asset** | **Instance** | **Current Value** | **Recommended Value** |
   | --------- | -------------- | ----------------- | --------------------- |
   | wstETH | Ethereum Core | 1 | 180K |
