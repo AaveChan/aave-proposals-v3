@@ -41,7 +41,7 @@ contract AaveV3Ethereum_ReEnableWstETHBorrowCapsAfterCapoIncident_20260312_Test 
     address user = 0xa5CF85717C958d2f7875D7B68EF845bD897215Fc;
     IPool pool = IPool(address(AaveV3Ethereum.POOL));
 
-    uint256 borrowAmount = 1e18;
+    uint256 borrowAmount = 20e18;
     uint256 debtBefore = IERC20(AaveV3EthereumAssets.wstETH_V_TOKEN).balanceOf(user);
 
     vm.prank(user);
