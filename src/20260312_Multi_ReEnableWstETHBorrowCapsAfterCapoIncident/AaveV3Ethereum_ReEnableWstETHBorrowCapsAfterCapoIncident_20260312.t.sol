@@ -35,7 +35,7 @@ contract AaveV3Ethereum_ReEnableWstETHBorrowCapsAfterCapoIncident_20260312_Test 
   }
 
   function test_borrowWstETHAfterProposal() public {
-    executePayload(vm, address(proposal), AaveV3Ethereum.POOL);
+    executePayload(vm, address(proposal));
     skip(3600);
 
     address user = 0xa5CF85717C958d2f7875D7B68EF845bD897215Fc;
