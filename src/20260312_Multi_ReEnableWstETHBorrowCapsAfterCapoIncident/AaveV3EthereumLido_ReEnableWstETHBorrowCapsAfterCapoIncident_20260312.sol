@@ -26,4 +26,26 @@ contract AaveV3EthereumLido_ReEnableWstETHBorrowCapsAfterCapoIncident_20260312 i
 
     return capsUpdate;
   }
+
+  function borrowsUpdates()
+    public
+    pure
+    override
+    returns (IAaveV3ConfigEngine.BorrowUpdate[] memory)
+  {
+    IAaveV3ConfigEngine.BorrowUpdate[] memory borrowUpdate = new IAaveV3ConfigEngine.BorrowUpdate[](
+      1
+    );
+
+    borrowUpdate[0] = IAaveV3ConfigEngine.BorrowUpdate({
+      asset: AaveV3EthereumLidoAssets.wstETH_UNDERLYING,
+      enabledToBorrow: EngineFlags.ENABLED,
+      flashloanable: EngineFlags.KEEP_CURRENT,
+      borrowableInIsolation: EngineFlags.KEEP_CURRENT,
+      withSiloedBorrowing: EngineFlags.KEEP_CURRENT,
+      reserveFactor: EngineFlags.KEEP_CURRENT
+    });
+
+    return borrowUpdate;
+  }
 }
