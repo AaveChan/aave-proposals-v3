@@ -35,7 +35,6 @@ contract AaveV3EthereumLido_ReEnableWstETHBorrowCapsAfterCapoIncident_20260312_T
 
   function test_borrowWstETHAfterProposal() public {
     executePayload(vm, address(proposal));
-    skip(3600);
 
     address user = 0x2e2A6815ec3E7280E01ef03ED26B3Bb13F3920fb;
     IPool pool = IPool(address(AaveV3EthereumLido.POOL));
