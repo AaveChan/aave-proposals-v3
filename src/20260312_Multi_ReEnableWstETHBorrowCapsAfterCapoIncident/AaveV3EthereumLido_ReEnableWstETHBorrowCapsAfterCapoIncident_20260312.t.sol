@@ -18,7 +18,7 @@ contract AaveV3EthereumLido_ReEnableWstETHBorrowCapsAfterCapoIncident_20260312_T
   AaveV3EthereumLido_ReEnableWstETHBorrowCapsAfterCapoIncident_20260312 internal proposal;
 
   function setUp() public {
-    vm.createSelectFork(vm.rpcUrl('mainnet'), 24641997);
+    vm.createSelectFork(vm.rpcUrl('mainnet'), 24649541);
     proposal = new AaveV3EthereumLido_ReEnableWstETHBorrowCapsAfterCapoIncident_20260312();
   }
 
@@ -36,7 +36,7 @@ contract AaveV3EthereumLido_ReEnableWstETHBorrowCapsAfterCapoIncident_20260312_T
   function test_borrowWstETHAfterProposal() public {
     executePayload(vm, address(proposal));
 
-    address user = 0x2e2A6815ec3E7280E01ef03ED26B3Bb13F3920fb;
+    address user = 0x2e2A6815ec3E7280E01ef03ED26B3Bb13F3920fb; // user with an hf of 1.15 on Lido with  tETH/wstETH e-mode activated
     IPool pool = IPool(address(AaveV3EthereumLido.POOL));
 
     uint256 borrowAmount = 1e18;
