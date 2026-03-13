@@ -50,7 +50,7 @@ contract AaveV3Ethereum_ReEnableWstETHBorrowCapsAfterCapoIncident_20260312_Test 
     assertGe(
       debtAfter - debtBefore,
       borrowAmount,
-      'User debt should increase by at least 1 wstETH'
+      'User debt should increase by at least 20 wstETH'
     );
   }
 }
