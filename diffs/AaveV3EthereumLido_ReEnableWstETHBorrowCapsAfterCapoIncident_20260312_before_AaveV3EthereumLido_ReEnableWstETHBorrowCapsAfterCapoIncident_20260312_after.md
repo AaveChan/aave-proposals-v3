@@ -7,7 +7,6 @@
 | description | value before | value after |
 | --- | --- | --- |
 | borrowCap | 1 wstETH | 70,000 wstETH |
-| borrowingEnabled | :x: | :white_check_mark: |
 
 
 ## Event logs
@@ -16,20 +15,19 @@
 
 | index | event |
 | --- | --- |
-| 0 | ReserveBorrowing(asset: 0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0 (symbol: wstETH), enabled: true) |
-| 1 | BorrowCapChanged(asset: 0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0 (symbol: wstETH), oldBorrowCap: 1, newBorrowCap: 70000) |
+| 0 | BorrowCapChanged(asset: 0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0 (symbol: wstETH), oldBorrowCap: 1, newBorrowCap: 70000) |
 
 #### 0x5300A1a15135EA4dc7aD5a167152C01EFc9b192A (AaveV2Ethereum.POOL_ADMIN, AaveV2EthereumAMM.POOL_ADMIN, AaveV3Ethereum.ACL_ADMIN, AaveV3EthereumEtherFi.ACL_ADMIN, AaveV3EthereumHorizon.ACL_ADMIN, AaveV3EthereumLido.ACL_ADMIN, GovernanceV3Ethereum.EXECUTOR_LVL_1)
 
 | index | event |
 | --- | --- |
-| 2 | ExecutedAction(target: 0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f, value: 0, signature: execute(), data: 0x, executionTime: 1773325871, withDelegatecall: true, resultData: 0x) |
+| 1 | ExecutedAction(target: 0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f, value: 0, signature: execute(), data: 0x, executionTime: 1773416891, withDelegatecall: true, resultData: 0x) |
 
 #### 0xdAbad81aF85554E9ae636395611C58F7eC1aAEc5 (GovernanceV3Ethereum.PAYLOADS_CONTROLLER)
 
 | index | event |
 | --- | --- |
-| 3 | PayloadExecuted(payloadId: 412) |
+| 2 | PayloadExecuted(payloadId: 413) |
 
 ## Raw storage changes
 
@@ -37,14 +35,14 @@
 
 | slot | previous value | new value |
 | --- | --- | --- |
-| 0xc9d7ec48cd0d839522455f78914adfeda8686316bb6819e0888e4bcd349e01b2 | 0x100000000000000000000103e8000030d4000000000101f481122968206c2008 | 0x100000000000000000000103e8000030d4000001117001f485122968206c2008 |
+| 0xc9d7ec48cd0d839522455f78914adfeda8686316bb6819e0888e4bcd349e01b2 | 0x100000000000000000000103e8000030d4000000000101f481122968206c2008 | 0x100000000000000000000103e8000030d4000001117001f481122968206c2008 |
 
 ### 0xdabad81af85554e9ae636395611c58f7ec1aaec5 (GovernanceV3Ethereum.PAYLOADS_CONTROLLER)
 
 | slot | previous value | new value |
 | --- | --- | --- |
-| 0xa4d079e5334dde413c300594fcceac02f721ae9a0ddcfa5b672c4c2e6f24a582 | 0x0069b2ce2e000000000002000000000000000000000000000000000000000000 | 0x0069b2ce2e000000000003000000000000000000000000000000000000000000 |
-| 0xa4d079e5334dde413c300594fcceac02f721ae9a0ddcfa5b672c4c2e6f24a583 | 0x000000000000000000093a8000000000000069e0f2af00000000000000000000 | 0x000000000000000000093a8000000000000069e0f2af00000000000069b2ce2f |
+| 0xc5a384a96c46160234a4c0a6841ffd094db428a8c4daf7fd60b8b3a2ec664beb | 0x0069b431ba000000000002000000000000000000000000000000000000000000 | 0x0069b431ba000000000003000000000000000000000000000000000000000000 |
+| 0xc5a384a96c46160234a4c0a6841ffd094db428a8c4daf7fd60b8b3a2ec664bec | 0x000000000000000000093a8000000000000069e2563b00000000000000000000 | 0x000000000000000000093a8000000000000069e2563b00000000000069b431bb |
 
 
 ## Raw diff
@@ -56,10 +54,6 @@
       "borrowCap": {
         "from": 1,
         "to": 70000
-      },
-      "borrowingEnabled": {
-        "from": false,
-        "to": true
       }
     }
   }
