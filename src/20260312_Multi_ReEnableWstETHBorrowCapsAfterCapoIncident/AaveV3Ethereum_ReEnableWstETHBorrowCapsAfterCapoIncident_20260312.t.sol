@@ -19,7 +19,7 @@ contract AaveV3Ethereum_ReEnableWstETHBorrowCapsAfterCapoIncident_20260312_Test 
   AaveV3Ethereum_ReEnableWstETHBorrowCapsAfterCapoIncident_20260312 internal proposal;
 
   function setUp() public {
-    vm.createSelectFork(vm.rpcUrl('mainnet'), 24649541);
+    vm.createSelectFork(vm.rpcUrl('mainnet'), 24656712);
     proposal = new AaveV3Ethereum_ReEnableWstETHBorrowCapsAfterCapoIncident_20260312();
   }
 
@@ -37,7 +37,7 @@ contract AaveV3Ethereum_ReEnableWstETHBorrowCapsAfterCapoIncident_20260312_Test 
   function test_borrowWstETHAfterProposal() public {
     executePayload(vm, address(proposal));
 
-    address user = 0xA62CC2971ec8b42Fd91bD6312f5962FDD5a7fc56; // user with an hf of 1.02 with rsETH__ETH_wstETH_ETHx e-mode activated
+    address user = 0xef992050dfF61225ba6fb6018a106A6e2b2569a3; // user with an hf of 1.04 with ezETH/wstETH e-mode activated
     IPool pool = IPool(address(AaveV3Ethereum.POOL));
 
     uint256 borrowAmount = 20e18;
