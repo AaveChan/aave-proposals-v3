@@ -34,6 +34,9 @@ contract AaveV3Ethereum_ReEnableWstETHBorrowCapsAfterCapoIncident_20260312_Test 
     );
   }
 
+  /// @dev Override to avoid MemoryOOG from vm.getStorageAccesses() on mainnet fork
+  function _validateNoExecutorStorageChange(address) internal view override {}
+
   function test_borrowWstETHAfterProposal() public {
     executePayload(vm, address(proposal));
 
