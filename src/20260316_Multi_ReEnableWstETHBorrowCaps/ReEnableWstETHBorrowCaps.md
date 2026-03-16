@@ -19,7 +19,7 @@ A technical incident affecting the CAPO risk oracle caused the reported wstETH/s
 
 As an immediate containment measure, the wstETH borrow caps on both instances were temporarily reduced to **1**.
 
-Since then the configuration has since been realigned and the oracle reverted to its true value, enabling the DAO to proceed with reinstating the caps.
+Since then, the configuration has been realigned and the oracle reverted to its true value, enabling the DAO to proceed with reinstating the caps.
 
 ## Motivation
 
