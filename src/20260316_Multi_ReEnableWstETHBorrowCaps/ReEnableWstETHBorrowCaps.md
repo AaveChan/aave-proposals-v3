@@ -1,6 +1,6 @@
 ---
 title: "Re-enable wstETH borrow caps"
-author: "Aavechan Initiative @aci"
+author: "Aavechan Initiative @aci and Chaos Labs"
 discussions: "https://governance.aave.com/t/direct-to-aip-re-enable-wsteth-borrow-caps-on-ethereum-core-and-prime-post-capo-incident/24295"
 ---
 
