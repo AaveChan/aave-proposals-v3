@@ -2,7 +2,7 @@
   "lib/aave-helpers": {
     "tag": {
       "name": "v3.1.0",
-      "rev": "e0ad471e9da2b45468b0f3e0adac7d3c257940dc"
+      "rev": "3afbe7f714a84dc28ed70fa01f3c3831bc5878cb"
     }
   },
   "lib/aave-umbrella": {

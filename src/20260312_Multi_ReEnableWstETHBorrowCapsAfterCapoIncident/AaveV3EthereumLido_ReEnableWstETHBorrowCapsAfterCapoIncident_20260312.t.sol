@@ -18,7 +18,7 @@ contract AaveV3EthereumLido_ReEnableWstETHBorrowCapsAfterCapoIncident_20260312_T
   AaveV3EthereumLido_ReEnableWstETHBorrowCapsAfterCapoIncident_20260312 internal proposal;
 
   function setUp() public {
-    vm.createSelectFork(vm.rpcUrl('mainnet'), 24649541);
+    vm.createSelectFork(vm.rpcUrl('mainnet'), 24666405);
     proposal = new AaveV3EthereumLido_ReEnableWstETHBorrowCapsAfterCapoIncident_20260312();
   }
 

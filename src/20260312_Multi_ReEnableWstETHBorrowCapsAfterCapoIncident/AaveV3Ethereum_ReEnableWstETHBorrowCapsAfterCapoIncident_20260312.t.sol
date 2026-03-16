@@ -19,7 +19,7 @@ contract AaveV3Ethereum_ReEnableWstETHBorrowCapsAfterCapoIncident_20260312_Test 
   AaveV3Ethereum_ReEnableWstETHBorrowCapsAfterCapoIncident_20260312 internal proposal;
 
   function setUp() public {
-    vm.createSelectFork(vm.rpcUrl('mainnet'), 24656712);
+    vm.createSelectFork(vm.rpcUrl('mainnet'), 24666405);
     proposal = new AaveV3Ethereum_ReEnableWstETHBorrowCapsAfterCapoIncident_20260312();
   }
 
