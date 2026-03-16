@@ -17,7 +17,7 @@ contract AaveV3InkWhitelabel_SyrupUSDTListingInTrydo_20260316 is AaveV3PayloadIn
   using SafeERC20 for IERC20;
 
   address public constant syrupUSDT = 0x8A76fe7fA6da27f85a626c5C53730B38D13603d7;
-  uint256 public constant syrupUSDT_SEED_AMOUNT = 1e6;
+  uint256 public constant syrupUSDT_SEED_AMOUNT = 100e6;
   address public constant syrupUSDT_LM_ADMIN = 0xac140648435d03f784879cd789130F22Ef588Fcd;
 
   function _postExecute() internal override {
