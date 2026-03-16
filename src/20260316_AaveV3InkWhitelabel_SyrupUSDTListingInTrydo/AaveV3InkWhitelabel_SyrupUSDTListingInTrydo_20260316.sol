@@ -65,4 +65,31 @@ contract AaveV3InkWhitelabel_SyrupUSDTListingInTrydo_20260316 is AaveV3PayloadIn
       IEmissionManager(AaveV3InkWhitelabel.EMISSION_MANAGER).setEmissionAdmin(vToken, lmAdmin);
     }
   }
+
+  function eModeCategoryCreations()
+    public
+    pure
+    override
+    returns (IAaveV3ConfigEngine.EModeCategoryCreation[] memory)
+  {
+    IAaveV3ConfigEngine.EModeCategoryCreation[]
+      memory eModeCreations = new IAaveV3ConfigEngine.EModeCategoryCreation[](1);
+
+    address[] memory collateralAssets_SyrupUSDT__USDT0 = new address[](1);
+    address[] memory borrowableAssets_SyrupUSDT__USDT0 = new address[](1);
+
+    collateralAssets_SyrupUSDT__USDT0[0] = syrupUSDT;
+    borrowableAssets_SyrupUSDT__USDT0[0] = AaveV3InkWhitelabelAssets.USDT_UNDERLYING;
+
+    eModeCreations[0] = IAaveV3ConfigEngine.EModeCategoryCreation({
+      ltv: 90_00,
+      liqThreshold: 92_00,
+      liqBonus: 4_00,
+      label: 'syrupUSDT__USDT0',
+      collaterals: collateralAssets_SyrupUSDT__USDT0,
+      borrowables: borrowableAssets_SyrupUSDT__USDT0
+    });
+
+    return eModeCreations;
+  }
 }
