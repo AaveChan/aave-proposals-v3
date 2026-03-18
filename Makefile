@@ -13,7 +13,21 @@ test-contract :; forge test --match-contract ${filter} -vv
 
 # Deploy
 deploy-ledger-zk :; FOUNDRY_PROFILE=zksync forge script $(if $(filter zksync,${chain}),--zksync) ${contract} --rpc-url ${chain} $(if ${dry},--sender 0x73AF3bcf944a6559933396c1577B257e2054D935 -vvvv, --ledger --mnemonic-indexes ${MNEMONIC_INDEX} --sender ${LEDGER_SENDER} --verify -vvvv --slow --broadcast --verifier etherscan)
-deploy-ledger :; forge script $(if $(filter zksync,${chain}),--zksync) ${contract} --rpc-url ${chain} $(if ${dry},--sender 0x73AF3bcf944a6559933396c1577B257e2054D935 -vvvv, --ledger --mnemonic-indexes ${MNEMONIC_INDEX} --sender ${LEDGER_SENDER} --verify -vvvv --slow --broadcast) $(if ${legacy}, --legacy, )
+deploy-ledger:
+	forge script \
+	  $(if $(filter zksync,${chain}),--zksync) \
+	  ${contract} \
+	  --rpc-url ${chain} \
+	  $(if ${dry},\
+	    --sender 0x73AF3bcf944a6559933396c1577B257e2054D935 -vvvv,\
+	    --ledger \
+	    --mnemonic-indexes ${MNEMONIC_INDEX} \
+	    --sender ${LEDGER_SENDER}) \
+	    $(if $(filter ink,${chain}),\
+	      --verify --verifier blockscout --verifier-url 'https://explorer.inkonchain.com/api/',\
+	      --verify) \
+	    -vvvv --slow --broadcast \
+	  $(if ${legacy},--legacy,)
 deploy-pk :; forge script $(if $(filter zksync,${chain}),--zksync) ${contract} --rpc-url ${chain} $(if ${dry},--sender 0x73AF3bcf944a6559933396c1577B257e2054D935 -vvvv, --private-key ${PRIVATE_KEY} --verify -vvvv --slow --broadcast)
 
 # Utilities
