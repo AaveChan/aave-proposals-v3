@@ -30,7 +30,7 @@ contract AaveV3InkWhitelabel_SyrupUSDTListingInTrydo_20260316 is AaveV3PayloadIn
     listings[0] = IAaveV3ConfigEngine.Listing({
       asset: syrupUSDT,
       assetSymbol: 'syrupUSDT',
-      priceFeed: 0x24FdD142b34C6B5D55299709DB0966681933c9aF, // To Do change it for the capo address when shipped
+      priceFeed: 0x7791e46f5588aCd48EE31494877dD9F182f7f566,
       enabledToBorrow: EngineFlags.DISABLED,
       borrowableInIsolation: EngineFlags.DISABLED,
       withSiloedBorrowing: EngineFlags.DISABLED,
