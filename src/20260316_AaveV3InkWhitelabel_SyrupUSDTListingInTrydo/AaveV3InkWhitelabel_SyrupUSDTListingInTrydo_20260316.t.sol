@@ -17,7 +17,7 @@ contract AaveV3InkWhitelabel_SyrupUSDTListingInTrydo_20260316_Test is ProtocolV3
   AaveV3InkWhitelabel_SyrupUSDTListingInTrydo_20260316 internal proposal;
 
   function setUp() public {
-    vm.createSelectFork(vm.rpcUrl('ink'), 40179226);
+    vm.createSelectFork(vm.rpcUrl('ink'), 40519576);
     proposal = new AaveV3InkWhitelabel_SyrupUSDTListingInTrydo_20260316();
   }
 
