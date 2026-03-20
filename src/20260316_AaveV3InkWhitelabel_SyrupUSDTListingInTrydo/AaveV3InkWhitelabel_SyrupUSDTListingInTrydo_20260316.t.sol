@@ -37,7 +37,7 @@ contract AaveV3InkWhitelabel_SyrupUSDTListingInTrydo_20260316_Test is ProtocolV3
   function test_dustBinHassyrupUSDTFunds() public {
     executePayload(vm, address(proposal), AaveV3InkWhitelabel.POOL);
     address aTokenAddress = AaveV3InkWhitelabel.POOL.getReserveAToken(proposal.syrupUSDT());
-    assertGe(IERC20(aTokenAddress).balanceOf(address(AaveV3InkWhitelabel.DUST_BIN)), 10 ** 6);
+    assertGe(IERC20(aTokenAddress).balanceOf(address(AaveV3InkWhitelabel.DUST_BIN)), 100 * 10 ** 6);
   }
 
   function test_syrupUSDTAdmin() public {
