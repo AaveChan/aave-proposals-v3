@@ -9,7 +9,7 @@
     "generate:bgd": "vite-node generator/cli -- -a 'BGD Labs @bgdlabs'",
     "generate:aci": "vite-node generator/cli -- -a 'Aavechan Initiative @aci'",
     "generate:aci-sky": "vite-node generator/cli -- -a 'TTT (implemented by Aavechan Initiative @aci via Skyward)'",
-    "generate:pt-ethena": "tsx generator/ptEthena",
+    "generate:pt": "vite-node generator/pt",
     "prepare": "husky"
   },
   "engines": {
