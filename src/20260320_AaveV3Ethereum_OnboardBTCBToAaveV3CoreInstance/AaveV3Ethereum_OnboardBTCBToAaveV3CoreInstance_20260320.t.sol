@@ -18,7 +18,7 @@ contract AaveV3Ethereum_OnboardBTCBToAaveV3CoreInstance_20260320_Test is Protoco
   AaveV3Ethereum_OnboardBTCBToAaveV3CoreInstance_20260320 internal proposal;
 
   function setUp() public {
-    vm.createSelectFork(vm.rpcUrl('mainnet'), 24699051);
+    vm.createSelectFork(vm.rpcUrl('mainnet'), 24720053);
     proposal = new AaveV3Ethereum_OnboardBTCBToAaveV3CoreInstance_20260320();
   }
 
