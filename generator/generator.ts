@@ -79,34 +79,6 @@ export async function generateFiles(options: Options, poolConfigs: PoolConfigs):
   };
 }
 
-/**
- * Generates and writes only the config.ts file (no sol/test/script/aip).
- * Use this when you want to capture parameters first, then run the standard
- * generator with --configFile to produce the full proposal artifacts.
- * @returns the path to the written config file
- */
-export async function writeConfigOnly(options: Options, poolConfigs: PoolConfigs): Promise<string> {
-  const jsonConfig = await prettier.format(
-    `import {ConfigFile} from '../../generator/types';
-    export const config: ConfigFile = ${JSON.stringify({
-      rootOptions: options,
-      poolOptions: (Object.keys(poolConfigs) as PoolIdentifier[]).reduce((acc, pool) => {
-        acc[pool] = {configs: poolConfigs[pool]!.configs, cache: poolConfigs[pool]!.cache};
-        return acc;
-      }, {}),
-    } as ConfigFile)}`,
-    {...prettierTsCfg, filepath: 'foo.ts'},
-  );
-
-  const baseName = generateFolderName(options);
-  const baseFolder = path.join(process.cwd(), 'src', baseName);
-  if (!fs.existsSync(baseFolder)) fs.mkdirSync(baseFolder, {recursive: true});
-
-  const configPath = path.join(baseFolder, 'config.ts');
-  await askBeforeWrite(options, configPath, jsonConfig);
-  return configPath;
-}
-
 async function askBeforeWrite(options: Options, path: string, content: string) {
   if (!options.force && fs.existsSync(path)) {
     const currentContent = fs.readFileSync(path, {encoding: 'utf8'});
