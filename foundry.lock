@@ -2,7 +2,7 @@
   "lib/aave-helpers": {
     "branch": {
       "name": "main",
-      "rev": "e3773a2abb151cbaf378caeccab28da114200208"
+      "rev": "53d58706d04c59586bafda06fad01d30690eb2c1"
     }
   },
   "lib/aave-umbrella": {
