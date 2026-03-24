@@ -92,7 +92,7 @@ https://plasmascan.to/address/0x23b17d3944742ace3d0c71586fcb320d1e4a1ed2
 
 **PT-sUSDe USDe E-mode**
 
-| **Asset**         | **PT-sUSDe-18JUN2026** | **PT--9APR2026**       | **sUSDe**              | **USDe** |
+| **Asset**         | **PT-sUSDe-18JUN2026** | **PT-sUSDe-9APR2026**  | **sUSDe**              | **USDe** |
 | ----------------- | ---------------------- | ---------------------- | ---------------------- | -------- |
 | Collateral        | Yes                    | Yes                    | Yes                    | No       |
 | Borrowable        | No                     | No                     | No                     | Yes      |
@@ -125,7 +125,7 @@ The table below illustrates the configured risk parameters for **PT_USDe_18JUN20
 | Oracle                         | 0x0521d52A7eA98A8B737D367F81975019360e444f |
 
 Additionally [0xac140648435d03f784879cd789130F22Ef588Fcd](https://plasmascan.to/address/0xac140648435d03f784879cd789130F22Ef588Fcd) has been set as the emission admin for PT_USDe_18JUN2026 and the corresponding aToken.
-,The table below illustrates the configured risk parameters for **PT_sUSDE_18JUN2026**
+The table below illustrates the configured risk parameters for **PT_sUSDE_18JUN2026**
 
 | Parameter                       |                                      Value |
 | ------------------------------- | -----------------------------------------: |
