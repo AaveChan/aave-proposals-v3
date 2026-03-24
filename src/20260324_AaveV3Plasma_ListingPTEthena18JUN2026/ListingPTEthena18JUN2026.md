@@ -113,7 +113,7 @@ The table below illustrates the configured risk parameters for **PT_USDe_18JUN20
 | LTV                            |                                        0 % |
 | LT                             |                                        0 % |
 | Liquidation Bonus              |                                        0 % |
-| Liquidation Protocol Fee       |                                        0 % |
+| Liquidation Protocol Fee       |                                       10 % |
 | Reserve Factor                 |                                       45 % |
 | Base Variable Borrow Rate      |                                        0 % |
 | Variable Slope 1               |                                       10 % |
@@ -138,7 +138,7 @@ Additionally [0xac140648435d03f784879cd789130F22Ef588Fcd](https://plasmascan.to/
 | LTV                             |                                        0 % |
 | LT                              |                                        0 % |
 | Liquidation Bonus               |                                        0 % |
-| Liquidation Protocol Fee        |                                        0 % |
+| Liquidation Protocol Fee        |                                       10 % |
 | Reserve Factor                  |                                       45 % |
 | Base Variable Borrow Rate       |                                        0 % |
 | Variable Slope 1                |                                       10 % |
