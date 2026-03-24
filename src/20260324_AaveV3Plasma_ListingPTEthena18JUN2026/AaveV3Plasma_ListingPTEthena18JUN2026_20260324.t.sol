@@ -5,6 +5,7 @@ import {GovV3Helpers} from 'aave-helpers/src/GovV3Helpers.sol';
 import {AaveV3Plasma} from 'aave-address-book/AaveV3Plasma.sol';
 import {IERC20} from 'openzeppelin-contracts/contracts/token/ERC20/IERC20.sol';
 import {IEmissionManager} from 'aave-v3-origin/contracts/rewards/interfaces/IEmissionManager.sol';
+import {GovernanceV3Plasma} from 'aave-address-book/GovernanceV3Plasma.sol';
 
 import 'forge-std/Test.sol';
 import {ProtocolV3TestBase, ReserveConfig} from 'aave-helpers/src/ProtocolV3TestBase.sol';
@@ -20,6 +21,10 @@ contract AaveV3Plasma_ListingPTEthena18JUN2026_20260324_Test is ProtocolV3TestBa
   function setUp() public {
     vm.createSelectFork(vm.rpcUrl('plasma'), 17421660);
     proposal = new AaveV3Plasma_ListingPTEthena18JUN2026_20260324();
+
+    // simulate Plasma collector holding 100 PT tokens before proposal execution
+    deal(proposal.PT_USDe_18JUN2026(), address(GovernanceV3Plasma.EXECUTOR_LVL_1), 100e18);
+    deal(proposal.PT_sUSDE_18JUN2026(), address(GovernanceV3Plasma.EXECUTOR_LVL_1), 100e18);
   }
 
   /**

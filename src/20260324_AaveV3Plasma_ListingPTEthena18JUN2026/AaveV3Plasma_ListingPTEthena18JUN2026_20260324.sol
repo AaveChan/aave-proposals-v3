@@ -67,7 +67,7 @@ contract AaveV3Plasma_ListingPTEthena18JUN2026_20260324 is AaveV3PayloadPlasma {
     listings[0] = IAaveV3ConfigEngine.Listing({
       asset: PT_USDe_18JUN2026,
       assetSymbol: 'PT_USDe_18JUN2026',
-      priceFeed: 0x0000000000000000000000000000000000000000, // To-do when capo will be deployed update it here
+      priceFeed: 0x37f3a8b02BAbe4dd71acb5f214F22C09AFf607f3, // previous capo, To-do when capo will be deployed update it here
       enabledToBorrow: EngineFlags.DISABLED,
       borrowableInIsolation: EngineFlags.DISABLED,
       withSiloedBorrowing: EngineFlags.DISABLED,
@@ -90,7 +90,7 @@ contract AaveV3Plasma_ListingPTEthena18JUN2026_20260324 is AaveV3PayloadPlasma {
     listings[1] = IAaveV3ConfigEngine.Listing({
       asset: PT_sUSDE_18JUN2026,
       assetSymbol: 'PT_sUSDE_18JUN2026',
-      priceFeed: 0x0000000000000000000000000000000000000000, // To-do when capo will be deployed update it here
+      priceFeed: 0x13f2EA8dfa948c5247826283079615Ee4d0A1AA5, // previous capo, To-do when capo will be deployed update it here
       enabledToBorrow: EngineFlags.DISABLED,
       borrowableInIsolation: EngineFlags.DISABLED,
       withSiloedBorrowing: EngineFlags.DISABLED,
