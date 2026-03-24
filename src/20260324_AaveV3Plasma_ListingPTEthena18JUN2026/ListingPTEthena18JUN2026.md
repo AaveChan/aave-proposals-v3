@@ -33,10 +33,12 @@ https://plasmascan.to/address/0x23b17d3944742ace3d0c71586fcb320d1e4a1ed2
 
 **Linear Discount Rate Oracle**
 
-| **Parameter**          | **Value** |
-| ---------------------- | --------- |
-| discountRatePerYear    | 2.952%    |
-| maxDiscountRatePerYear | 13.5693%  |
+| **Parameter**            | **Value**                                                                             |
+| ------------------------ | ------------------------------------------------------------------------------------- |
+| discountRatePerYear      | 2.952%                                                                                |
+| maxDiscountRatePerYear   | 13.5693%                                                                              |
+| Last answer (March 24th) | 99279807 ($0.99279807)                                                                |
+| Oracle link              | https://plasmascan.to/address/0x0521d52A7eA98A8B737D367F81975019360e444f#readContract |
 
 **PT-USDe Stablecoins E-mode**
 
@@ -71,10 +73,12 @@ https://plasmascan.to/address/0x23b17d3944742ace3d0c71586fcb320d1e4a1ed2
 
 **Linear Discount Rate Oracle**
 
-| **Parameter**                 | **Value** |
-| ----------------------------- | --------- |
-| discountRatePerYear (Initial) | 3.9617%   |
-| maxDiscountRatePerYear        | 14.4575%  |
+| **Parameter**                 | **Value**                                                                             |
+| ----------------------------- | ------------------------------------------------------------------------------------- |
+| discountRatePerYear (Initial) | 3.9617%                                                                               |
+| maxDiscountRatePerYear        | 14.4575%                                                                              |
+| Last answer (March 24th)      | 99043771 ($0.99043771)                                                                |
+| Oracle link                   | https://plasmascan.to/address/0x02d8bf797271e6e0ab65a6d235b93d6e673c055b#readContract |
 
 **PT-sUSDe Stablecoins E-mode**
 
@@ -118,7 +122,7 @@ The table below illustrates the configured risk parameters for **PT_USDe_18JUN20
 | Flashloanable                  |                                    ENABLED |
 | Siloed Borrowing               |                                   DISABLED |
 | Borrowable in Isolation        |                                   DISABLED |
-| Oracle                         | 0x0000000000000000000000000000000000000000 |
+| Oracle                         | 0x0521d52A7eA98A8B737D367F81975019360e444f |
 
 Additionally [0xac140648435d03f784879cd789130F22Ef588Fcd](https://plasmascan.to/address/0xac140648435d03f784879cd789130F22Ef588Fcd) has been set as the emission admin for PT_USDe_18JUN2026 and the corresponding aToken.
 ,The table below illustrates the configured risk parameters for **PT_sUSDE_18JUN2026**

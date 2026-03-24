@@ -19,7 +19,7 @@ contract AaveV3Plasma_ListingPTEthena18JUN2026_20260324_Test is ProtocolV3TestBa
   AaveV3Plasma_ListingPTEthena18JUN2026_20260324 internal proposal;
 
   function setUp() public {
-    vm.createSelectFork(vm.rpcUrl('plasma'), 17421660);
+    vm.createSelectFork(vm.rpcUrl('plasma'), 17434261);
     proposal = new AaveV3Plasma_ListingPTEthena18JUN2026_20260324();
 
     // simulate Plasma collector holding 100 PT tokens before proposal execution
