@@ -135,13 +135,14 @@ contract AaveV3Plasma_ListingPTEthena18JUN2026_20260324 is AaveV3PayloadPlasma {
       memory eModeCreations = new IAaveV3ConfigEngine.EModeCategoryCreation[](4);
 
     address[] memory collateralAssets_PT_USDe_18JUN2026__Stablecoins = new address[](3);
-    address[] memory borrowableAssets_PT_USDe_18JUN2026__Stablecoins = new address[](1);
+    address[] memory borrowableAssets_PT_USDe_18JUN2026__Stablecoins = new address[](2);
 
     collateralAssets_PT_USDe_18JUN2026__Stablecoins[0] = PT_USDe_18JUN2026;
     collateralAssets_PT_USDe_18JUN2026__Stablecoins[1] = AaveV3PlasmaAssets.USDe_UNDERLYING;
     collateralAssets_PT_USDe_18JUN2026__Stablecoins[2] = AaveV3PlasmaAssets
       .PT_USDe_9APR2026_UNDERLYING;
     borrowableAssets_PT_USDe_18JUN2026__Stablecoins[0] = AaveV3PlasmaAssets.USDe_UNDERLYING;
+    borrowableAssets_PT_USDe_18JUN2026__Stablecoins[1] = AaveV3PlasmaAssets.USDT0_UNDERLYING;
 
     eModeCreations[0] = IAaveV3ConfigEngine.EModeCategoryCreation({
       ltv: 91_00,
@@ -170,13 +171,14 @@ contract AaveV3Plasma_ListingPTEthena18JUN2026_20260324 is AaveV3PayloadPlasma {
     });
 
     address[] memory collateralAssets_PT_sUSDE_18JUN2026__Stablecoins = new address[](3);
-    address[] memory borrowableAssets_PT_sUSDE_18JUN2026__Stablecoins = new address[](1);
+    address[] memory borrowableAssets_PT_sUSDE_18JUN2026__Stablecoins = new address[](2);
 
     collateralAssets_PT_sUSDE_18JUN2026__Stablecoins[0] = PT_sUSDE_18JUN2026;
     collateralAssets_PT_sUSDE_18JUN2026__Stablecoins[1] = AaveV3PlasmaAssets.sUSDe_UNDERLYING;
     collateralAssets_PT_sUSDE_18JUN2026__Stablecoins[2] = AaveV3PlasmaAssets
       .PT_sUSDE_9APR2026_UNDERLYING;
     borrowableAssets_PT_sUSDE_18JUN2026__Stablecoins[0] = AaveV3PlasmaAssets.USDe_UNDERLYING;
+    borrowableAssets_PT_sUSDE_18JUN2026__Stablecoins[1] = AaveV3PlasmaAssets.USDT0_UNDERLYING;
 
     eModeCreations[2] = IAaveV3ConfigEngine.EModeCategoryCreation({
       ltv: 90_00,

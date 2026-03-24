@@ -98,7 +98,7 @@
 | ltv | - | 91 % |
 | liquidationThreshold | - | 93 % |
 | liquidationBonus | - | 3.1 % [10310] |
-| borrowableBitmap | - | USDe |
+| borrowableBitmap | - | USDT0, USDe |
 | collateralBitmap | - | USDe, PT-USDe-9APR2026, PT-USDe-18JUN2026 |
 
 
@@ -122,7 +122,7 @@
 | ltv | - | 90 % |
 | liquidationThreshold | - | 92 % |
 | liquidationBonus | - | 4.1 % [10410] |
-| borrowableBitmap | - | USDe |
+| borrowableBitmap | - | USDT0, USDe |
 | collateralBitmap | - | sUSDe, PT-sUSDE-9APR2026, PT-sUSDE-18JUN2026 |
 
 
@@ -152,8 +152,8 @@
 | index | event |
 | --- | --- |
 | 2 | Initialized(underlyingAsset: 0x23B17d3944742ACe3d0C71586FcB320d1e4a1Ed2, pool: 0x925a2A7214Ed92428B5b1B090F80b25700095e12, treasury: 0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D, incentivesController: 0x3A57eAa3Ca3794D66977326af7991eB3F6dD5a5A, aTokenDecimals: 18, aTokenName: Aave Plasma PT_USDe_18JUN2026, aTokenSymbol: aPlaPT_USDe_18JUN2026, params: 0x) |
-| 54 | Transfer(from: 0x0000000000000000000000000000000000000000, to: 0x300f49ddf6fB9358ddCB22b12fFae62F1Cce9CdD, value: 100,000,000,000,000,000,000 [100000000000000000000, 0 decimals]) |
-| 55 | Mint(caller: 0x47aAdaAE1F05C978E6aBb7568d11B7F6e0FC4d6A, onBehalfOf: 0x300f49ddf6fB9358ddCB22b12fFae62F1Cce9CdD, value: 100,000,000,000,000,000,000 [100000000000000000000, 0 decimals], balanceIncrease: 0, index: 1 [1000000000000000000000000000, 27 decimals]) |
+| 56 | Transfer(from: 0x0000000000000000000000000000000000000000, to: 0x300f49ddf6fB9358ddCB22b12fFae62F1Cce9CdD, value: 100,000,000,000,000,000,000 [100000000000000000000, 0 decimals]) |
+| 57 | Mint(caller: 0x47aAdaAE1F05C978E6aBb7568d11B7F6e0FC4d6A, onBehalfOf: 0x300f49ddf6fB9358ddCB22b12fFae62F1Cce9CdD, value: 100,000,000,000,000,000,000 [100000000000000000000, 0 decimals], balanceIncrease: 0, index: 1 [1000000000000000000000000000, 27 decimals]) |
 
 #### 0xf49f425D575f1505430BeEa036e0a318B08EB03c
 
@@ -197,31 +197,33 @@
 | 32 | AssetCollateralInEModeChanged(asset: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (symbol: USDe), categoryId: 21, collateral: true) |
 | 33 | AssetCollateralInEModeChanged(asset: 0x54Dc267be2839303ff1e323584A16e86CeC4Aa44 (symbol: PT-USDe-9APR2026), categoryId: 21, collateral: true) |
 | 34 | AssetBorrowableInEModeChanged(asset: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (symbol: USDe), categoryId: 21, borrowable: true) |
-| 35 | EModeCategoryAdded(categoryId: 22, ltv: 9300, liquidationThreshold: 9500, liquidationBonus: 10210, oracle: 0x0000000000000000000000000000000000000000, label: PT_USDe_18JUN2026__USDe) |
-| 36 | AssetCollateralInEModeChanged(asset: 0x23B17d3944742ACe3d0C71586FcB320d1e4a1Ed2 (symbol: PT-USDe-18JUN2026), categoryId: 22, collateral: true) |
-| 37 | AssetCollateralInEModeChanged(asset: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (symbol: USDe), categoryId: 22, collateral: true) |
-| 38 | AssetCollateralInEModeChanged(asset: 0x54Dc267be2839303ff1e323584A16e86CeC4Aa44 (symbol: PT-USDe-9APR2026), categoryId: 22, collateral: true) |
-| 39 | AssetBorrowableInEModeChanged(asset: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (symbol: USDe), categoryId: 22, borrowable: true) |
-| 40 | EModeCategoryAdded(categoryId: 23, ltv: 9000, liquidationThreshold: 9200, liquidationBonus: 10410, oracle: 0x0000000000000000000000000000000000000000, label: PT_sUSDE_18JUN2026__Stablecoins) |
-| 41 | AssetCollateralInEModeChanged(asset: 0x30559E3d35e33AB69399a3fe9F383d32bd3c016E (symbol: PT-sUSDE-18JUN2026), categoryId: 23, collateral: true) |
-| 42 | AssetCollateralInEModeChanged(asset: 0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2 (symbol: sUSDe), categoryId: 23, collateral: true) |
-| 43 | AssetCollateralInEModeChanged(asset: 0xab509448ad489e2E1341e25CC500f2596464Cc82 (symbol: PT-sUSDE-9APR2026), categoryId: 23, collateral: true) |
-| 44 | AssetBorrowableInEModeChanged(asset: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (symbol: USDe), categoryId: 23, borrowable: true) |
-| 45 | EModeCategoryAdded(categoryId: 24, ltv: 9190, liquidationThreshold: 9390, liquidationBonus: 10310, oracle: 0x0000000000000000000000000000000000000000, label: PT_sUSDE_18JUN2026__USDe) |
-| 46 | AssetCollateralInEModeChanged(asset: 0x30559E3d35e33AB69399a3fe9F383d32bd3c016E (symbol: PT-sUSDE-18JUN2026), categoryId: 24, collateral: true) |
-| 47 | AssetCollateralInEModeChanged(asset: 0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2 (symbol: sUSDe), categoryId: 24, collateral: true) |
-| 48 | AssetCollateralInEModeChanged(asset: 0xab509448ad489e2E1341e25CC500f2596464Cc82 (symbol: PT-sUSDE-9APR2026), categoryId: 24, collateral: true) |
-| 49 | AssetBorrowableInEModeChanged(asset: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (symbol: USDe), categoryId: 24, borrowable: true) |
-| 70 | LiquidationProtocolFeeChanged(asset: 0x23B17d3944742ACe3d0C71586FcB320d1e4a1Ed2 (symbol: PT-USDe-18JUN2026), oldFee: 0, newFee: 1000) |
-| 71 | LiquidationProtocolFeeChanged(asset: 0x30559E3d35e33AB69399a3fe9F383d32bd3c016E (symbol: PT-sUSDE-18JUN2026), oldFee: 0, newFee: 1000) |
+| 35 | AssetBorrowableInEModeChanged(asset: 0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb (symbol: USDT0), categoryId: 21, borrowable: true) |
+| 36 | EModeCategoryAdded(categoryId: 22, ltv: 9300, liquidationThreshold: 9500, liquidationBonus: 10210, oracle: 0x0000000000000000000000000000000000000000, label: PT_USDe_18JUN2026__USDe) |
+| 37 | AssetCollateralInEModeChanged(asset: 0x23B17d3944742ACe3d0C71586FcB320d1e4a1Ed2 (symbol: PT-USDe-18JUN2026), categoryId: 22, collateral: true) |
+| 38 | AssetCollateralInEModeChanged(asset: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (symbol: USDe), categoryId: 22, collateral: true) |
+| 39 | AssetCollateralInEModeChanged(asset: 0x54Dc267be2839303ff1e323584A16e86CeC4Aa44 (symbol: PT-USDe-9APR2026), categoryId: 22, collateral: true) |
+| 40 | AssetBorrowableInEModeChanged(asset: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (symbol: USDe), categoryId: 22, borrowable: true) |
+| 41 | EModeCategoryAdded(categoryId: 23, ltv: 9000, liquidationThreshold: 9200, liquidationBonus: 10410, oracle: 0x0000000000000000000000000000000000000000, label: PT_sUSDE_18JUN2026__Stablecoins) |
+| 42 | AssetCollateralInEModeChanged(asset: 0x30559E3d35e33AB69399a3fe9F383d32bd3c016E (symbol: PT-sUSDE-18JUN2026), categoryId: 23, collateral: true) |
+| 43 | AssetCollateralInEModeChanged(asset: 0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2 (symbol: sUSDe), categoryId: 23, collateral: true) |
+| 44 | AssetCollateralInEModeChanged(asset: 0xab509448ad489e2E1341e25CC500f2596464Cc82 (symbol: PT-sUSDE-9APR2026), categoryId: 23, collateral: true) |
+| 45 | AssetBorrowableInEModeChanged(asset: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (symbol: USDe), categoryId: 23, borrowable: true) |
+| 46 | AssetBorrowableInEModeChanged(asset: 0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb (symbol: USDT0), categoryId: 23, borrowable: true) |
+| 47 | EModeCategoryAdded(categoryId: 24, ltv: 9190, liquidationThreshold: 9390, liquidationBonus: 10310, oracle: 0x0000000000000000000000000000000000000000, label: PT_sUSDE_18JUN2026__USDe) |
+| 48 | AssetCollateralInEModeChanged(asset: 0x30559E3d35e33AB69399a3fe9F383d32bd3c016E (symbol: PT-sUSDE-18JUN2026), categoryId: 24, collateral: true) |
+| 49 | AssetCollateralInEModeChanged(asset: 0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2 (symbol: sUSDe), categoryId: 24, collateral: true) |
+| 50 | AssetCollateralInEModeChanged(asset: 0xab509448ad489e2E1341e25CC500f2596464Cc82 (symbol: PT-sUSDE-9APR2026), categoryId: 24, collateral: true) |
+| 51 | AssetBorrowableInEModeChanged(asset: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (symbol: USDe), categoryId: 24, borrowable: true) |
+| 72 | LiquidationProtocolFeeChanged(asset: 0x23B17d3944742ACe3d0C71586FcB320d1e4a1Ed2 (symbol: PT-USDe-18JUN2026), oldFee: 0, newFee: 1000) |
+| 73 | LiquidationProtocolFeeChanged(asset: 0x30559E3d35e33AB69399a3fe9F383d32bd3c016E (symbol: PT-sUSDE-18JUN2026), oldFee: 0, newFee: 1000) |
 
 #### 0x68ab954Dc705c66506d499963dD1fbB8aFa23d7d
 
 | index | event |
 | --- | --- |
 | 7 | Initialized(underlyingAsset: 0x30559E3d35e33AB69399a3fe9F383d32bd3c016E, pool: 0x925a2A7214Ed92428B5b1B090F80b25700095e12, treasury: 0x5E2d083417D12d4B0824E14Ecd48D26831F4Da7D, incentivesController: 0x3A57eAa3Ca3794D66977326af7991eB3F6dD5a5A, aTokenDecimals: 18, aTokenName: Aave Plasma PT_sUSDE_18JUN2026, aTokenSymbol: aPlaPT_sUSDE_18JUN2026, params: 0x) |
-| 64 | Transfer(from: 0x0000000000000000000000000000000000000000, to: 0x300f49ddf6fB9358ddCB22b12fFae62F1Cce9CdD, value: 100,000,000,000,000,000,000 [100000000000000000000, 0 decimals]) |
-| 65 | Mint(caller: 0x47aAdaAE1F05C978E6aBb7568d11B7F6e0FC4d6A, onBehalfOf: 0x300f49ddf6fB9358ddCB22b12fFae62F1Cce9CdD, value: 100,000,000,000,000,000,000 [100000000000000000000, 0 decimals], balanceIncrease: 0, index: 1 [1000000000000000000000000000, 27 decimals]) |
+| 66 | Transfer(from: 0x0000000000000000000000000000000000000000, to: 0x300f49ddf6fB9358ddCB22b12fFae62F1Cce9CdD, value: 100,000,000,000,000,000,000 [100000000000000000000, 0 decimals]) |
+| 67 | Mint(caller: 0x47aAdaAE1F05C978E6aBb7568d11B7F6e0FC4d6A, onBehalfOf: 0x300f49ddf6fB9358ddCB22b12fFae62F1Cce9CdD, value: 100,000,000,000,000,000,000 [100000000000000000000, 0 decimals], balanceIncrease: 0, index: 1 [1000000000000000000000000000, 27 decimals]) |
 
 #### 0xD51aDd2Ca67b8b4541EB4c1a5EaFbAEB3d3b2dF7
 
@@ -235,60 +237,60 @@
 | --- | --- |
 | 20 | ReserveDataUpdated(reserve: 0x23B17d3944742ACe3d0C71586FcB320d1e4a1Ed2 (symbol: PT-USDe-18JUN2026), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
 | 26 | ReserveDataUpdated(reserve: 0x30559E3d35e33AB69399a3fe9F383d32bd3c016E (symbol: PT-sUSDE-18JUN2026), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
-| 51 | ReserveDataUpdated(reserve: 0x23B17d3944742ACe3d0C71586FcB320d1e4a1Ed2 (symbol: PT-USDe-18JUN2026), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
-| 56 | Supply(reserve: 0x23B17d3944742ACe3d0C71586FcB320d1e4a1Ed2 (symbol: PT-USDe-18JUN2026), onBehalfOf: 0x300f49ddf6fB9358ddCB22b12fFae62F1Cce9CdD, referralCode: 0, user: 0x47aAdaAE1F05C978E6aBb7568d11B7F6e0FC4d6A, amount: 100 [100000000000000000000, 18 decimals]) |
-| 61 | ReserveDataUpdated(reserve: 0x30559E3d35e33AB69399a3fe9F383d32bd3c016E (symbol: PT-sUSDE-18JUN2026), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
-| 66 | Supply(reserve: 0x30559E3d35e33AB69399a3fe9F383d32bd3c016E (symbol: PT-sUSDE-18JUN2026), onBehalfOf: 0x300f49ddf6fB9358ddCB22b12fFae62F1Cce9CdD, referralCode: 0, user: 0x47aAdaAE1F05C978E6aBb7568d11B7F6e0FC4d6A, amount: 100 [100000000000000000000, 18 decimals]) |
+| 53 | ReserveDataUpdated(reserve: 0x23B17d3944742ACe3d0C71586FcB320d1e4a1Ed2 (symbol: PT-USDe-18JUN2026), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
+| 58 | Supply(reserve: 0x23B17d3944742ACe3d0C71586FcB320d1e4a1Ed2 (symbol: PT-USDe-18JUN2026), onBehalfOf: 0x300f49ddf6fB9358ddCB22b12fFae62F1Cce9CdD, referralCode: 0, user: 0x47aAdaAE1F05C978E6aBb7568d11B7F6e0FC4d6A, amount: 100 [100000000000000000000, 18 decimals]) |
+| 63 | ReserveDataUpdated(reserve: 0x30559E3d35e33AB69399a3fe9F383d32bd3c016E (symbol: PT-sUSDE-18JUN2026), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
+| 68 | Supply(reserve: 0x30559E3d35e33AB69399a3fe9F383d32bd3c016E (symbol: PT-sUSDE-18JUN2026), onBehalfOf: 0x300f49ddf6fB9358ddCB22b12fFae62F1Cce9CdD, referralCode: 0, user: 0x47aAdaAE1F05C978E6aBb7568d11B7F6e0FC4d6A, amount: 100 [100000000000000000000, 18 decimals]) |
 
 #### 0x23B17d3944742ACe3d0C71586FcB320d1e4a1Ed2
 
 | index | event |
 | --- | --- |
-| 50 | Approval(owner: 0x47aAdaAE1F05C978E6aBb7568d11B7F6e0FC4d6A, spender: 0x925a2A7214Ed92428B5b1B090F80b25700095e12, value: 100 [100000000000000000000, 18 decimals]) |
-| 52 | Approval(owner: 0x47aAdaAE1F05C978E6aBb7568d11B7F6e0FC4d6A, spender: 0x925a2A7214Ed92428B5b1B090F80b25700095e12, value: 0 [0, 18 decimals]) |
-| 53 | Transfer(from: 0x47aAdaAE1F05C978E6aBb7568d11B7F6e0FC4d6A, to: 0xDEdFF537fCBa1169E673F78EE23D109885741016, value: 100 [100000000000000000000, 18 decimals]) |
+| 52 | Approval(owner: 0x47aAdaAE1F05C978E6aBb7568d11B7F6e0FC4d6A, spender: 0x925a2A7214Ed92428B5b1B090F80b25700095e12, value: 100 [100000000000000000000, 18 decimals]) |
+| 54 | Approval(owner: 0x47aAdaAE1F05C978E6aBb7568d11B7F6e0FC4d6A, spender: 0x925a2A7214Ed92428B5b1B090F80b25700095e12, value: 0 [0, 18 decimals]) |
+| 55 | Transfer(from: 0x47aAdaAE1F05C978E6aBb7568d11B7F6e0FC4d6A, to: 0xDEdFF537fCBa1169E673F78EE23D109885741016, value: 100 [100000000000000000000, 18 decimals]) |
 
 #### 0x5117F170716eCEAC8ef63d375bc7416Afa6f4497 (AaveV3Plasma.EMISSION_MANAGER)
 
 | index | event |
 | --- | --- |
-| 57 | EmissionAdminUpdated(reward: 0x23B17d3944742ACe3d0C71586FcB320d1e4a1Ed2, oldAdmin: 0x0000000000000000000000000000000000000000, newAdmin: 0xac140648435d03f784879cd789130F22Ef588Fcd) |
-| 58 | EmissionAdminUpdated(reward: 0xDEdFF537fCBa1169E673F78EE23D109885741016, oldAdmin: 0x0000000000000000000000000000000000000000, newAdmin: 0xac140648435d03f784879cd789130F22Ef588Fcd) |
-| 59 | EmissionAdminUpdated(reward: 0xf49f425D575f1505430BeEa036e0a318B08EB03c, oldAdmin: 0x0000000000000000000000000000000000000000, newAdmin: 0xac140648435d03f784879cd789130F22Ef588Fcd) |
-| 67 | EmissionAdminUpdated(reward: 0x30559E3d35e33AB69399a3fe9F383d32bd3c016E, oldAdmin: 0x0000000000000000000000000000000000000000, newAdmin: 0xac140648435d03f784879cd789130F22Ef588Fcd) |
-| 68 | EmissionAdminUpdated(reward: 0x68ab954Dc705c66506d499963dD1fbB8aFa23d7d, oldAdmin: 0x0000000000000000000000000000000000000000, newAdmin: 0xac140648435d03f784879cd789130F22Ef588Fcd) |
-| 69 | EmissionAdminUpdated(reward: 0xD51aDd2Ca67b8b4541EB4c1a5EaFbAEB3d3b2dF7, oldAdmin: 0x0000000000000000000000000000000000000000, newAdmin: 0xac140648435d03f784879cd789130F22Ef588Fcd) |
+| 59 | EmissionAdminUpdated(reward: 0x23B17d3944742ACe3d0C71586FcB320d1e4a1Ed2, oldAdmin: 0x0000000000000000000000000000000000000000, newAdmin: 0xac140648435d03f784879cd789130F22Ef588Fcd) |
+| 60 | EmissionAdminUpdated(reward: 0xDEdFF537fCBa1169E673F78EE23D109885741016, oldAdmin: 0x0000000000000000000000000000000000000000, newAdmin: 0xac140648435d03f784879cd789130F22Ef588Fcd) |
+| 61 | EmissionAdminUpdated(reward: 0xf49f425D575f1505430BeEa036e0a318B08EB03c, oldAdmin: 0x0000000000000000000000000000000000000000, newAdmin: 0xac140648435d03f784879cd789130F22Ef588Fcd) |
+| 69 | EmissionAdminUpdated(reward: 0x30559E3d35e33AB69399a3fe9F383d32bd3c016E, oldAdmin: 0x0000000000000000000000000000000000000000, newAdmin: 0xac140648435d03f784879cd789130F22Ef588Fcd) |
+| 70 | EmissionAdminUpdated(reward: 0x68ab954Dc705c66506d499963dD1fbB8aFa23d7d, oldAdmin: 0x0000000000000000000000000000000000000000, newAdmin: 0xac140648435d03f784879cd789130F22Ef588Fcd) |
+| 71 | EmissionAdminUpdated(reward: 0xD51aDd2Ca67b8b4541EB4c1a5EaFbAEB3d3b2dF7, oldAdmin: 0x0000000000000000000000000000000000000000, newAdmin: 0xac140648435d03f784879cd789130F22Ef588Fcd) |
 
 #### 0x30559E3d35e33AB69399a3fe9F383d32bd3c016E
 
 | index | event |
 | --- | --- |
-| 60 | Approval(owner: 0x47aAdaAE1F05C978E6aBb7568d11B7F6e0FC4d6A, spender: 0x925a2A7214Ed92428B5b1B090F80b25700095e12, value: 100 [100000000000000000000, 18 decimals]) |
-| 62 | Approval(owner: 0x47aAdaAE1F05C978E6aBb7568d11B7F6e0FC4d6A, spender: 0x925a2A7214Ed92428B5b1B090F80b25700095e12, value: 0 [0, 18 decimals]) |
-| 63 | Transfer(from: 0x47aAdaAE1F05C978E6aBb7568d11B7F6e0FC4d6A, to: 0x68ab954Dc705c66506d499963dD1fbB8aFa23d7d, value: 100 [100000000000000000000, 18 decimals]) |
+| 62 | Approval(owner: 0x47aAdaAE1F05C978E6aBb7568d11B7F6e0FC4d6A, spender: 0x925a2A7214Ed92428B5b1B090F80b25700095e12, value: 100 [100000000000000000000, 18 decimals]) |
+| 64 | Approval(owner: 0x47aAdaAE1F05C978E6aBb7568d11B7F6e0FC4d6A, spender: 0x925a2A7214Ed92428B5b1B090F80b25700095e12, value: 0 [0, 18 decimals]) |
+| 65 | Transfer(from: 0x47aAdaAE1F05C978E6aBb7568d11B7F6e0FC4d6A, to: 0x68ab954Dc705c66506d499963dD1fbB8aFa23d7d, value: 100 [100000000000000000000, 18 decimals]) |
 
 #### 0x5F29ACbFB6de4282bB4DD2017930cDA730eD864D (MiscPlasma.AGENT_HUB)
 
 | index | event |
 | --- | --- |
-| 72 | AllowedMarketAdded(agentId: 0, market: 0x0000000000000000000000000000000000000018) |
-| 73 | AllowedMarketAdded(agentId: 0, market: 0x0000000000000000000000000000000000000017) |
-| 74 | AllowedMarketAdded(agentId: 0, market: 0x0000000000000000000000000000000000000016) |
-| 75 | AllowedMarketAdded(agentId: 0, market: 0x0000000000000000000000000000000000000015) |
-| 76 | AllowedMarketAdded(agentId: 1, market: 0x23B17d3944742ACe3d0C71586FcB320d1e4a1Ed2) |
-| 77 | AllowedMarketAdded(agentId: 1, market: 0x30559E3d35e33AB69399a3fe9F383d32bd3c016E) |
+| 74 | AllowedMarketAdded(agentId: 0, market: 0x0000000000000000000000000000000000000018) |
+| 75 | AllowedMarketAdded(agentId: 0, market: 0x0000000000000000000000000000000000000017) |
+| 76 | AllowedMarketAdded(agentId: 0, market: 0x0000000000000000000000000000000000000016) |
+| 77 | AllowedMarketAdded(agentId: 0, market: 0x0000000000000000000000000000000000000015) |
+| 78 | AllowedMarketAdded(agentId: 1, market: 0x23B17d3944742ACe3d0C71586FcB320d1e4a1Ed2) |
+| 79 | AllowedMarketAdded(agentId: 1, market: 0x30559E3d35e33AB69399a3fe9F383d32bd3c016E) |
 
 #### 0x47aAdaAE1F05C978E6aBb7568d11B7F6e0FC4d6A (AaveV3Plasma.ACL_ADMIN, GovernanceV3Plasma.EXECUTOR_LVL_1)
 
 | index | event |
 | --- | --- |
-| 78 | ExecutedAction(target: 0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f, value: 0, signature: execute(), data: 0x, executionTime: 1774366019, withDelegatecall: true, resultData: 0x) |
+| 80 | ExecutedAction(target: 0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f, value: 0, signature: execute(), data: 0x, executionTime: 1774366019, withDelegatecall: true, resultData: 0x) |
 
 #### 0xe76EB348E65eF163d85ce282125FF5a7F5712A1d (GovernanceV3Plasma.PAYLOADS_CONTROLLER)
 
 | index | event |
 | --- | --- |
-| 79 | PayloadExecuted(payloadId: 21) |
+| 81 | PayloadExecuted(payloadId: 21) |
 
 ## Raw storage changes
 
@@ -386,7 +388,7 @@
 | 0x000000000000000000000000000000000000000000000000000000000000003b | 0x00000000000000000000000000000000000000000000000f0000000000000000 | 0x0000000000000000000000000000000000000000000000110000000000000000 |
 | 0x0ab3e43a95c2c8ff87a5c0fb544c52a37a43d07933b6eddedbd5142ace2aa60f | 0x0000000000000000000000000000000000000000000000000000000000000000 | 0x000000000000000000000000000000000000000000000001100428aa23f02328 |
 | 0x0ab3e43a95c2c8ff87a5c0fb544c52a37a43d07933b6eddedbd5142ace2aa610 | 0x0000000000000000000000000000000000000000000000000000000000000000 | 0x50545f73555344455f31384a554e323032365f5f537461626c65636f696e733e |
-| 0x0ab3e43a95c2c8ff87a5c0fb544c52a37a43d07933b6eddedbd5142ace2aa611 | 0x0000000000000000000000000000000000000000000000000000000000000000 | 0x0000000000000000000000000000000000000000000000000000000000000002 |
+| 0x0ab3e43a95c2c8ff87a5c0fb544c52a37a43d07933b6eddedbd5142ace2aa611 | 0x0000000000000000000000000000000000000000000000000000000000000000 | 0x0000000000000000000000000000000000000000000000000000000000000003 |
 | 0x48f6cdc6f265fc2aa93a93d483c395199028a7e3e866a7c1d51639762ae8ffca | 0x0000000000000000000000000000000000000000000000000000000000000000 | 0x100000000000000000000003e8000e4e1c000000000111948112000000000000 |
 | 0x48f6cdc6f265fc2aa93a93d483c395199028a7e3e866a7c1d51639762ae8ffcb | 0x0000000000000000000000000000000000000000000000000000000000000000 | 0x0000000000000000000000000000000000000000033b2e3c9fd0803ce8000000 |
 | 0x48f6cdc6f265fc2aa93a93d483c395199028a7e3e866a7c1d51639762ae8ffcc | 0x0000000000000000000000000000000000000000000000000000000000000000 | 0x0000000000000000000000000000000000000000033b2e3c9fd0803ce8000000 |
@@ -397,7 +399,7 @@
 | 0x5e4724876067866b323f99d4e2c92ae77b972e8c4738a202dd018cb4d601e0f0 | 0x0000000000000000000000000000000000000000000000000000000000000000 | 0x00000000000000000000000023b17d3944742ace3d0c71586fcb320d1e4a1ed2 |
 | 0x79c6e29436490262cb24ee8bc0beb79364a1b588e1732d1098b1d9c2838ed8ac | 0x0000000000000000000000000000000000000000000000000000000000000000 | 0x000000000000000000000000000000000000000000000000a00228462454238c |
 | 0x79c6e29436490262cb24ee8bc0beb79364a1b588e1732d1098b1d9c2838ed8ad | 0x0000000000000000000000000000000000000000000000000000000000000000 | 0x50545f555344655f31384a554e323032365f5f537461626c65636f696e73003c |
-| 0x79c6e29436490262cb24ee8bc0beb79364a1b588e1732d1098b1d9c2838ed8ae | 0x0000000000000000000000000000000000000000000000000000000000000000 | 0x0000000000000000000000000000000000000000000000000000000000000002 |
+| 0x79c6e29436490262cb24ee8bc0beb79364a1b588e1732d1098b1d9c2838ed8ae | 0x0000000000000000000000000000000000000000000000000000000000000000 | 0x0000000000000000000000000000000000000000000000000000000000000003 |
 | 0x8ac003b432f8dd1ea98d6e03375ae9962317ecfe1306c0a504bc33db24b14282 | 0x0000000000000000000000000000000000000000000000000000000000000000 | 0x0000000000000000000000000000000000000000000000011004284624ae23e6 |
 | 0x8ac003b432f8dd1ea98d6e03375ae9962317ecfe1306c0a504bc33db24b14283 | 0x0000000000000000000000000000000000000000000000000000000000000000 | 0x50545f73555344455f31384a554e323032365f5f555344650000000000000030 |
 | 0x8ac003b432f8dd1ea98d6e03375ae9962317ecfe1306c0a504bc33db24b14284 | 0x0000000000000000000000000000000000000000000000000000000000000000 | 0x0000000000000000000000000000000000000000000000000000000000000002 |
@@ -487,7 +489,7 @@
     "21": {
       "from": null,
       "to": {
-        "borrowableBitmap": "2",
+        "borrowableBitmap": "3",
         "collateralBitmap": "40962",
         "eModeCategory": 21,
         "label": "PT_USDe_18JUN2026__Stablecoins",
@@ -511,7 +513,7 @@
     "23": {
       "from": null,
       "to": {
-        "borrowableBitmap": "2",
+        "borrowableBitmap": "3",
         "collateralBitmap": "69636",
         "eModeCategory": 23,
         "label": "PT_sUSDE_18JUN2026__Stablecoins",
