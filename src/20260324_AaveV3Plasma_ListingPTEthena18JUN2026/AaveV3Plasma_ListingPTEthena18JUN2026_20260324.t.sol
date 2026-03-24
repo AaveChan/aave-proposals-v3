@@ -8,7 +8,7 @@ import {IEmissionManager} from 'aave-v3-origin/contracts/rewards/interfaces/IEmi
 import {GovernanceV3Plasma} from 'aave-address-book/GovernanceV3Plasma.sol';
 
 import 'forge-std/Test.sol';
-import {ProtocolV3TestBase, ReserveConfig} from 'aave-helpers/src/ProtocolV3TestBase.sol';
+import {ProtocolV3TestBase} from 'aave-helpers/src/ProtocolV3TestBase.sol';
 import {AaveV3Plasma_ListingPTEthena18JUN2026_20260324} from './AaveV3Plasma_ListingPTEthena18JUN2026_20260324.sol';
 
 /**
