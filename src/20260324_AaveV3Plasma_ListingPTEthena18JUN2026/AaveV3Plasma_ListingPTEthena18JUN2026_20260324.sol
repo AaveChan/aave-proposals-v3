@@ -90,7 +90,7 @@ contract AaveV3Plasma_ListingPTEthena18JUN2026_20260324 is AaveV3PayloadPlasma {
     listings[1] = IAaveV3ConfigEngine.Listing({
       asset: PT_sUSDE_18JUN2026,
       assetSymbol: 'PT_sUSDE_18JUN2026',
-      priceFeed: 0x13f2EA8dfa948c5247826283079615Ee4d0A1AA5, // previous capo, To-do when capo will be deployed update it here
+      priceFeed: 0x02d8BF797271E6e0AB65A6D235B93d6e673C055B,
       enabledToBorrow: EngineFlags.DISABLED,
       borrowableInIsolation: EngineFlags.DISABLED,
       withSiloedBorrowing: EngineFlags.DISABLED,

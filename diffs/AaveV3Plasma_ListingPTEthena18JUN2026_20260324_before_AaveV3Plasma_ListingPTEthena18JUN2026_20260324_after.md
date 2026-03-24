@@ -59,10 +59,10 @@
 | debtCeiling | 0 $ [0] |
 | isSiloed | :x: |
 | isFlashloanable | :white_check_mark: |
-| oracle | [0x13f2EA8dfa948c5247826283079615Ee4d0A1AA5](https://plasmascan.to/address/0x13f2EA8dfa948c5247826283079615Ee4d0A1AA5) |
+| oracle | [0x02d8BF797271E6e0AB65A6D235B93d6e673C055B](https://plasmascan.to/address/0x02d8BF797271E6e0AB65A6D235B93d6e673C055B) |
 | oracleDecimals | 8 |
-| oracleDescription | PT Capped sUSDe USDT/USD linear discount 09APR2026 |
-| oracleLatestAnswer | 0.99734618 $ |
+| oracleDescription | PT Capped sUSDe USDT/USD linear discount 18JUN2026 |
+| oracleLatestAnswer | 0.99043805 $ |
 | usageAsCollateralEnabled | :x: |
 | ltv | 0 % [0] |
 | liquidationThreshold | 0 % [0] |
@@ -145,7 +145,7 @@
 | index | event |
 | --- | --- |
 | 0 | AssetSourceUpdated(asset: 0x23B17d3944742ACe3d0C71586FcB320d1e4a1Ed2 (symbol: PT-USDe-18JUN2026), source: 0x0521d52A7eA98A8B737D367F81975019360e444f) |
-| 1 | AssetSourceUpdated(asset: 0x30559E3d35e33AB69399a3fe9F383d32bd3c016E (symbol: PT-sUSDE-18JUN2026), source: 0x13f2EA8dfa948c5247826283079615Ee4d0A1AA5) |
+| 1 | AssetSourceUpdated(asset: 0x30559E3d35e33AB69399a3fe9F383d32bd3c016E (symbol: PT-sUSDE-18JUN2026), source: 0x02d8BF797271E6e0AB65A6D235B93d6e673C055B) |
 
 #### 0xDEdFF537fCBa1169E673F78EE23D109885741016
 
@@ -321,7 +321,7 @@
 
 | slot | previous value | new value |
 | --- | --- | --- |
-| 0x271014f2c130816259979ca5e92798e8c281c2f216da5ea81da097784a2b9539 | 0x0000000000000000000000000000000000000000000000000000000000000000 | 0x00000000000000000000000013f2ea8dfa948c5247826283079615ee4d0a1aa5 |
+| 0x271014f2c130816259979ca5e92798e8c281c2f216da5ea81da097784a2b9539 | 0x0000000000000000000000000000000000000000000000000000000000000000 | 0x00000000000000000000000002d8bf797271e6e0ab65a6d235b93d6e673c055b |
 | 0x6244c63f5004a1beb24e3f5b5e33f06dec2009ef09368c88df466a37d46341a5 | 0x0000000000000000000000000000000000000000000000000000000000000000 | 0x0000000000000000000000000521d52a7ea98a8b737d367f81975019360e444f |
 
 ### 0x5117f170716eceac8ef63d375bc7416afa6f4497 (AaveV3Plasma.EMISSION_MANAGER)
@@ -595,10 +595,10 @@
         "liquidationProtocolFee": 1000,
         "liquidationThreshold": 0,
         "ltv": 0,
-        "oracle": "0x13f2EA8dfa948c5247826283079615Ee4d0A1AA5",
+        "oracle": "0x02d8BF797271E6e0AB65A6D235B93d6e673C055B",
         "oracleDecimals": 8,
-        "oracleDescription": "PT Capped sUSDe USDT/USD linear discount 09APR2026",
-        "oracleLatestAnswer": "99734618",
+        "oracleDescription": "PT Capped sUSDe USDT/USD linear discount 18JUN2026",
+        "oracleLatestAnswer": "99043805",
         "reserveFactor": 4500,
         "supplyCap": 50000000,
         "symbol": "PT-sUSDE-18JUN2026",

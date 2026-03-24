@@ -147,7 +147,7 @@ Additionally [0xac140648435d03f784879cd789130F22Ef588Fcd](https://plasmascan.to/
 | Flashloanable                   |                                    ENABLED |
 | Siloed Borrowing                |                                   DISABLED |
 | Borrowable in Isolation         |                                   DISABLED |
-| Oracle                          | 0x0000000000000000000000000000000000000000 |
+| Oracle                          | 0x02d8BF797271E6e0AB65A6D235B93d6e673C055B |
 
 Additionally [0xac140648435d03f784879cd789130F22Ef588Fcd](https://plasmascan.to/address/0xac140648435d03f784879cd789130F22Ef588Fcd) has been set as the emission admin for PT_sUSDE_18JUN2026 and the corresponding aToken.
 
