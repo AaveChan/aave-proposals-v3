@@ -33,7 +33,7 @@ contract AaveV3Ethereum_OnboardBTCBToAaveV3CoreInstance_20260320 is AaveV3Payloa
     listings[0] = IAaveV3ConfigEngine.Listing({
       asset: BTCb,
       assetSymbol: 'BTCb',
-      priceFeed: ChainlinkEthereum.BTC__USD,
+      priceFeed: ChainlinkEthereum.AAVE_SVR_BTC__USD,
       enabledToBorrow: EngineFlags.DISABLED,
       borrowableInIsolation: EngineFlags.DISABLED,
       withSiloedBorrowing: EngineFlags.DISABLED,

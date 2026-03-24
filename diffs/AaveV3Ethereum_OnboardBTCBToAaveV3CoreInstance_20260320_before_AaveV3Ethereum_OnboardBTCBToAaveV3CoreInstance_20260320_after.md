@@ -16,10 +16,10 @@
 | debtCeiling | 0 $ [0] |
 | isSiloed | :x: |
 | isFlashloanable | :white_check_mark: |
-| oracle | [0xF4030086522a5bEEa4988F8cA5B36dbC97BeE88c](https://etherscan.io/address/0xF4030086522a5bEEa4988F8cA5B36dbC97BeE88c) |
+| oracle | [0xb41E773f507F7a7EA890b1afB7d2b660c30C8B0A](https://etherscan.io/address/0xb41E773f507F7a7EA890b1afB7d2b660c30C8B0A) |
 | oracleDecimals | 8 |
 | oracleDescription | BTC / USD |
-| oracleLatestAnswer | 70439.58638856 $ |
+| oracleLatestAnswer | 70320.30906 $ |
 | usageAsCollateralEnabled | :white_check_mark: |
 | ltv | 73 % [7300] |
 | liquidationThreshold | 78 % [7800] |
@@ -51,7 +51,7 @@
 
 | index | event |
 | --- | --- |
-| 0 | AssetSourceUpdated(asset: 0xB0F70C0bD6FD87dbEb7C10dC692a2a6106817072 (symbol: BTC.b), source: 0xF4030086522a5bEEa4988F8cA5B36dbC97BeE88c) |
+| 0 | AssetSourceUpdated(asset: 0xB0F70C0bD6FD87dbEb7C10dC692a2a6106817072 (symbol: BTC.b), source: 0xb41E773f507F7a7EA890b1afB7d2b660c30C8B0A) |
 
 #### 0x12b70410D60f926558245f769059eA3Fc7A7353E
 
@@ -158,7 +158,7 @@
 
 | slot | previous value | new value |
 | --- | --- | --- |
-| 0x51a36a22faa811b90439043020fbe74f3a8614f1acab147fc297410181cd479e | 0x0000000000000000000000000000000000000000000000000000000000000000 | 0x000000000000000000000000f4030086522a5beea4988f8ca5b36dbc97bee88c |
+| 0x51a36a22faa811b90439043020fbe74f3a8614f1acab147fc297410181cd479e | 0x0000000000000000000000000000000000000000000000000000000000000000 | 0x000000000000000000000000b41e773f507f7a7ea890b1afb7d2b660c30c8b0a |
 
 ### 0x64b761d848206f447fe2dd461b0c635ec39ebb27 (AaveV3Ethereum.POOL_CONFIGURATOR)
 
@@ -254,10 +254,10 @@
         "liquidationProtocolFee": 1000,
         "liquidationThreshold": 7800,
         "ltv": 7300,
-        "oracle": "0xF4030086522a5bEEa4988F8cA5B36dbC97BeE88c",
+        "oracle": "0xb41E773f507F7a7EA890b1afB7d2b660c30C8B0A",
         "oracleDecimals": 8,
         "oracleDescription": "BTC / USD",
-        "oracleLatestAnswer": "7043958638856",
+        "oracleLatestAnswer": "7032030906000",
         "reserveFactor": 5000,
         "supplyCap": 600,
         "symbol": "BTC.b",
