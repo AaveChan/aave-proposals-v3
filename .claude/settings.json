@@ -1,8 +1,5 @@
 {
   "permissions": {
-    "allow": [
-      "Read(//Users/nandyba/Documents/ACI/aave-helpers/**)",
-      "Bash(forge test:*)"
-    ]
+    "allow": ["Bash(forge test:*)"]
   }
 }
