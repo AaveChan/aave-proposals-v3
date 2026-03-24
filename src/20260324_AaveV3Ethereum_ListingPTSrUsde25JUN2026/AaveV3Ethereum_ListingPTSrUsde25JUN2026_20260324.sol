@@ -25,6 +25,7 @@ contract AaveV3Ethereum_ListingPTSrUsde25JUN2026_20260324 is AaveV3PayloadEthere
   address public constant PT_srUSDe_25JUN2026 = 0x619D75E3b790eBC21c289f2805Bb7177A7D732E2;
   uint256 public constant PT_srUSDe_25JUN2026_SEED_AMOUNT = 100e18;
   address public constant PT_srUSDe_25JUN2026_LM_ADMIN = 0xac140648435d03f784879cd789130F22Ef588Fcd;
+  address public constant STRATA_SEEDING_ADDRESS = 0x981EfbD4d3932FA750f0191F00535D7Cb586A558;
 
   error NoAvailableEmodeCategory();
 
@@ -53,7 +54,7 @@ contract AaveV3Ethereum_ListingPTSrUsde25JUN2026_20260324 is AaveV3PayloadEthere
     listings[0] = IAaveV3ConfigEngine.Listing({
       asset: PT_srUSDe_25JUN2026,
       assetSymbol: 'PT_srUSDe_25JUN2026',
-      priceFeed: 0x0000000000000000000000000000000000000000, // placeholder will need to be updated with a valid feed before execution
+      priceFeed: 0xB539C6C0fc36ff1572B13ACec343B854937db576, // previous price-feed placeholder will need to be updated with a valid feed before execution
       enabledToBorrow: EngineFlags.DISABLED,
       borrowableInIsolation: EngineFlags.DISABLED,
       withSiloedBorrowing: EngineFlags.DISABLED,
@@ -139,13 +140,10 @@ contract AaveV3Ethereum_ListingPTSrUsde25JUN2026_20260324 is AaveV3PayloadEthere
   }
 
   function _preExecute() internal override {
-    // Uncomment if seed tokens need to be sourced from the Collector
-    // (e.g. if direct funding to the executor was sent to the wrong address)
-    // AaveV3Ethereum.COLLECTOR.transfer(
-    //   IERC20(PT_srUSDe_25JUN2026),
-    //   GovernanceV3Ethereum.EXECUTOR_LVL_1,
-    //   PT_srUSDe_25JUN2026_SEED_AMOUNT
-    // );
+    IERC20(AaveV3EthereumAssets.PT_srUSDe_2APR2026_UNDERLYING).safeTransfer(
+      STRATA_SEEDING_ADDRESS,
+      100e18
+    );
   }
 
   function _findFirstUnusedEmodeCategory(IPool pool) private view returns (uint8) {

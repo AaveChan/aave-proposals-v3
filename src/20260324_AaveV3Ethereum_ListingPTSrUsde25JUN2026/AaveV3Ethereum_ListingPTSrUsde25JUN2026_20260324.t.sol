@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 import {GovV3Helpers} from 'aave-helpers/src/GovV3Helpers.sol';
-import {AaveV3Ethereum} from 'aave-address-book/AaveV3Ethereum.sol';
+import {AaveV3Ethereum, AaveV3EthereumAssets} from 'aave-address-book/AaveV3Ethereum.sol';
 import {IERC20} from 'openzeppelin-contracts/contracts/token/ERC20/IERC20.sol';
 import {IEmissionManager} from 'aave-v3-origin/contracts/rewards/interfaces/IEmissionManager.sol';
 
@@ -37,6 +37,17 @@ contract AaveV3Ethereum_ListingPTSrUsde25JUN2026_20260324_Test is ProtocolV3Test
     GovV3Helpers.executePayload(vm, address(proposal));
     address aTokenAddress = AaveV3Ethereum.POOL.getReserveAToken(proposal.PT_srUSDe_25JUN2026());
     assertGe(IERC20(aTokenAddress).balanceOf(address(AaveV3Ethereum.DUST_BIN)), 10 ** 18);
+  }
+
+  function test_PT_srUSDe_2APR2026_sentBackToStrata() public {
+    uint256 balanceBefore = IERC20(AaveV3EthereumAssets.PT_srUSDe_2APR2026_UNDERLYING).balanceOf(
+      proposal.STRATA_SEEDING_ADDRESS()
+    );
+    GovV3Helpers.executePayload(vm, address(proposal));
+    uint256 balanceAfter = IERC20(AaveV3EthereumAssets.PT_srUSDe_2APR2026_UNDERLYING).balanceOf(
+      proposal.STRATA_SEEDING_ADDRESS()
+    );
+    assertEq(balanceAfter - balanceBefore, 100e18);
   }
 
   function test_PT_srUSDe_25JUN2026Admin() public {
