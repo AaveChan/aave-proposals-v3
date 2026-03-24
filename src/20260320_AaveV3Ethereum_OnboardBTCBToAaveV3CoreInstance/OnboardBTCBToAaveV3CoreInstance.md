@@ -41,7 +41,6 @@ The table below illustrates the configured risk parameters for **BTCb**
 | Siloed Borrowing          | DISABLED |
 | Borrowable in Isolation   | DISABLED |
 
-
 ### Oracle
 
 [chainlink BTC/USD](https://etherscan.io/address/0xF4030086522a5bEEa4988F8cA5B36dbC97BeE88c)
