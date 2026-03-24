@@ -43,7 +43,7 @@ The table below illustrates the configured risk parameters for **BTCb**
 
 ### Oracle
 
-[chainlink BTC/USD](https://etherscan.io/address/0xF4030086522a5bEEa4988F8cA5B36dbC97BeE88c)
+[chainlink SVB BTC/USD](https://etherscan.io/address/0xb41E773f507F7a7EA890b1afB7d2b660c30C8B0A)
 
 Additionally [0xac140648435d03f784879cd789130F22Ef588Fcd](https://etherscan.io/address/0xac140648435d03f784879cd789130F22Ef588Fcd) has been set as the emission admin for BTCb and the corresponding aToken.
 
