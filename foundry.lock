@@ -1,8 +1,8 @@
 {
   "lib/aave-helpers": {
     "branch": {
-      "name": "main",
-      "rev": "53d58706d04c59586bafda06fad01d30690eb2c1"
+      "name": "fix/memory-oog-storage-validation",
+      "rev": "5f13dbd157b188f76d714296d0ed84976b79829d"
     }
   },
   "lib/aave-umbrella": {
