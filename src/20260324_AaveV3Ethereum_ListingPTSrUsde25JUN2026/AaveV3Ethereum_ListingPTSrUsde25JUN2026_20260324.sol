@@ -98,7 +98,7 @@ contract AaveV3Ethereum_ListingPTSrUsde25JUN2026_20260324 is AaveV3PayloadEthere
       memory eModeCreations = new IAaveV3ConfigEngine.EModeCategoryCreation[](2);
 
     address[] memory collateralAssets_PT_srUSDe_25JUN2026__Stablecoins = new address[](3);
-    address[] memory borrowableAssets_PT_srUSDe_25JUN2026__Stablecoins = new address[](4);
+    address[] memory borrowableAssets_PT_srUSDe_25JUN2026__Stablecoins = new address[](3);
 
     collateralAssets_PT_srUSDe_25JUN2026__Stablecoins[0] = PT_srUSDe_25JUN2026;
     collateralAssets_PT_srUSDe_25JUN2026__Stablecoins[1] = AaveV3EthereumAssets.sUSDe_UNDERLYING;
@@ -107,7 +107,6 @@ contract AaveV3Ethereum_ListingPTSrUsde25JUN2026_20260324 is AaveV3PayloadEthere
     borrowableAssets_PT_srUSDe_25JUN2026__Stablecoins[0] = AaveV3EthereumAssets.USDC_UNDERLYING;
     borrowableAssets_PT_srUSDe_25JUN2026__Stablecoins[1] = AaveV3EthereumAssets.USDT_UNDERLYING;
     borrowableAssets_PT_srUSDe_25JUN2026__Stablecoins[2] = AaveV3EthereumAssets.USDe_UNDERLYING;
-    borrowableAssets_PT_srUSDe_25JUN2026__Stablecoins[3] = AaveV3EthereumAssets.USDtb_UNDERLYING;
 
     eModeCreations[0] = IAaveV3ConfigEngine.EModeCategoryCreation({
       ltv: 50_00, // placeholder will need to be updated with a valid parameter before execution
