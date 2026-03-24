@@ -1,5 +1,5 @@
 /**
- * PT Ethena listing generator for any Aave V3 chain
+ * PT listing generator for any Aave V3 chain
  *
  * Supports two listing types selectable at runtime:
  *   - PT Ethena: lists PT_USDe + PT_sUSDe (2 tokens, 4 eModes)
@@ -16,7 +16,7 @@
  *   - IAgentHub.addAllowedMarket whitelisting
  *   - _findFirstUnusedEmodeCategory helper
  *
- * Usage: npm run generate:pt-ethena
+ * Usage: npm run generate:pt
  */
 import 'dotenv/config';
 import {select, confirm} from '@inquirer/prompts';
@@ -39,7 +39,6 @@ import type {Hex} from 'viem';
 // Constants
 // ---------------------------------------------------------------------------
 
-/** Standard PT listing params — same across all PT proposals */
 const PT_BORROW_UPDATE = {
   enabledToBorrow: 'DISABLED',
   flashloanable: 'ENABLED',
@@ -78,6 +77,8 @@ type NewPt = {
   lmAdmin?: Hex;
 };
 
+type EmodeParamSet = {ltv: string; liqThreshold: string; liqBonus: string};
+
 // ---------------------------------------------------------------------------
 // Prompt helpers
 // ---------------------------------------------------------------------------
@@ -90,7 +91,6 @@ async function promptNewPt(
 
   const address = await addressPrompt({message: `  ${kind} address`, required: true});
 
-  // Fetch symbol on-chain and normalise hyphens → underscores (e.g. "PT-USDe-7AUG2026" → "PT_USDe_7AUG2026")
   let onChainSymbol = '';
   try {
     const erc20 = getContract({
@@ -135,10 +135,7 @@ async function promptNewPt(
   };
 }
 
-async function promptEmodeParams(
-  label: string,
-  defaults: {ltv: string; liqThreshold: string; liqBonus: string},
-) {
+async function promptEmodeParams(label: string, defaults: EmodeParamSet): Promise<EmodeParamSet> {
   console.log(`\n  eMode: ${label}`);
   const ltv = await percentPrompt({message: `    LTV`}, {default: defaults.ltv});
   const liqThreshold = await percentPrompt(
@@ -147,6 +144,51 @@ async function promptEmodeParams(
   );
   const liqBonus = await percentPrompt({message: `    LiqBonus`}, {default: defaults.liqBonus});
   return {ltv, liqThreshold, liqBonus};
+}
+
+// ---------------------------------------------------------------------------
+// Config builders
+// ---------------------------------------------------------------------------
+
+function buildPtListing(pt: NewPt): Listing {
+  return {
+    asset: pt.address,
+    assetSymbol: pt.symbol,
+    decimals: 18,
+    priceFeed: pt.priceFeed,
+    supplyCap: pt.supplyCap,
+    admin: pt.lmAdmin as Hex,
+    eModeCategory: '',
+    ...PT_BORROW_UPDATE,
+    ...PT_COLLATERAL_UPDATE,
+    ...PT_CAPS,
+    rateStrategyParams: {...PT_RATE_PARAMS},
+  };
+}
+
+function buildEmodePair(
+  symbol: string,
+  pairedUnderlying: string,
+  oldPt: string | undefined,
+  stablecoinsParams: EmodeParamSet,
+  usdeParams: EmodeParamSet,
+  stablecoins: string[],
+): EModeCategoryCreation[] {
+  const collaterals = [symbol, pairedUnderlying, ...(oldPt ? [oldPt] : [])];
+  return [
+    {
+      ...stablecoinsParams,
+      label: `${symbol}__Stablecoins`,
+      collateralAssets: collaterals,
+      borrowableAssets: stablecoins,
+    },
+    {
+      ...usdeParams,
+      label: `${symbol}__USDe`,
+      collateralAssets: collaterals,
+      borrowableAssets: ['USDe'],
+    },
+  ];
 }
 
 // ---------------------------------------------------------------------------
@@ -173,11 +215,10 @@ function patchNewPtInEmodeArtifact(artifact: CodeArtifact, symbol: string, pool:
 }
 
 // ---------------------------------------------------------------------------
-// Custom PT CodeArtifact (preExecute + liqFee + agent hub whitelisting)
+// PT-specific CodeArtifact (preExecute + liqFee + agent hub whitelisting)
 // ---------------------------------------------------------------------------
 
 /**
- * Builds the PT-specific code artifact for any number of PT tokens.
  * @param ptSymbols  Symbols of the new PTs being listed (1 for Strata, 2 for Ethena).
  * @param emodeCount Number of new eModes created (2 for Strata, 4 for Ethena).
  */
@@ -252,7 +293,7 @@ ${ptWhitelists}`;
 // Main
 // ---------------------------------------------------------------------------
 
-console.log('\nPT Ethena listing generator');
+console.log('\nPT listing generator');
 console.log('Generates all proposal files via the standard generator pipeline\n');
 
 // 1. Select pool
@@ -265,9 +306,9 @@ const chain = getPoolChain(POOL);
 const GOV = `GovernanceV3${chain}`;
 const MISC = `Misc${chain}`;
 
-const poolAssetSet = new Set(getAssets(POOL));
+const poolAssets = getAssets(POOL);
+const poolAssetSet = new Set(poolAssets);
 const STABLECOINS = ['USDC', 'USDT', 'USDe', 'USDtb'].filter((a) => poolAssetSet.has(a));
-const USDE_ONLY = ['USDe'];
 
 // 2. Select listing type
 const listingType = (await select({
@@ -282,16 +323,15 @@ const listingType = (await select({
 // Listing-type-specific prompts and config
 // ---------------------------------------------------------------------------
 
-let expiry = '';
-let shortName = '';
-let listingCfg: Listing[] = [];
-let eModeCfg: EModeCategoryCreation[] = [];
-let newPts: NewPt[] = [];
+let expiry: string;
+let shortName: string;
+let listingCfg: Listing[];
+let eModeCfg: EModeCategoryCreation[];
+let newPts: NewPt[];
 
 if (listingType === 'ethena') {
-  // --- Old PT assets from address book (for eMode migration) ---
-  const PT_USDE_ASSETS = getAssets(POOL).filter((a) => a.startsWith('PT_USDe_'));
-  const PT_SUSDE_ASSETS = getAssets(POOL).filter((a) => a.startsWith('PT_sUSDE_'));
+  const PT_USDE_ASSETS = poolAssets.filter((a) => a.startsWith('PT_USDe_'));
+  const PT_SUSDE_ASSETS = poolAssets.filter((a) => a.startsWith('PT_sUSDE_'));
 
   let oldPtUsde: string | undefined;
   if (PT_USDE_ASSETS.length > 0) {
@@ -315,101 +355,49 @@ if (listingType === 'ethena') {
     );
   }
 
-  // --- New PT prompts ---
   const newPtUsde = await promptNewPt('PT_USDe', POOL);
   const newPtSusde = await promptNewPt('PT_sUSDe', POOL);
   newPts = [newPtUsde, newPtSusde];
 
-  // --- eMode params ---
   console.log('\n--- eMode parameters (% values, e.g. 87.2 → 87.20%) ---');
-  const eModeParams = {
-    usdeStablecoins: await promptEmodeParams(`${newPtUsde.symbol}__Stablecoins`, {
-      ltv: '87.2',
-      liqThreshold: '89.2',
-      liqBonus: '4.4',
-    }),
-    usdeUsde: await promptEmodeParams(`${newPtUsde.symbol}__USDe`, {
-      ltv: '88.1',
-      liqThreshold: '90.1',
-      liqBonus: '3.4',
-    }),
-    susdeStablecoins: await promptEmodeParams(`${newPtSusde.symbol}__Stablecoins`, {
-      ltv: '86.4',
-      liqThreshold: '88.4',
-      liqBonus: '5.5',
-    }),
-    susdeUsde: await promptEmodeParams(`${newPtSusde.symbol}__USDe`, {
-      ltv: '87.2',
-      liqThreshold: '89.2',
-      liqBonus: '4.5',
-    }),
-  };
+  const usdeStablecoins = await promptEmodeParams(`${newPtUsde.symbol}__Stablecoins`, {
+    ltv: '87.2',
+    liqThreshold: '89.2',
+    liqBonus: '4.4',
+  });
+  const usdeUsde = await promptEmodeParams(`${newPtUsde.symbol}__USDe`, {
+    ltv: '88.1',
+    liqThreshold: '90.1',
+    liqBonus: '3.4',
+  });
+  const susdeStablecoins = await promptEmodeParams(`${newPtSusde.symbol}__Stablecoins`, {
+    ltv: '86.4',
+    liqThreshold: '88.4',
+    liqBonus: '5.5',
+  });
+  const susdeUsde = await promptEmodeParams(`${newPtSusde.symbol}__USDe`, {
+    ltv: '87.2',
+    liqThreshold: '89.2',
+    liqBonus: '4.5',
+  });
 
-  expiry = newPtUsde.symbol.replace(/^PT_USDe_/, ''); // e.g. "7AUG2026"
+  expiry = newPtUsde.symbol.replace(/^PT_USDe_/, '');
   shortName = `ListingPTEthena${expiry}`;
-
-  listingCfg = [
-    {
-      asset: newPtUsde.address,
-      assetSymbol: newPtUsde.symbol,
-      decimals: 18,
-      priceFeed: newPtUsde.priceFeed,
-      supplyCap: newPtUsde.supplyCap,
-      admin: newPtUsde.lmAdmin as Hex,
-      eModeCategory: '',
-      ...PT_BORROW_UPDATE,
-      ...PT_COLLATERAL_UPDATE,
-      ...PT_CAPS,
-      rateStrategyParams: {...PT_RATE_PARAMS},
-    },
-    {
-      asset: newPtSusde.address,
-      assetSymbol: newPtSusde.symbol,
-      decimals: 18,
-      priceFeed: newPtSusde.priceFeed,
-      supplyCap: newPtSusde.supplyCap,
-      admin: newPtSusde.lmAdmin as Hex,
-      eModeCategory: '',
-      ...PT_BORROW_UPDATE,
-      ...PT_COLLATERAL_UPDATE,
-      ...PT_CAPS,
-      rateStrategyParams: {...PT_RATE_PARAMS},
-    },
-  ];
-
-  // new PT symbols first; old maturity added as collateral so users can migrate
+  listingCfg = newPts.map(buildPtListing);
   eModeCfg = [
-    {
-      ...eModeParams.usdeStablecoins,
-      label: `${newPtUsde.symbol}__Stablecoins`,
-      collateralAssets: [newPtUsde.symbol, 'USDe', ...(oldPtUsde ? [oldPtUsde] : [])],
-      borrowableAssets: STABLECOINS,
-    },
-    {
-      ...eModeParams.usdeUsde,
-      label: `${newPtUsde.symbol}__USDe`,
-      collateralAssets: [newPtUsde.symbol, 'USDe', ...(oldPtUsde ? [oldPtUsde] : [])],
-      borrowableAssets: USDE_ONLY,
-    },
-    {
-      ...eModeParams.susdeStablecoins,
-      label: `${newPtSusde.symbol}__Stablecoins`,
-      collateralAssets: [newPtSusde.symbol, 'sUSDe', ...(oldPtSusde ? [oldPtSusde] : [])],
-      borrowableAssets: STABLECOINS,
-    },
-    {
-      ...eModeParams.susdeUsde,
-      label: `${newPtSusde.symbol}__USDe`,
-      collateralAssets: [newPtSusde.symbol, 'sUSDe', ...(oldPtSusde ? [oldPtSusde] : [])],
-      borrowableAssets: USDE_ONLY,
-    },
+    ...buildEmodePair(newPtUsde.symbol, 'USDe', oldPtUsde, usdeStablecoins, usdeUsde, STABLECOINS),
+    ...buildEmodePair(
+      newPtSusde.symbol,
+      'sUSDe',
+      oldPtSusde,
+      susdeStablecoins,
+      susdeUsde,
+      STABLECOINS,
+    ),
   ];
 } else {
-  // -------------------------------------------------------------------------
   // Strata: PT_srUSDe — 1 token, 2 eModes
-  // -------------------------------------------------------------------------
-
-  const PT_SRUSDE_ASSETS = getAssets(POOL).filter((a) => a.startsWith('PT_srUSDe_'));
+  const PT_SRUSDE_ASSETS = poolAssets.filter((a) => a.startsWith('PT_srUSDe_'));
 
   let oldPtSrUsde: string | undefined;
   if (PT_SRUSDE_ASSETS.length > 0) {
@@ -427,53 +415,28 @@ if (listingType === 'ethena') {
   newPts = [newPtSrUsde];
 
   console.log('\n--- eMode parameters (% values, e.g. 87.2 → 87.20%) ---');
-  const eModeParams = {
-    stablecoins: await promptEmodeParams(`${newPtSrUsde.symbol}__Stablecoins`, {
-      ltv: '87.2',
-      liqThreshold: '89.2',
-      liqBonus: '4.4',
-    }),
-    usde: await promptEmodeParams(`${newPtSrUsde.symbol}__USDe`, {
-      ltv: '88.1',
-      liqThreshold: '90.1',
-      liqBonus: '3.4',
-    }),
-  };
+  const stablecoins = await promptEmodeParams(`${newPtSrUsde.symbol}__Stablecoins`, {
+    ltv: '87.2',
+    liqThreshold: '89.2',
+    liqBonus: '4.4',
+  });
+  const usde = await promptEmodeParams(`${newPtSrUsde.symbol}__USDe`, {
+    ltv: '88.1',
+    liqThreshold: '90.1',
+    liqBonus: '3.4',
+  });
 
-  expiry = newPtSrUsde.symbol.replace(/^PT_srUSDe_/, ''); // e.g. "29MAY2026"
+  expiry = newPtSrUsde.symbol.replace(/^PT_srUSDe_/, '');
   shortName = `ListingPTSrUsde${expiry}`;
-
-  listingCfg = [
-    {
-      asset: newPtSrUsde.address,
-      assetSymbol: newPtSrUsde.symbol,
-      decimals: 18,
-      priceFeed: newPtSrUsde.priceFeed,
-      supplyCap: newPtSrUsde.supplyCap,
-      admin: newPtSrUsde.lmAdmin as Hex,
-      eModeCategory: '',
-      ...PT_BORROW_UPDATE,
-      ...PT_COLLATERAL_UPDATE,
-      ...PT_CAPS,
-      rateStrategyParams: {...PT_RATE_PARAMS},
-    },
-  ];
-
-  // new PT symbol first; old maturity added as collateral so users can migrate
-  eModeCfg = [
-    {
-      ...eModeParams.stablecoins,
-      label: `${newPtSrUsde.symbol}__Stablecoins`,
-      collateralAssets: [newPtSrUsde.symbol, 'sUSDe', ...(oldPtSrUsde ? [oldPtSrUsde] : [])],
-      borrowableAssets: STABLECOINS,
-    },
-    {
-      ...eModeParams.usde,
-      label: `${newPtSrUsde.symbol}__USDe`,
-      collateralAssets: [newPtSrUsde.symbol, 'sUSDe', ...(oldPtSrUsde ? [oldPtSrUsde] : [])],
-      borrowableAssets: USDE_ONLY,
-    },
-  ];
+  listingCfg = newPts.map(buildPtListing);
+  eModeCfg = buildEmodePair(
+    newPtSrUsde.symbol,
+    'sUSDe',
+    oldPtSrUsde,
+    stablecoins,
+    usde,
+    STABLECOINS,
+  );
 }
 
 // ---------------------------------------------------------------------------
@@ -521,19 +484,16 @@ const cache = {blockNumber};
 // Build & patch artifacts
 // ---------------------------------------------------------------------------
 
-// assetListing artifact — fix seed amounts (generator hardcodes 1e18)
 const listingArtifact = assetListing.build({pool: POOL, cfg: listingCfg, options, cache});
 for (const pt of newPts) {
   patchSeedAmount(listingArtifact, pt.symbol, pt.seedTokens);
 }
 
-// eModeCreations artifact — fix new PT collateral references (not yet in address book)
 const eModesArtifact = eModeCreations.build({pool: POOL, cfg: eModeCfg, options, cache});
 for (const pt of newPts) {
   patchNewPtInEmodeArtifact(eModesArtifact, pt.symbol, POOL);
 }
 
-// PT-specific extras: preExecute + liqFee + agent hub whitelisting
 const ptArtifact = buildPtArtifact(
   newPts.map((pt) => pt.symbol),
   eModeCfg.length,
@@ -543,7 +503,7 @@ const ptArtifact = buildPtArtifact(
 );
 
 // ---------------------------------------------------------------------------
-// Assemble pool config and generate all files
+// Assemble pool config and write all files
 // ---------------------------------------------------------------------------
 
 const poolConfigs: PoolConfigs = {
@@ -552,7 +512,6 @@ const poolConfigs: PoolConfigs = {
     configs: {
       [FEATURE.ASSET_LISTING]: listingCfg,
       [FEATURE.EMODES_CREATION]: eModeCfg,
-      // Persisted so ptEthena.ts can rebuild the artifact when re-run with --configFile
       [FEATURE.OTHERS]: ptArtifact.code,
     },
     cache,
