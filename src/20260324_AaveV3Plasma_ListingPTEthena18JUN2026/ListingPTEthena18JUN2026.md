@@ -6,9 +6,95 @@ discussions: "https://governance.aave.com/t/direct-to-aip-onboard-usde-susde-jun
 
 ## Simple Summary
 
+This AIP proposes to onboard USDe and sUSDe June expiry PT tokens on Aave V3 Plasma Instance.
+
 ## Motivation
 
+The previous USDe and sUSDe PT tokens that were onboarded have brought significant inflows to Aave, in preparation for the expiry and rollover we propose to onboard the next expiry of this PT token. We expect at a minimum that deposits will match those in the current expiry PT token, with potentially some sidelined demand.
+
 ## Specification
+
+**PT sUSDe 18 Jun 2026:**
+
+https://plasmascan.to/address/0x30559e3d35e33ab69399a3fe9f383d32bd3c016e
+
+**PT USDe 18 Jun 2026:**
+
+https://plasmascan.to/address/0x23b17d3944742ace3d0c71586fcb320d1e4a1ed2
+
+**Initial E-mode Risk Oracle**
+
+| **Parameter** | **Value**   | **Value** |
+| ------------- | ----------- | --------- |
+| E-Mode        | Stablecoins | USDe      |
+| LTV           | 91%         | 93%       |
+| LT            | 93%         | 95%       |
+| LB            | 3.1%        | 2.1%      |
+
+**Linear Discount Rate Oracle**
+
+| **Parameter**          | **Value** |
+| ---------------------- | --------- |
+| discountRatePerYear    | 2.952%    |
+| maxDiscountRatePerYear | 13.5693%  |
+
+**PT-USDe Stablecoins E-mode**
+
+| **Asset**         | **PT-USDe-18JUN2026**  | **PT-USDe-9APR2026**   | **USDe**               | **USDT0** |
+| ----------------- | ---------------------- | ---------------------- | ---------------------- | --------- |
+| Collateral        | Yes                    | Yes                    | Yes                    | No        |
+| Borrowable        | No                     | No                     | Yes                    | Yes       |
+| LTV               | Subject to Risk Oracle | Subject to Risk Oracle | Subject to Risk Oracle | -         |
+| LT                | Subject to Risk Oracle | Subject to Risk Oracle | Subject to Risk Oracle | -         |
+| Liquidation Bonus | Subject to Risk Oracle | Subject to Risk Oracle | Subject to Risk Oracle | -         |
+
+**PT-USDe USDe E-mode**
+
+| **Asset**         | **PT-USDe-18JUN2026**  | **PT-USDe-9APR2026**   | **USDe**               |
+| ----------------- | ---------------------- | ---------------------- | ---------------------- |
+| Collateral        | Yes                    | Yes                    | Yes                    |
+| Borrowable        | No                     | No                     | Yes                    |
+| LTV               | Subject to Risk Oracle | Subject to Risk Oracle | Subject to Risk Oracle |
+| LT                | Subject to Risk Oracle | Subject to Risk Oracle | Subject to Risk Oracle |
+| Liquidation Bonus | Subject to Risk Oracle | Subject to Risk Oracle | Subject to Risk Oracle |
+
+### PT-sUSDe-18JUN2026
+
+**Initial E-mode Risk Oracle**
+
+| **Parameter** | **Value**   | **Value** |
+| ------------- | ----------- | --------- |
+| E-Mode        | Stablecoins | USDe      |
+| LTV           | 90%         | 91.9%     |
+| LT            | 92%         | 93.9%     |
+| LB            | 4.1%        | 3.1%      |
+
+**Linear Discount Rate Oracle**
+
+| **Parameter**                 | **Value** |
+| ----------------------------- | --------- |
+| discountRatePerYear (Initial) | 3.9617%   |
+| maxDiscountRatePerYear        | 14.4575%  |
+
+**PT-sUSDe Stablecoins E-mode**
+
+| **Asset**         | **PT-sUSDe-18JUN2026** | **PT-sUSDe-9APR2026**  | **sUSDe**              | **USDT0** | **USDe** |
+| ----------------- | ---------------------- | ---------------------- | ---------------------- | --------- | -------- |
+| Collateral        | Yes                    | Yes                    | Yes                    | No        | No       |
+| Borrowable        | No                     | No                     | No                     | Yes       | Yes      |
+| LTV               | Subject to Risk Oracle | Subject to Risk Oracle | Subject to Risk Oracle | -         | -        |
+| LT                | Subject to Risk Oracle | Subject to Risk Oracle | Subject to Risk Oracle | -         | -        |
+| Liquidation Bonus | Subject to Risk Oracle | Subject to Risk Oracle | Subject to Risk Oracle | -         | -        |
+
+**PT-sUSDe USDe E-mode**
+
+| **Asset**         | **PT-sUSDe-18JUN2026** | **PT--9APR2026**       | **sUSDe**              | **USDe** |
+| ----------------- | ---------------------- | ---------------------- | ---------------------- | -------- |
+| Collateral        | Yes                    | Yes                    | Yes                    | No       |
+| Borrowable        | No                     | No                     | No                     | Yes      |
+| LTV               | Subject to Risk Oracle | Subject to Risk Oracle | Subject to Risk Oracle | -        |
+| LT                | Subject to Risk Oracle | Subject to Risk Oracle | Subject to Risk Oracle | -        |
+| Liquidation Bonus | Subject to Risk Oracle | Subject to Risk Oracle | Subject to Risk Oracle | -        |
 
 The table below illustrates the configured risk parameters for **PT_USDe_18JUN2026**
 
@@ -60,6 +146,10 @@ Additionally [0xac140648435d03f784879cd789130F22Ef588Fcd](https://plasmascan.to/
 | Oracle                          | 0x0000000000000000000000000000000000000000 |
 
 Additionally [0xac140648435d03f784879cd789130F22Ef588Fcd](https://plasmascan.to/address/0xac140648435d03f784879cd789130F22Ef588Fcd) has been set as the emission admin for PT_sUSDE_18JUN2026 and the corresponding aToken.
+
+## Disclaimer
+
+ACI is not directly affiliated with Pendle and did not receive compensation for the creation of this proposal. Some ACI employees may hold Pendle tokens.
 
 ## References
 
