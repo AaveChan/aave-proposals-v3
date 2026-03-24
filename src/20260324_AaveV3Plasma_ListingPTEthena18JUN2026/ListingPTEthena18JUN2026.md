@@ -33,12 +33,13 @@ https://plasmascan.to/address/0x23b17d3944742ace3d0c71586fcb320d1e4a1ed2
 
 **Linear Discount Rate Oracle**
 
-| **Parameter**            | **Value**                                                                             |
-| ------------------------ | ------------------------------------------------------------------------------------- |
-| discountRatePerYear      | 2.952%                                                                                |
-| maxDiscountRatePerYear   | 13.5693%                                                                              |
-| Last answer (March 24th) | 99279807 ($0.99279807)                                                                |
-| Oracle link              | https://plasmascan.to/address/0x0521d52A7eA98A8B737D367F81975019360e444f#readContract |
+| **Parameter**            | **Value**                                                                                                                                  |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Oracle                   | [PT Capped USDe USDT/USD linear discount 18JUN2026](https://plasmascan.to/address/0x0521d52A7eA98A8B737D367F81975019360e444f#readContract) |
+| discountRatePerYear      | 2.952%                                                                                                                                     |
+| maxDiscountRatePerYear   | 13.5693%                                                                                                                                   |
+| Last answer (March 24th) | 99279807 ($0.99279807)                                                                                                                     |
+| USDT/USD Oracle          | [Capped USDT/USD](https://plasmascan.to/address/0xdBbB0b5DD13E7AC9C56624834ef193df87b022c3#readContract)                                   |
 
 **PT-USDe Stablecoins E-mode**
 
@@ -73,12 +74,13 @@ https://plasmascan.to/address/0x23b17d3944742ace3d0c71586fcb320d1e4a1ed2
 
 **Linear Discount Rate Oracle**
 
-| **Parameter**                 | **Value**                                                                             |
-| ----------------------------- | ------------------------------------------------------------------------------------- |
-| discountRatePerYear (Initial) | 3.9617%                                                                               |
-| maxDiscountRatePerYear        | 14.4575%                                                                              |
-| Last answer (March 24th)      | 99043771 ($0.99043771)                                                                |
-| Oracle link                   | https://plasmascan.to/address/0x02d8bf797271e6e0ab65a6d235b93d6e673c055b#readContract |
+| **Parameter**                 | **Value**                                                                                                                                   |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| Oracle                        | [PT Capped sUSDe USDT/USD linear discount 18JUN2026](https://plasmascan.to/address/0x02d8bf797271e6e0ab65a6d235b93d6e673c055b#readContract) |
+| discountRatePerYear (Initial) | 3.9617%                                                                                                                                     |
+| maxDiscountRatePerYear        | 14.4575%                                                                                                                                    |
+| Last answer (March 24th)      | 99043771 ($0.99043771)                                                                                                                      |
+| USDT/USD Oracle               | [Capped USDT/USD](https://plasmascan.to/address/0xdBbB0b5DD13E7AC9C56624834ef193df87b022c3#readContract)                                    |
 
 **PT-sUSDe Stablecoins E-mode**
 
