@@ -308,7 +308,11 @@ const MISC = `Misc${chain}`;
 
 const poolAssets = getAssets(POOL);
 const poolAssetSet = new Set(poolAssets);
-const STABLECOINS = ['USDC', 'USDT', 'USDe', 'USDtb'].filter((a) => poolAssetSet.has(a));
+const STABLECOINS = ['USDC', 'USDT', 'USDe', 'USDtb']
+  .map((a) =>
+    a === 'USDT' && !poolAssetSet.has('USDT') && poolAssetSet.has('USDT0') ? 'USDT0' : a,
+  )
+  .filter((a) => poolAssetSet.has(a));
 
 // 2. Select listing type
 const listingType = (await select({
