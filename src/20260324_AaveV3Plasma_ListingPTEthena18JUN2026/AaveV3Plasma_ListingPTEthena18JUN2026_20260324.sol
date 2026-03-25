@@ -7,7 +7,6 @@ import {EngineFlags} from 'aave-v3-origin/contracts/extensions/v3-config-engine/
 import {IAaveV3ConfigEngine} from 'aave-v3-origin/contracts/extensions/v3-config-engine/IAaveV3ConfigEngine.sol';
 import {IERC20} from 'openzeppelin-contracts/contracts/token/ERC20/IERC20.sol';
 import {SafeERC20} from 'openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol';
-import {GovernanceV3Plasma} from 'aave-address-book/GovernanceV3Plasma.sol';
 import {IEmissionManager} from 'aave-v3-origin/contracts/rewards/interfaces/IEmissionManager.sol';
 import {MiscPlasma} from 'aave-address-book/MiscPlasma.sol';
 import {IAgentHub} from '../interfaces/chaos-agents/IAgentHub.sol';
@@ -206,20 +205,6 @@ contract AaveV3Plasma_ListingPTEthena18JUN2026_20260324 is AaveV3PayloadPlasma {
     return eModeCreations;
   }
 
-  function _preExecute() internal override {
-    // Uncomment if seed tokens need to be sourced from the Collector
-    // (e.g. if direct funding to the executor was sent to the wrong address)
-    // AaveV3Plasma.COLLECTOR.transfer(
-    //   IERC20(PT_USDe_18JUN2026),
-    //   GovernanceV3Plasma.EXECUTOR_LVL_1,
-    //   PT_USDe_18JUN2026_SEED_AMOUNT
-    // );
-    // AaveV3Plasma.COLLECTOR.transfer(
-    //   IERC20(PT_sUSDE_18JUN2026),
-    //   GovernanceV3Plasma.EXECUTOR_LVL_1,
-    //   PT_sUSDE_18JUN2026_SEED_AMOUNT
-    // );
-  }
 
   function _findFirstUnusedEmodeCategory(IPool pool) private view returns (uint8) {
     // eMode id 0 is skipped intentionally as it is the reserved default
