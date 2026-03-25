@@ -19,7 +19,7 @@ contract AaveV3Plasma_ListingPTEthena18JUN2026_20260324_Test is ProtocolV3TestBa
   AaveV3Plasma_ListingPTEthena18JUN2026_20260324 internal proposal;
 
   function setUp() public {
-    vm.createSelectFork(vm.rpcUrl('plasma'), 17434261);
+    vm.createSelectFork(vm.rpcUrl('plasma'), 17531959);
     proposal = new AaveV3Plasma_ListingPTEthena18JUN2026_20260324();
   }
 
