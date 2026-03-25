@@ -45,9 +45,6 @@ contract AaveV3Plasma_ListingPTEthena18JUN2026_20260324 is AaveV3PayloadPlasma {
       PT_sUSDE_18JUN2026_LM_ADMIN
     );
 
-    AaveV3Plasma.POOL_CONFIGURATOR.setLiquidationProtocolFee(PT_USDe_18JUN2026, 1000);
-    AaveV3Plasma.POOL_CONFIGURATOR.setLiquidationProtocolFee(PT_sUSDE_18JUN2026, 1000);
-
     uint8 nextID = _findFirstUnusedEmodeCategory(AaveV3Plasma.POOL);
 
     // whitelist the new eModes on automated chaos-agents [agentId 0: EModeCategoryUpdate_Core]
@@ -79,7 +76,7 @@ contract AaveV3Plasma_ListingPTEthena18JUN2026_20260324 is AaveV3PayloadPlasma {
       supplyCap: 15_000_000,
       borrowCap: 1,
       debtCeiling: 0,
-      liqProtocolFee: 0,
+      liqProtocolFee: 10_00,
       rateStrategyParams: IAaveV3ConfigEngine.InterestRateInputData({
         optimalUsageRatio: 45_00,
         baseVariableBorrowRate: 0,
@@ -102,7 +99,7 @@ contract AaveV3Plasma_ListingPTEthena18JUN2026_20260324 is AaveV3PayloadPlasma {
       supplyCap: 50_000_000,
       borrowCap: 1,
       debtCeiling: 0,
-      liqProtocolFee: 0,
+      liqProtocolFee: 10_00,
       rateStrategyParams: IAaveV3ConfigEngine.InterestRateInputData({
         optimalUsageRatio: 45_00,
         baseVariableBorrowRate: 0,

@@ -190,8 +190,8 @@
 | 24 | SiloedBorrowingChanged(asset: 0x30559E3d35e33AB69399a3fe9F383d32bd3c016E (symbol: PT-sUSDE-18JUN2026), oldState: false, newState: false) |
 | 25 | ReserveFactorChanged(asset: 0x30559E3d35e33AB69399a3fe9F383d32bd3c016E (symbol: PT-sUSDE-18JUN2026), oldReserveFactor: 0, newReserveFactor: 4500) |
 | 27 | ReserveFlashLoaning(asset: 0x30559E3d35e33AB69399a3fe9F383d32bd3c016E (symbol: PT-sUSDE-18JUN2026), enabled: true) |
-| 28 | LiquidationProtocolFeeChanged(asset: 0x23B17d3944742ACe3d0C71586FcB320d1e4a1Ed2 (symbol: PT-USDe-18JUN2026), oldFee: 0, newFee: 0) |
-| 29 | LiquidationProtocolFeeChanged(asset: 0x30559E3d35e33AB69399a3fe9F383d32bd3c016E (symbol: PT-sUSDE-18JUN2026), oldFee: 0, newFee: 0) |
+| 28 | LiquidationProtocolFeeChanged(asset: 0x23B17d3944742ACe3d0C71586FcB320d1e4a1Ed2 (symbol: PT-USDe-18JUN2026), oldFee: 0, newFee: 1000) |
+| 29 | LiquidationProtocolFeeChanged(asset: 0x30559E3d35e33AB69399a3fe9F383d32bd3c016E (symbol: PT-sUSDE-18JUN2026), oldFee: 0, newFee: 1000) |
 | 30 | EModeCategoryAdded(categoryId: 21, ltv: 9100, liquidationThreshold: 9300, liquidationBonus: 10310, oracle: 0x0000000000000000000000000000000000000000, label: PT_USDe_18JUN2026__Stablecoins) |
 | 31 | AssetCollateralInEModeChanged(asset: 0x23B17d3944742ACe3d0C71586FcB320d1e4a1Ed2 (symbol: PT-USDe-18JUN2026), categoryId: 21, collateral: true) |
 | 32 | AssetCollateralInEModeChanged(asset: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (symbol: USDe), categoryId: 21, collateral: true) |
@@ -214,8 +214,6 @@
 | 49 | AssetCollateralInEModeChanged(asset: 0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2 (symbol: sUSDe), categoryId: 24, collateral: true) |
 | 50 | AssetCollateralInEModeChanged(asset: 0xab509448ad489e2E1341e25CC500f2596464Cc82 (symbol: PT-sUSDE-9APR2026), categoryId: 24, collateral: true) |
 | 51 | AssetBorrowableInEModeChanged(asset: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (symbol: USDe), categoryId: 24, borrowable: true) |
-| 72 | LiquidationProtocolFeeChanged(asset: 0x23B17d3944742ACe3d0C71586FcB320d1e4a1Ed2 (symbol: PT-USDe-18JUN2026), oldFee: 0, newFee: 1000) |
-| 73 | LiquidationProtocolFeeChanged(asset: 0x30559E3d35e33AB69399a3fe9F383d32bd3c016E (symbol: PT-sUSDE-18JUN2026), oldFee: 0, newFee: 1000) |
 
 #### 0x68ab954Dc705c66506d499963dD1fbB8aFa23d7d
 
@@ -273,24 +271,24 @@
 
 | index | event |
 | --- | --- |
-| 74 | AllowedMarketAdded(agentId: 0, market: 0x0000000000000000000000000000000000000018) |
-| 75 | AllowedMarketAdded(agentId: 0, market: 0x0000000000000000000000000000000000000017) |
-| 76 | AllowedMarketAdded(agentId: 0, market: 0x0000000000000000000000000000000000000016) |
-| 77 | AllowedMarketAdded(agentId: 0, market: 0x0000000000000000000000000000000000000015) |
-| 78 | AllowedMarketAdded(agentId: 1, market: 0x23B17d3944742ACe3d0C71586FcB320d1e4a1Ed2) |
-| 79 | AllowedMarketAdded(agentId: 1, market: 0x30559E3d35e33AB69399a3fe9F383d32bd3c016E) |
+| 72 | AllowedMarketAdded(agentId: 0, market: 0x0000000000000000000000000000000000000018) |
+| 73 | AllowedMarketAdded(agentId: 0, market: 0x0000000000000000000000000000000000000017) |
+| 74 | AllowedMarketAdded(agentId: 0, market: 0x0000000000000000000000000000000000000016) |
+| 75 | AllowedMarketAdded(agentId: 0, market: 0x0000000000000000000000000000000000000015) |
+| 76 | AllowedMarketAdded(agentId: 1, market: 0x23B17d3944742ACe3d0C71586FcB320d1e4a1Ed2) |
+| 77 | AllowedMarketAdded(agentId: 1, market: 0x30559E3d35e33AB69399a3fe9F383d32bd3c016E) |
 
 #### 0x47aAdaAE1F05C978E6aBb7568d11B7F6e0FC4d6A (AaveV3Plasma.ACL_ADMIN, GovernanceV3Plasma.EXECUTOR_LVL_1)
 
 | index | event |
 | --- | --- |
-| 80 | ExecutedAction(target: 0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f, value: 0, signature: execute(), data: 0x, executionTime: 1774366019, withDelegatecall: true, resultData: 0x) |
+| 78 | ExecutedAction(target: 0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f, value: 0, signature: execute(), data: 0x, executionTime: 1774366019, withDelegatecall: true, resultData: 0x) |
 
 #### 0xe76EB348E65eF163d85ce282125FF5a7F5712A1d (GovernanceV3Plasma.PAYLOADS_CONTROLLER)
 
 | index | event |
 | --- | --- |
-| 81 | PayloadExecuted(payloadId: 21) |
+| 79 | PayloadExecuted(payloadId: 21) |
 
 ## Raw storage changes
 
