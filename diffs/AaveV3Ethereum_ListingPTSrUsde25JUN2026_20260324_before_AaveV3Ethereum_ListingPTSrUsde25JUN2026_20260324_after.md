@@ -118,7 +118,7 @@
 | 11 | SiloedBorrowingChanged(asset: 0x619D75E3b790eBC21c289f2805Bb7177A7D732E2 (symbol: PT-srUSDe-25JUN2026), oldState: false, newState: false) |
 | 12 | ReserveFactorChanged(asset: 0x619D75E3b790eBC21c289f2805Bb7177A7D732E2 (symbol: PT-srUSDe-25JUN2026), oldReserveFactor: 0, newReserveFactor: 4500) |
 | 14 | ReserveFlashLoaning(asset: 0x619D75E3b790eBC21c289f2805Bb7177A7D732E2 (symbol: PT-srUSDe-25JUN2026), enabled: true) |
-| 15 | LiquidationProtocolFeeChanged(asset: 0x619D75E3b790eBC21c289f2805Bb7177A7D732E2 (symbol: PT-srUSDe-25JUN2026), oldFee: 0, newFee: 0) |
+| 15 | LiquidationProtocolFeeChanged(asset: 0x619D75E3b790eBC21c289f2805Bb7177A7D732E2 (symbol: PT-srUSDe-25JUN2026), oldFee: 0, newFee: 1000) |
 | 16 | EModeCategoryAdded(categoryId: 44, ltv: 5000, liquidationThreshold: 5500, liquidationBonus: 10600, oracle: 0x0000000000000000000000000000000000000000, label: PT_srUSDe_25JUN2026__Stablecoins) |
 | 17 | AssetCollateralInEModeChanged(asset: 0x619D75E3b790eBC21c289f2805Bb7177A7D732E2 (symbol: PT-srUSDe-25JUN2026), categoryId: 44, collateral: true) |
 | 18 | AssetCollateralInEModeChanged(asset: 0x9D39A5DE30e57443BfF2A8307A4256c8797A3497 (symbol: sUSDe), categoryId: 44, collateral: true) |
@@ -131,7 +131,6 @@
 | 25 | AssetCollateralInEModeChanged(asset: 0x9D39A5DE30e57443BfF2A8307A4256c8797A3497 (symbol: sUSDe), categoryId: 45, collateral: true) |
 | 26 | AssetCollateralInEModeChanged(asset: 0x9Bf45ab47747F4B4dD09B3C2c73953484b4eB375 (symbol: PT-srUSDe-2APR2026), categoryId: 45, collateral: true) |
 | 27 | AssetBorrowableInEModeChanged(asset: 0x4c9EDD5852cd905f086C759E8383e09bff1E68B3 (symbol: USDe), categoryId: 45, borrowable: true) |
-| 38 | LiquidationProtocolFeeChanged(asset: 0x619D75E3b790eBC21c289f2805Bb7177A7D732E2 (symbol: PT-srUSDe-25JUN2026), oldFee: 0, newFee: 1000) |
 
 #### 0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2 (AaveV3Ethereum.POOL)
 
@@ -161,21 +160,21 @@
 
 | index | event |
 | --- | --- |
-| 39 | AllowedMarketAdded(agentId: 0, market: 0x000000000000000000000000000000000000002D) |
-| 40 | AllowedMarketAdded(agentId: 0, market: 0x000000000000000000000000000000000000002c) |
-| 41 | AllowedMarketAdded(agentId: 1, market: 0x619D75E3b790eBC21c289f2805Bb7177A7D732E2) |
+| 38 | AllowedMarketAdded(agentId: 0, market: 0x000000000000000000000000000000000000002D) |
+| 39 | AllowedMarketAdded(agentId: 0, market: 0x000000000000000000000000000000000000002c) |
+| 40 | AllowedMarketAdded(agentId: 1, market: 0x619D75E3b790eBC21c289f2805Bb7177A7D732E2) |
 
 #### 0x5300A1a15135EA4dc7aD5a167152C01EFc9b192A (AaveV2Ethereum.POOL_ADMIN, AaveV2EthereumAMM.POOL_ADMIN, AaveV3Ethereum.ACL_ADMIN, AaveV3EthereumEtherFi.ACL_ADMIN, AaveV3EthereumHorizon.ACL_ADMIN, AaveV3EthereumLido.ACL_ADMIN, GovernanceV3Ethereum.EXECUTOR_LVL_1)
 
 | index | event |
 | --- | --- |
-| 42 | ExecutedAction(target: 0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f, value: 0, signature: execute(), data: 0x, executionTime: 1774356131, withDelegatecall: true, resultData: 0x) |
+| 41 | ExecutedAction(target: 0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f, value: 0, signature: execute(), data: 0x, executionTime: 1774356131, withDelegatecall: true, resultData: 0x) |
 
 #### 0xdAbad81aF85554E9ae636395611C58F7eC1aAEc5 (GovernanceV3Ethereum.PAYLOADS_CONTROLLER)
 
 | index | event |
 | --- | --- |
-| 43 | PayloadExecuted(payloadId: 420) |
+| 42 | PayloadExecuted(payloadId: 420) |
 
 ## Raw storage changes
 

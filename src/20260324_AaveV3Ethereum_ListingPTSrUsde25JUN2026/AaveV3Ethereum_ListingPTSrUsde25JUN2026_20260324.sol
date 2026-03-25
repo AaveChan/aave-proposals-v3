@@ -36,8 +36,6 @@ contract AaveV3Ethereum_ListingPTSrUsde25JUN2026_20260324 is AaveV3PayloadEthere
       PT_srUSDe_25JUN2026_LM_ADMIN
     );
 
-    AaveV3Ethereum.POOL_CONFIGURATOR.setLiquidationProtocolFee(PT_srUSDe_25JUN2026, 1000);
-
     uint8 nextID = _findFirstUnusedEmodeCategory(AaveV3Ethereum.POOL);
 
     // whitelist the new eModes on automated chaos-agents [agentId 0: EModeCategoryUpdate_Core]
@@ -66,7 +64,7 @@ contract AaveV3Ethereum_ListingPTSrUsde25JUN2026_20260324 is AaveV3PayloadEthere
       supplyCap: 1_000_000,
       borrowCap: 1,
       debtCeiling: 0,
-      liqProtocolFee: 0,
+      liqProtocolFee: 10_00,
       rateStrategyParams: IAaveV3ConfigEngine.InterestRateInputData({
         optimalUsageRatio: 45_00,
         baseVariableBorrowRate: 0,
