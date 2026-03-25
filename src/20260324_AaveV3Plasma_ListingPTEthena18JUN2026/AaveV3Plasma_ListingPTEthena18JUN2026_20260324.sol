@@ -205,7 +205,6 @@ contract AaveV3Plasma_ListingPTEthena18JUN2026_20260324 is AaveV3PayloadPlasma {
     return eModeCreations;
   }
 
-
   function _findFirstUnusedEmodeCategory(IPool pool) private view returns (uint8) {
     // eMode id 0 is skipped intentionally as it is the reserved default
     for (uint8 i = 1; i < 256; i++) {
