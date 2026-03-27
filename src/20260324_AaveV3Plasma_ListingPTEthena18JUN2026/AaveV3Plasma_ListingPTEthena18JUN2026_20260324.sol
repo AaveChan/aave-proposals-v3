@@ -46,13 +46,13 @@ contract AaveV3Plasma_ListingPTEthena18JUN2026_20260324 is AaveV3PayloadPlasma {
 
     uint8 nextID = _findFirstUnusedEmodeCategory(AaveV3Plasma.POOL);
 
-    // whitelist the new eModes on automated chaos-agents [agentId 0: EModeCategoryUpdate_Core]
+    // whitelist the new eModes on automated chaos-agents [agentId 0: EModeCategoryUpdate]
     IAgentHub(MiscPlasma.AGENT_HUB).addAllowedMarket(0, address(uint160(nextID - 1)));
     IAgentHub(MiscPlasma.AGENT_HUB).addAllowedMarket(0, address(uint160(nextID - 2)));
     IAgentHub(MiscPlasma.AGENT_HUB).addAllowedMarket(0, address(uint160(nextID - 3)));
     IAgentHub(MiscPlasma.AGENT_HUB).addAllowedMarket(0, address(uint160(nextID - 4)));
 
-    // whitelist the new pt-assets on automated chaos-agents [agentId 1: PendleDiscountRateUpdate_Core]
+    // whitelist the new pt-assets on automated chaos-agents [agentId 1: PendleDiscountRateUpdate]
     IAgentHub(MiscPlasma.AGENT_HUB).addAllowedMarket(1, PT_USDe_18JUN2026);
     IAgentHub(MiscPlasma.AGENT_HUB).addAllowedMarket(1, PT_sUSDE_18JUN2026);
   }

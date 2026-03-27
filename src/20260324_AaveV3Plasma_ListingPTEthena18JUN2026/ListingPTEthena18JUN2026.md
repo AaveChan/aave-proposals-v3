@@ -22,6 +22,8 @@ https://plasmascan.to/address/0x30559e3d35e33ab69399a3fe9f383d32bd3c016e
 
 https://plasmascan.to/address/0x23b17d3944742ace3d0c71586fcb320d1e4a1ed2
 
+### PT-USDe-18JUN2026
+
 **Initial E-mode Risk Oracle**
 
 | **Parameter** | **Value**   | **Value** |
@@ -108,7 +110,7 @@ The table below illustrates the configured risk parameters for **PT_USDe_18JUN20
 | ------------------------------ | -----------------------------------------: |
 | Isolation Mode                 |                                      false |
 | Borrowable                     |                                   DISABLED |
-| Collateral Enabled             |                                       true |
+| Collateral Enabled             |                                       false |
 | Supply Cap (PT_USDe_18JUN2026) |                                 15,000,000 |
 | Borrow Cap (PT_USDe_18JUN2026) |                                          1 |
 | Debt Ceiling                   |                                      USD 0 |
@@ -134,7 +136,7 @@ The table below illustrates the configured risk parameters for **PT_sUSDE_18JUN2
 | ------------------------------- | -----------------------------------------: |
 | Isolation Mode                  |                                      false |
 | Borrowable                      |                                   DISABLED |
-| Collateral Enabled              |                                       true |
+| Collateral Enabled              |                                       false |
 | Supply Cap (PT_sUSDE_18JUN2026) |                                 50,000,000 |
 | Borrow Cap (PT_sUSDE_18JUN2026) |                                          1 |
 | Debt Ceiling                    |                                      USD 0 |
