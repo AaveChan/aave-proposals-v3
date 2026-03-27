@@ -38,11 +38,11 @@ contract AaveV3Ethereum_ListingPTSrUsde25JUN2026_20260324 is AaveV3PayloadEthere
 
     uint8 nextID = _findFirstUnusedEmodeCategory(AaveV3Ethereum.POOL);
 
-    // whitelist the new eModes on automated chaos-agents [agentId 0: EModeCategoryUpdate_Core]
+    // whitelist the new eModes on automated chaos-agents [agentId 0: EModeCategoryUpdate]
     IAgentHub(MiscEthereum.AGENT_HUB).addAllowedMarket(0, address(uint160(nextID - 1)));
     IAgentHub(MiscEthereum.AGENT_HUB).addAllowedMarket(0, address(uint160(nextID - 2)));
 
-    // whitelist the new pt-assets on automated chaos-agents [agentId 1: PendleDiscountRateUpdate_Core]
+    // whitelist the new pt-assets on automated chaos-agents [agentId 1: PendleDiscountRateUpdate]
     IAgentHub(MiscEthereum.AGENT_HUB).addAllowedMarket(1, PT_srUSDe_25JUN2026);
   }
 
@@ -61,7 +61,7 @@ contract AaveV3Ethereum_ListingPTSrUsde25JUN2026_20260324 is AaveV3PayloadEthere
       liqThreshold: 0,
       liqBonus: 0,
       reserveFactor: 45_00,
-      supplyCap: 1_000_000,
+      supplyCap: 30_000_000,
       borrowCap: 1,
       debtCeiling: 0,
       liqProtocolFee: 10_00,
@@ -108,9 +108,9 @@ contract AaveV3Ethereum_ListingPTSrUsde25JUN2026_20260324 is AaveV3PayloadEthere
     borrowableAssets_PT_srUSDe_25JUN2026__Stablecoins[2] = AaveV3EthereumAssets.USDe_UNDERLYING;
 
     eModeCreations[0] = IAaveV3ConfigEngine.EModeCategoryCreation({
-      ltv: 50_00, // placeholder will need to be updated with a valid parameter before execution
-      liqThreshold: 55_00, // same
-      liqBonus: 6_00, //same
+      ltv: 90_00,
+      liqThreshold: 92_00,
+      liqBonus: 4_30,
       label: 'PT_srUSDe_25JUN2026__Stablecoins',
       collaterals: collateralAssets_PT_srUSDe_25JUN2026__Stablecoins,
       borrowables: borrowableAssets_PT_srUSDe_25JUN2026__Stablecoins
@@ -126,9 +126,9 @@ contract AaveV3Ethereum_ListingPTSrUsde25JUN2026_20260324 is AaveV3PayloadEthere
     borrowableAssets_PT_srUSDe_25JUN2026__USDe[0] = AaveV3EthereumAssets.USDe_UNDERLYING;
 
     eModeCreations[1] = IAaveV3ConfigEngine.EModeCategoryCreation({
-      ltv: 60_00, // placeholder will need to be updated with a valid parameter before execution
-      liqThreshold: 70_00, // same
-      liqBonus: 3_00, //same
+      ltv: 91_20,
+      liqThreshold: 93_20,
+      liqBonus: 3_30,
       label: 'PT_srUSDe_25JUN2026__USDe',
       collaterals: collateralAssets_PT_srUSDe_25JUN2026__USDe,
       borrowables: borrowableAssets_PT_srUSDe_25JUN2026__USDe
