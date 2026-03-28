@@ -21,7 +21,7 @@ The table below illustrates the configured risk parameters for **PT_srUSDe_25JUN
 | Isolation Mode                   |                                      false |
 | Borrowable                       |                                   DISABLED |
 | Collateral Enabled               |                                      false |
-| Supply Cap (PT_srUSDe_25JUN2026) |                                  1,000,000 |
+| Supply Cap (PT_srUSDe_25JUN2026) |                                 30,000,000 |
 | Borrow Cap (PT_srUSDe_25JUN2026) |                                          1 |
 | Debt Ceiling                     |                                      USD 0 |
 | LTV                              |                                        0 % |
@@ -52,11 +52,11 @@ The oracle prices the PT as a zero-coupon bond against the capped USDT/USD Chain
 | initialDiscountRatePerYear | 4.6061%                                                                                                                                      |
 | maxDiscountRatePerYear     | 16.6634%                                                                                                                                     |
 | Last answer (March 28th)   | 98814596 ($0.98814596)                                                                                                                       |
-| Capped USDT/USD            | [Capped USDT/USD](https://etherscan.io/address/0x260326c220E469358846b187eE53328303Efe19C#readContract)                                      |
+| Capped USDT/USD            | [Capped USDT/USD](https://etherscan.io/address/0x260326c220E469358846b187eE53328303Efe19C#readContract`)                                     |
 
 ### PT-srUSDe Stablecoins E-mode
 
-| **Asset**         | **PT-srUSDe-25JUN2026** | **PT-srUSDe-1APR2026** | **sUSDe**              | **USDT** | **USDe** | **USDC** |
+| **Asset**         | **PT-srUSDe-25JUN2026** | **PT-srUSDe-2APR2026** | **sUSDe**              | **USDT** | **USDe** | **USDC** |
 | ----------------- | ----------------------- | ---------------------- | ---------------------- | -------- | -------- | -------- |
 | Collateral        | Yes                     | Yes                    | Yes                    | No       | No       | No       |
 | Borrowable        | No                      | No                     | No                     | Yes      | Yes      | Yes      |
@@ -66,7 +66,7 @@ The oracle prices the PT as a zero-coupon bond against the capped USDT/USD Chain
 
 ### PT-srUSDe USDe E-mode
 
-| **Asset**         | **PT-srUSDe-25JUN2026** | **PT-srUSDe-1APR2026** | **sUSDe**              | **USDe** |
+| **Asset**         | **PT-srUSDe-25JUN2026** | **PT-srUSDe-2APR2026** | **sUSDe**              | **USDe** |
 | ----------------- | ----------------------- | ---------------------- | ---------------------- | -------- |
 | Collateral        | Yes                     | Yes                    | Yes                    | No       |
 | Borrowable        | No                      | No                     | No                     | Yes      |
