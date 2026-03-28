@@ -111,7 +111,7 @@ The table below illustrates the configured risk parameters for **PT_USDe_18JUN20
 | Isolation Mode                 |                                      false |
 | Borrowable                     |                                   DISABLED |
 | Collateral Enabled             |                                      false |
-| Supply Cap (PT_USDe_18JUN2026) |                                 15,000,000 |
+| Supply Cap (PT_USDe_18JUN2026) |                                 30,000,000 |
 | Borrow Cap (PT_USDe_18JUN2026) |                                          1 |
 | Debt Ceiling                   |                                      USD 0 |
 | LTV                            |                                        0 % |
@@ -137,7 +137,7 @@ The table below illustrates the configured risk parameters for **PT_sUSDE_18JUN2
 | Isolation Mode                  |                                      false |
 | Borrowable                      |                                   DISABLED |
 | Collateral Enabled              |                                      false |
-| Supply Cap (PT_sUSDE_18JUN2026) |                                 50,000,000 |
+| Supply Cap (PT_sUSDE_18JUN2026) |                                150,000,000 |
 | Borrow Cap (PT_sUSDE_18JUN2026) |                                          1 |
 | Debt Ceiling                    |                                      USD 0 |
 | LTV                             |                                        0 % |
