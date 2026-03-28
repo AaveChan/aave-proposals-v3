@@ -52,7 +52,7 @@ contract AaveV3Ethereum_ListingPTSrUsde25JUN2026_20260324 is AaveV3PayloadEthere
     listings[0] = IAaveV3ConfigEngine.Listing({
       asset: PT_srUSDe_25JUN2026,
       assetSymbol: 'PT_srUSDe_25JUN2026',
-      priceFeed: 0xB539C6C0fc36ff1572B13ACec343B854937db576, // previous price-feed placeholder will need to be updated with a valid feed before execution
+      priceFeed: 0x9f336eB940730596548C342A8BF1fC530B10cc96,
       enabledToBorrow: EngineFlags.DISABLED,
       borrowableInIsolation: EngineFlags.DISABLED,
       withSiloedBorrowing: EngineFlags.DISABLED,

@@ -18,7 +18,7 @@ contract AaveV3Ethereum_ListingPTSrUsde25JUN2026_20260324_Test is ProtocolV3Test
   AaveV3Ethereum_ListingPTSrUsde25JUN2026_20260324 internal proposal;
 
   function setUp() public {
-    vm.createSelectFork(vm.rpcUrl('mainnet'), 24727462);
+    vm.createSelectFork(vm.rpcUrl('mainnet'), 24757396);
     proposal = new AaveV3Ethereum_ListingPTSrUsde25JUN2026_20260324();
   }
 
