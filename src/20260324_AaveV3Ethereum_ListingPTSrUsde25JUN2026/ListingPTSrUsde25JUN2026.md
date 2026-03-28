@@ -52,7 +52,7 @@ The oracle prices the PT as a zero-coupon bond against the capped USDT/USD Chain
 | initialDiscountRatePerYear | 4.6061%                                                                                                                                      |
 | maxDiscountRatePerYear     | 16.6634%                                                                                                                                     |
 | Last answer (March 28th)   | 98814596 ($0.98814596)                                                                                                                       |
-| Capped USDT/USD            | [Capped USDT/USD](https://etherscan.io/address/0x260326c220E469358846b187eE53328303Efe19C#readContract`)                                     |
+| Capped USDT/USD            | [Capped USDT/USD](https://etherscan.io/address/0x260326c220E469358846b187eE53328303Efe19C#readContract)                                      |
 
 ### PT-srUSDe Stablecoins E-mode
 
