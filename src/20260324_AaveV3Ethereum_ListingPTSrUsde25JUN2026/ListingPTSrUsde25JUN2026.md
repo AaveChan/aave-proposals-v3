@@ -16,27 +16,26 @@ Given both the popularity of PT token collateral on Aave and the adoption of the
 
 The table below illustrates the configured risk parameters for **PT_srUSDe_25JUN2026**
 
-| Parameter                        |                                      Value |
-| -------------------------------- | -----------------------------------------: |
-| Isolation Mode                   |                                      false |
-| Borrowable                       |                                   DISABLED |
-| Collateral Enabled               |                                      false |
-| Supply Cap (PT_srUSDe_25JUN2026) |                                 30,000,000 |
-| Borrow Cap (PT_srUSDe_25JUN2026) |                                          1 |
-| Debt Ceiling                     |                                      USD 0 |
-| LTV                              |                                        0 % |
-| LT                               |                                        0 % |
-| Liquidation Bonus                |                                        0 % |
-| Liquidation Protocol Fee         |                                       10 % |
-| Reserve Factor                   |                                       45 % |
-| Base Variable Borrow Rate        |                                        0 % |
-| Variable Slope 1                 |                                       10 % |
-| Variable Slope 2                 |                                      300 % |
-| Uoptimal                         |                                       45 % |
-| Flashloanable                    |                                    ENABLED |
-| Siloed Borrowing                 |                                   DISABLED |
-| Borrowable in Isolation          |                                   DISABLED |
-| Oracle                           | 0x9f336eB940730596548C342A8BF1fC530B10cc96 |
+| Parameter                        |      Value |
+| -------------------------------- | ---------: |
+| Isolation Mode                   |      false |
+| Borrowable                       |   DISABLED |
+| Collateral Enabled               |      false |
+| Supply Cap (PT_srUSDe_25JUN2026) | 30,000,000 |
+| Borrow Cap (PT_srUSDe_25JUN2026) |          1 |
+| Debt Ceiling                     |      USD 0 |
+| LTV                              |        0 % |
+| LT                               |        0 % |
+| Liquidation Bonus                |        0 % |
+| Liquidation Protocol Fee         |       10 % |
+| Reserve Factor                   |       45 % |
+| Base Variable Borrow Rate        |        0 % |
+| Variable Slope 1                 |       10 % |
+| Variable Slope 2                 |      300 % |
+| Uoptimal                         |       45 % |
+| Flashloanable                    |    ENABLED |
+| Siloed Borrowing                 |   DISABLED |
+| Borrowable in Isolation          |   DISABLED |
 
 ### Price Feed
 
@@ -73,6 +72,15 @@ The oracle prices the PT as a zero-coupon bond against the capped USDT/USD Chain
 | LTV               | Subject to Risk Oracle  | Subject to Risk Oracle | Subject to Risk Oracle | -        |
 | LT                | Subject to Risk Oracle  | Subject to Risk Oracle | Subject to Risk Oracle | -        |
 | Liquidation Bonus | Subject to Risk Oracle  | Subject to Risk Oracle | Subject to Risk Oracle | -        |
+
+### E-mode setups
+
+| **Parameter** | **Value**   | **Value** |
+| ------------- | ----------- | --------- |
+| E-Mode        | Stablecoins | USDe      |
+| LTV           | 90%         | 91.2%     |
+| LT            | 92%         | 93.2%     |
+| LB            | 4.3%        | 3.3%      |
 
 Additionally [0xac140648435d03f784879cd789130F22Ef588Fcd](https://etherscan.io/address/0xac140648435d03f784879cd789130F22Ef588Fcd) has been set as the emission admin for PT_srUSDe_25JUN2026 and the corresponding aToken.
 
