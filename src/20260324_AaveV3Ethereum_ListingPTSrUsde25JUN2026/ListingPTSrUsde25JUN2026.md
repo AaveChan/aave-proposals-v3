@@ -84,6 +84,10 @@ The oracle prices the PT as a zero-coupon bond against the capped USDT/USD Chain
 
 Additionally [0xac140648435d03f784879cd789130F22Ef588Fcd](https://etherscan.io/address/0xac140648435d03f784879cd789130F22Ef588Fcd) has been set as the emission admin for PT_srUSDe_25JUN2026 and the corresponding aToken.
 
+The Strata team initially sent the wrong seed PT (previous maturity) for this listing before sending the correct one. So, we will return their tokens in this AIP.
+Transfer: [https://etherscan.io/tx/0x801968fb542daa6bc095d26ae507966f4f66148d9181097bdc4eb2f84728f4b2](https://etherscan.io/tx/0x801968fb542daa6bc095d26ae507966f4f66148d9181097bdc4eb2f84728f4b2)
+So, the addendum to the AIP will be a transfer back to [0x981EfbD4d3932FA750f0191F00535D7Cb586A558](https://etherscan.io/address/0x981efbd4d3932fa750f0191f00535d7cb586a558) of the 100 PT-srUSDe-2APR2026 they transferred inadvertently to the Aave governance L1 executor smart contract.
+
 ### Useful Links
 
 https://docs.pendle.finance/ProtocolMechanics/YieldTokenization/PT
