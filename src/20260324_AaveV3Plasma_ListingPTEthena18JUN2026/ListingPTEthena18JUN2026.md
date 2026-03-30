@@ -162,8 +162,8 @@ ACI is not directly affiliated with Pendle and did not receive compensation for 
 
 ## References
 
-- Implementation: [AaveV3Plasma](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260324_AaveV3Plasma_ListingPTEthena18JUN2026/AaveV3Plasma_ListingPTEthena18JUN2026_20260324.sol)
-- Tests: [AaveV3Plasma](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260324_AaveV3Plasma_ListingPTEthena18JUN2026/AaveV3Plasma_ListingPTEthena18JUN2026_20260324.t.sol)
+- Implementation: [AaveV3Plasma](https://github.com/aave-dao/aave-proposals-v3/blob/fea36cba0a62f64487cfa108b2d857775e208302/src/20260324_AaveV3Plasma_ListingPTEthena18JUN2026/AaveV3Plasma_ListingPTEthena18JUN2026_20260324.sol)
+- Tests: [AaveV3Plasma](https://github.com/aave-dao/aave-proposals-v3/blob/fea36cba0a62f64487cfa108b2d857775e208302/src/20260324_AaveV3Plasma_ListingPTEthena18JUN2026/AaveV3Plasma_ListingPTEthena18JUN2026_20260324.t.sol)
 - Snapshot: Direct-to-AIP
 - [Discussion](https://governance.aave.com/t/direct-to-aip-onboard-usde-susde-june-expiry-pt-tokens-on-aave-v3-plasma-instance/24304)
 
