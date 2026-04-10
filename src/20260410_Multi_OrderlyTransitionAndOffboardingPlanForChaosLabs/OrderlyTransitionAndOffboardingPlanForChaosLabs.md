@@ -5,12 +5,71 @@ discussions: "https://governance.aave.com/t/orderly-transition-and-offboarding-p
 snapshot: TODO
 ---
 
-## Simple Summary
+## Summary
 
-## Motivation
+This proposal sets out a structured transition plan for Chaos Labs’ departure from its current role, with the objective of minimizing disruption to the DAO and maintaining continuity across key risk-management functions during the offboarding period.
+
+In contrast to recent service provider departures, Aave has a secondary risk provider, which helps minimize the transition period and ensure a smooth continuation of operations.
+
+As such, our intent is to complete this transition within 30 days. During that period, we will continue supporting the DAO in a clearly defined capacity, complete the handoff of ongoing responsibilities, and ensure that remaining operational dependencies are addressed in an orderly manner.
+
+As part of this transition, Chaos Labs will cancel its outstanding stream and transfer 30 days’ worth of stream funding from the Aave Treasury to Chaos Labs.
+
+## Transition Timeline
+
+The offboarding process will run for thirty days from the approval of this proposal.
+
+During the transition window, we will dedicate resources to completing outstanding analyses, finalizing any in-progress deliverables, preparing handoff materials, and supporting an orderly wind-down of responsibilities.
+
+## Continuity of Risk Management
+
+The DAO is in a position to transition the majority of ongoing risk-management responsibilities without significant delay. LlamaRisk already exists a secondary risk provider, and has [stated](https://governance.aave.com/t/llamarisk-ensuring-continuity-of-aaves-risk-management/24397) they are fully ready and prepared to take on all risk management functionality. With the key rotation finalized at their [request](https://governance.aave.com/t/llamarisk-ensuring-continuity-of-aaves-risk-management/24397#p-62730-scope-we-will-absorb-4), they’ll be able to update parameters manually via the risk steward.
+
+In summary, the addresses associated with the current 2/2 multisig for manual Risk Steward purposes will be rotated from Chaos Labs and BGD to Aave Labs and LlamaRisk, as requested by both, to ensure operational continuity.
+
+## Risk Oracle Transition
+
+Aave risk parameter changes will be fully operational via the Aave Risk Steward framework, mentioned above.
+
+As such, Risk Oracles for Supply Caps, Borrow Caps, Interest Rates, and PT price oracles will be turned off during the transition.
+
+Parameter management for existing PT assets will be executed through LlamaRisk’s manual risk steward framework, similar to other parameters.
+
+## Financial and Administrative Changes
+
+Chaos Labs will immediately cancel its outstanding stream 100073. Stream 100015 is already being canceled due to a stream misconfiguration. We will refund the portion of AAVE tokens corresponding to the remaining stream duration.
+
+In connection with this transition, 30 days’ worth of stream will be transferred to Chaos Labs as the final compensation associated with the support and wind-down period described in this proposal. This is intended to align compensation with the defined transition window while avoiding a prolonged or ambiguous tail period.
+
+## Conclusion
+
+* support continues for one month in a transition capacity;
+* all remaining outstanding work will then be brought to completion before departure;
+* Supply Cap, Borrow Cap, Interest Rate Risk Oracles, and PT Risk Oracles for existing PTs will be shut down immediately;
+* the outstanding stream will be canceled immediately;
+* 30 days worth of revenue will serve as the final transition-period compensation.
+
+We believe this framework gives the DAO sufficient continuity, predictability, and time to transfer responsibilities in an orderly manner.
 
 ## Specification
 
+### Oracle deactivation
+
+This AIP will disable all the agents operating on the followings V3 instances:
+- Arbitrum
+- Avalanche
+- Base
+- BNB
+- Ethereum (Core and Lido)
+- Gnosis
+- Linea
+- Optimism
+- Plasma
+- Polygon
+
+### Stream cancelation and bulk payement
+
+The stream 100073 will be canceled (if not already done) and an amount equivalent to 30 days of said stream will be stransfered from the collector to the following Chaos Labs operated wallet:  [0xbC540e0729B732fb14afA240aA5A047aE9ba7dF0](https://etherscan.io/address/0xbC540e0729B732fb14afA240aA5A047aE9ba7dF0)
 ## References
 
 - Implementation: [AaveV3Ethereum](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Ethereum_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol), [AaveV3Polygon](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Polygon_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol), [AaveV3Avalanche](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Avalanche_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol), [AaveV3Optimism](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Optimism_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol), [AaveV3Arbitrum](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Arbitrum_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol), [AaveV3Base](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Base_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol), [AaveV3Gnosis](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Gnosis_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol), [AaveV3BNB](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3BNB_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol), [AaveV3Linea](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Linea_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol), [AaveV3Plasma](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Plasma_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol)
