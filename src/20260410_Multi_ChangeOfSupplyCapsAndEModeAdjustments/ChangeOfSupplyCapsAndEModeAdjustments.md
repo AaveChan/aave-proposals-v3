@@ -10,6 +10,8 @@ Chaos Labs proposed the following change to be implemented through AIP:
 
 - Include GHO within the PT asset E-modes on the Plasma Instance
 
+The supply cap increases included in this proposal (PT-sUSDe-18JUN2026 on Plasma, PT-srUSDe-25JUN2026 on Ethereum Core, wrsETH and FBTC on Mantle) will be executed via Risk Stewards and are not part of this AIP.
+
 ## Specification
 
 Following the listing of the assets, we recommend the addition of GHO as a borrowable asset in the PT-sUSDe-18JUN2026/Stablecoins E-mode and in the PT-USDe-18JUN2026/Stablecoins E-mode.

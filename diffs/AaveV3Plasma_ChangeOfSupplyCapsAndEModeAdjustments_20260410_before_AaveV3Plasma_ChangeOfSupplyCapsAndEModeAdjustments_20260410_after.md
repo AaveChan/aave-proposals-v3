@@ -1,14 +1,3 @@
-## Reserve changes
-
-### Reserves altered
-
-#### PT-sUSDE-18JUN2026 ([0x30559E3d35e33AB69399a3fe9F383d32bd3c016E](https://plasmascan.to/address/0x30559E3d35e33AB69399a3fe9F383d32bd3c016E))
-
-| description | value before | value after |
-| --- | --- | --- |
-| supplyCap | 300,000,000 PT-sUSDE-18JUN2026 | 500,000,000 PT-sUSDE-18JUN2026 |
-
-
 ## EMode changes
 
 ### EMode: USDe_PT_USDe_9APR2026_PT_USDe_18JUN2026__Stablecoins (id: 21)
@@ -37,19 +26,18 @@
 | 1 | EModeCategoryAdded(categoryId: 23, ltv: 9000, liquidationThreshold: 9200, liquidationBonus: 10410, oracle: 0x0000000000000000000000000000000000000000, label: sUSDe_PT_sUSDE_9APR2026_PT_sUSDE_18JUN2026__Stablecoins) |
 | 2 | AssetBorrowableInEModeChanged(asset: 0xb77E872A68C62CfC0dFb02C067Ecc3DA23B4bbf3 (symbol: GHO), categoryId: 23, borrowable: true) |
 | 3 | AssetBorrowableInEModeChanged(asset: 0xb77E872A68C62CfC0dFb02C067Ecc3DA23B4bbf3 (symbol: GHO), categoryId: 21, borrowable: true) |
-| 4 | SupplyCapChanged(asset: 0x30559E3d35e33AB69399a3fe9F383d32bd3c016E (symbol: PT-sUSDE-18JUN2026), oldSupplyCap: 300000000, newSupplyCap: 500000000) |
 
 #### 0x47aAdaAE1F05C978E6aBb7568d11B7F6e0FC4d6A (AaveV3Plasma.ACL_ADMIN, GovernanceV3Plasma.EXECUTOR_LVL_1)
 
 | index | event |
 | --- | --- |
-| 5 | ExecutedAction(target: 0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f, value: 0, signature: execute(), data: 0x, executionTime: 1775806966, withDelegatecall: true, resultData: 0x) |
+| 4 | ExecutedAction(target: 0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f, value: 0, signature: execute(), data: 0x, executionTime: 1775806966, withDelegatecall: true, resultData: 0x) |
 
 #### 0xe76EB348E65eF163d85ce282125FF5a7F5712A1d (GovernanceV3Plasma.PAYLOADS_CONTROLLER)
 
 | index | event |
 | --- | --- |
-| 6 | PayloadExecuted(payloadId: 23) |
+| 5 | PayloadExecuted(payloadId: 23) |
 
 ## Raw storage changes
 
@@ -67,7 +55,6 @@
 | 0x96520b615d7c7839bcda0b5581968459ee442e6cc953b8eb1703dfe6b3ffb6b8 | 0x0000000000000000000000000000000000000000000000000000000000000000 | 0x4a554e323032365f5f537461626c65636f696e73000000000000000000000000 |
 | 0xbc7bc2f0cb1d33bb51e7dad70b0224ccab3e691f3bde43e73aa4a34723c97d06 | 0x0000000000000000000000000000000000000000000000000000000000000000 | 0x73555344655f50545f73555344455f39415052323032365f50545f7355534445 |
 | 0xbc7bc2f0cb1d33bb51e7dad70b0224ccab3e691f3bde43e73aa4a34723c97d07 | 0x0000000000000000000000000000000000000000000000000000000000000000 | 0x5f31384a554e323032365f5f537461626c65636f696e73000000000000000000 |
-| 0xec4b9d53d2baafe5c62e700a6626b3691279c28440d92d5232d8a4a1c2c48baa | 0x100000000000000000000003e8011e1a30000000000111948112000000000000 | 0x100000000000000000000003e801dcd650000000000111948112000000000000 |
 
 ### 0xe76eb348e65ef163d85ce282125ff5a7f5712a1d (GovernanceV3Plasma.PAYLOADS_CONTROLLER)
 
@@ -100,14 +87,6 @@
       "label": {
         "from": "PT_sUSDE_18JUN2026__Stablecoins",
         "to": "sUSDe_PT_sUSDE_9APR2026_PT_sUSDE_18JUN2026__Stablecoins"
-      }
-    }
-  },
-  "reserves": {
-    "0x30559E3d35e33AB69399a3fe9F383d32bd3c016E": {
-      "supplyCap": {
-        "from": 300000000,
-        "to": 500000000
       }
     }
   }
