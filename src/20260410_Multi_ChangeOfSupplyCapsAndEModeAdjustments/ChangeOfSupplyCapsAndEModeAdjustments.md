@@ -9,7 +9,7 @@ discussions: "https://governance.aave.com/t/direct-to-aip-change-of-supply-caps-
 Chaos Labs proposed the following changes to be implemented through AIP:
 
 - Increase the supply cap of PT-srUSDe-25JUN2026 on the Ethereum Core Instance
-- Increase the supply cap of PT-srUSDe-25JUN2026 on the Plasma Instance
+- Increase the supply cap of PT-sUSDe-18JUN2026 on the Plasma Instance
 - Increase the supply cap of wrsETH on the Mantle Instance.
 - Increase the supply cap of FBTC on the Mantle Instance.
 - Include GHO within the PT asset E-modes on the Plasma Instance
