@@ -68,7 +68,7 @@ contract AaveV3Plasma_ChangeOfSupplyCapsAndEModeAdjustments_20260410 is AaveV3Pa
       ltvzero: EngineFlags.KEEP_CURRENT
     });
     assetEModeUpdates[1] = IAaveV3ConfigEngine.AssetEModeUpdate({
-      asset: AaveV3PlasmaAssets.PT_sUSDE_18JUN2026_UNDERLYING,
+      asset: AaveV3PlasmaAssets.GHO_UNDERLYING,
       eModeCategory: AaveV3PlasmaEModes.USDe_PT_USDe_9APR2026_PT_USDe_18JUN2026__USDT0_USDe,
       borrowable: EngineFlags.ENABLED,
       collateral: EngineFlags.KEEP_CURRENT,
