@@ -27,8 +27,7 @@ contract AaveV3Ethereum_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410
     }
 
     // chaos labs mentionned cutting the stream themselves
-    try AaveV3EthereumLido.COLLECTOR.cancelStream(PREVIOUS_STREAM) {}
-    catch {}
+    try AaveV3EthereumLido.COLLECTOR.cancelStream(PREVIOUS_STREAM) {} catch {}
 
     // bulk transfer
     AaveV3EthereumLido.COLLECTOR.transfer(

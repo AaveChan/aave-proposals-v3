@@ -43,11 +43,11 @@ In connection with this transition, 30 days’ worth of stream will be transferr
 
 ## Conclusion
 
-* support continues for one month in a transition capacity;
-* all remaining outstanding work will then be brought to completion before departure;
-* Supply Cap, Borrow Cap, Interest Rate Risk Oracles, and PT Risk Oracles for existing PTs will be shut down immediately;
-* the outstanding stream will be canceled immediately;
-* 30 days worth of revenue will serve as the final transition-period compensation.
+- support continues for one month in a transition capacity;
+- all remaining outstanding work will then be brought to completion before departure;
+- Supply Cap, Borrow Cap, Interest Rate Risk Oracles, and PT Risk Oracles for existing PTs will be shut down immediately;
+- the outstanding stream will be canceled immediately;
+- 30 days worth of revenue will serve as the final transition-period compensation.
 
 We believe this framework gives the DAO sufficient continuity, predictability, and time to transfer responsibilities in an orderly manner.
 
@@ -56,6 +56,7 @@ We believe this framework gives the DAO sufficient continuity, predictability, a
 ### Oracle deactivation
 
 This AIP will disable all the agents operating on the followings V3 instances:
+
 - Arbitrum
 - Avalanche
 - Base
@@ -69,7 +70,8 @@ This AIP will disable all the agents operating on the followings V3 instances:
 
 ### Stream cancelation and bulk payement
 
-The stream 100073 will be canceled (if not already done) and an amount equivalent to 30 days of said stream will be stransfered from the collector to the following Chaos Labs operated wallet:  [0xbC540e0729B732fb14afA240aA5A047aE9ba7dF0](https://etherscan.io/address/0xbC540e0729B732fb14afA240aA5A047aE9ba7dF0)
+The stream 100073 will be canceled (if not already done) and an amount equivalent to 30 days of said stream will be stransfered from the collector to the following Chaos Labs operated wallet: [0xbC540e0729B732fb14afA240aA5A047aE9ba7dF0](https://etherscan.io/address/0xbC540e0729B732fb14afA240aA5A047aE9ba7dF0)
+
 ## References
 
 - Implementation: [AaveV3Ethereum](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Ethereum_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol), [AaveV3Polygon](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Polygon_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol), [AaveV3Avalanche](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Avalanche_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol), [AaveV3Optimism](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Optimism_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol), [AaveV3Arbitrum](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Arbitrum_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol), [AaveV3Base](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Base_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol), [AaveV3Gnosis](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Gnosis_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol), [AaveV3BNB](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3BNB_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol), [AaveV3Linea](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Linea_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol), [AaveV3Plasma](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Plasma_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol)
