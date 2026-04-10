@@ -515,8 +515,8 @@
 | index | event |
 | --- | --- |
 | 10 | Initialized(underlyingAsset: 0xdEAddEaDdeadDEadDEADDEAddEADDEAddead1111, pool: 0x458F293454fE0d67EC0655f3672301301DD51422, treasury: 0x0cd2670339Cd520BF9428Ad881bE60A698aB9B32, incentivesController: 0x682482a584eE20fefc01f4575c45C5d84de6F619, aTokenDecimals: 18, aTokenName: Aave Mantle WETH, aTokenSymbol: aManWETH, params: 0x) |
-| 182 | Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, value: 0.0025 [2500000000000000, 18 decimals]) |
-| 183 | Mint(caller: 0x70884634D0098782592111A2A6B8d223be31CB7b, onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, value: 0.0025 [2500000000000000, 18 decimals], balanceIncrease: 0, index: 1 [1000000000000000000000000000, 27 decimals]) |
+| 182 | Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, value: 2,500,000,000,000,000 [2500000000000000, 0 decimals]) |
+| 183 | Mint(caller: 0x70884634D0098782592111A2A6B8d223be31CB7b, onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, value: 2,500,000,000,000,000 [2500000000000000, 0 decimals], balanceIncrease: 0, index: 1 [1000000000000000000000000000, 27 decimals]) |
 
 #### 0x0baF5974838114e7001D02782e6B1D8aEE1fc626 (AaveV3Mantle.ASSETS.WETH.V_TOKEN)
 
@@ -530,14 +530,14 @@
 | --- | --- |
 | 12 | RateDataUpdate(reserve: 0xdEAddEaDdeadDEadDEADDEAddEADDEAddead1111 (symbol: WETH), optimalUsageRatio: 9000, baseVariableBorrowRate: 0, variableRateSlope1: 250, variableRateSlope2: 800) |
 | 17 | RateDataUpdate(reserve: 0x78c1b0C915c4FAA5FffA6CAbf0219DA63d7f4cb8 (symbol: WMNT), optimalUsageRatio: 9000, baseVariableBorrowRate: 0, variableRateSlope1: 500, variableRateSlope2: 2000) |
-| 22 | RateDataUpdate(reserve: 0x779Ded0c9e1022225f8E0630b35a9b54bE713736 (symbol: USDT0), optimalUsageRatio: 9000, baseVariableBorrowRate: 0, variableRateSlope1: 500, variableRateSlope2: 1000) |
-| 27 | RateDataUpdate(reserve: 0x09Bc4E0D864854c6aFB6eB9A9cdF58aC190D0dF9 (symbol: USDC), optimalUsageRatio: 9000, baseVariableBorrowRate: 0, variableRateSlope1: 500, variableRateSlope2: 1000) |
+| 22 | RateDataUpdate(reserve: 0x779Ded0c9e1022225f8E0630b35a9b54bE713736 (symbol: unknown), optimalUsageRatio: 9000, baseVariableBorrowRate: 0, variableRateSlope1: 500, variableRateSlope2: 1000) |
+| 27 | RateDataUpdate(reserve: 0x09Bc4E0D864854c6aFB6eB9A9cdF58aC190D0dF9 (symbol: unknown), optimalUsageRatio: 9000, baseVariableBorrowRate: 0, variableRateSlope1: 500, variableRateSlope2: 1000) |
 | 32 | RateDataUpdate(reserve: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (symbol: USDe), optimalUsageRatio: 8500, baseVariableBorrowRate: 0, variableRateSlope1: 525, variableRateSlope2: 1200) |
 | 37 | RateDataUpdate(reserve: 0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2 (symbol: sUSDe), optimalUsageRatio: 9000, baseVariableBorrowRate: 0, variableRateSlope1: 500, variableRateSlope2: 2000) |
 | 42 | RateDataUpdate(reserve: 0xC96dE26018A54D51c097160568752c4E3BD6C364 (symbol: FBTC), optimalUsageRatio: 9000, baseVariableBorrowRate: 0, variableRateSlope1: 500, variableRateSlope2: 2000) |
-| 47 | RateDataUpdate(reserve: 0x051665f2455116e929b9972c36d23070F5054Ce0 (symbol: syrupUSDT), optimalUsageRatio: 9000, baseVariableBorrowRate: 0, variableRateSlope1: 500, variableRateSlope2: 2000) |
-| 52 | RateDataUpdate(reserve: 0x93e855643e940D025bE2e529272e4Dbd15a2Cf74 (symbol: wrsETH), optimalUsageRatio: 9000, baseVariableBorrowRate: 0, variableRateSlope1: 500, variableRateSlope2: 2000) |
-| 57 | RateDataUpdate(reserve: 0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73 (symbol: GHO), optimalUsageRatio: 9000, baseVariableBorrowRate: 200, variableRateSlope1: 300, variableRateSlope2: 4000) |
+| 47 | RateDataUpdate(reserve: 0x051665f2455116e929b9972c36d23070F5054Ce0 (symbol: unknown), optimalUsageRatio: 9000, baseVariableBorrowRate: 0, variableRateSlope1: 500, variableRateSlope2: 2000) |
+| 52 | RateDataUpdate(reserve: 0x93e855643e940D025bE2e529272e4Dbd15a2Cf74 (symbol: unknown), optimalUsageRatio: 9000, baseVariableBorrowRate: 0, variableRateSlope1: 500, variableRateSlope2: 2000) |
+| 57 | RateDataUpdate(reserve: 0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73 (symbol: unknown), optimalUsageRatio: 9000, baseVariableBorrowRate: 200, variableRateSlope1: 300, variableRateSlope2: 4000) |
 
 #### 0x719755fC1ACf2f9079B0Cbc56e23712c09Ab8626 (AaveV3Mantle.POOL_CONFIGURATOR)
 
@@ -553,42 +553,42 @@
 | 29 | ReserveInterestRateDataChanged(asset: 0x09Bc4E0D864854c6aFB6eB9A9cdF58aC190D0dF9 (symbol: USDC), strategy: 0x0a215D8ba66387DCA84B284D18c3B4ec3de6E54a, data: 0x0000000000000000000000000000000000000000000000000000000000002328000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001f400000000000000000000000000000000000000000000000000000000000003e8) |
 | 33 | ReserveInitialized(asset: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (symbol: USDe), aToken: 0xb9aCA933C9c0aa854a6DBb7b12f0CC3FdaC15ee7, stableDebtToken: 0x0000000000000000000000000000000000000000, variableDebtToken: 0x0169FD279c8c656037E5D199Cff8137f1e2d807c, interestRateStrategyAddress: 0x0a215D8ba66387DCA84B284D18c3B4ec3de6E54a) |
 | 34 | ReserveInterestRateDataChanged(asset: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (symbol: USDe), strategy: 0x0a215D8ba66387DCA84B284D18c3B4ec3de6E54a, data: 0x00000000000000000000000000000000000000000000000000000000000021340000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020d00000000000000000000000000000000000000000000000000000000000004b0) |
-| 38 | ReserveInitialized(asset: 0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2 (symbol: sUSDe), aToken: 0xaf972F332FF79bd32A6CB6B54f903eA0F9b16C2a, stableDebtToken: 0x0000000000000000000000000000000000000000, variableDebtToken: 0xc42B44c65bBe7AA8E5b02416918688c244ec7847, interestRateStrategyAddress: 0x0a215D8ba66387DCA84B284D18c3B4ec3de6E54a) |
+| 38 | ReserveInitialized(asset: 0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2 (symbol: unknown), aToken: 0xaf972F332FF79bd32A6CB6B54f903eA0F9b16C2a, stableDebtToken: 0x0000000000000000000000000000000000000000, variableDebtToken: 0xc42B44c65bBe7AA8E5b02416918688c244ec7847, interestRateStrategyAddress: 0x0a215D8ba66387DCA84B284D18c3B4ec3de6E54a) |
 | 39 | ReserveInterestRateDataChanged(asset: 0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2 (symbol: sUSDe), strategy: 0x0a215D8ba66387DCA84B284D18c3B4ec3de6E54a, data: 0x0000000000000000000000000000000000000000000000000000000000002328000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001f400000000000000000000000000000000000000000000000000000000000007d0) |
 | 43 | ReserveInitialized(asset: 0xC96dE26018A54D51c097160568752c4E3BD6C364 (symbol: FBTC), aToken: 0xfa14c9DE267b59A586043372bd98Ed99e3Ee0533, stableDebtToken: 0x0000000000000000000000000000000000000000, variableDebtToken: 0x691AbCD512C1Cfef99442b0ACD3eD98Ee7F4e64E, interestRateStrategyAddress: 0x0a215D8ba66387DCA84B284D18c3B4ec3de6E54a) |
 | 44 | ReserveInterestRateDataChanged(asset: 0xC96dE26018A54D51c097160568752c4E3BD6C364 (symbol: FBTC), strategy: 0x0a215D8ba66387DCA84B284D18c3B4ec3de6E54a, data: 0x0000000000000000000000000000000000000000000000000000000000002328000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001f400000000000000000000000000000000000000000000000000000000000007d0) |
 | 48 | ReserveInitialized(asset: 0x051665f2455116e929b9972c36d23070F5054Ce0 (symbol: syrupUSDT), aToken: 0xF8400F3FA9cD9F9E84e93cD9De9f14EB7B5b59b5, stableDebtToken: 0x0000000000000000000000000000000000000000, variableDebtToken: 0x2E20c5291CD675bFe52a533a6208588f5484999e, interestRateStrategyAddress: 0x0a215D8ba66387DCA84B284D18c3B4ec3de6E54a) |
 | 49 | ReserveInterestRateDataChanged(asset: 0x051665f2455116e929b9972c36d23070F5054Ce0 (symbol: syrupUSDT), strategy: 0x0a215D8ba66387DCA84B284D18c3B4ec3de6E54a, data: 0x0000000000000000000000000000000000000000000000000000000000002328000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001f400000000000000000000000000000000000000000000000000000000000007d0) |
-| 53 | ReserveInitialized(asset: 0x93e855643e940D025bE2e529272e4Dbd15a2Cf74 (symbol: wrsETH), aToken: 0x5cC6999aC46F4627309a7ce0F321a3f45D138ED5, stableDebtToken: 0x0000000000000000000000000000000000000000, variableDebtToken: 0x7C5549DE0dEb930bAb1e11B075151a19e400605c, interestRateStrategyAddress: 0x0a215D8ba66387DCA84B284D18c3B4ec3de6E54a) |
-| 54 | ReserveInterestRateDataChanged(asset: 0x93e855643e940D025bE2e529272e4Dbd15a2Cf74 (symbol: wrsETH), strategy: 0x0a215D8ba66387DCA84B284D18c3B4ec3de6E54a, data: 0x0000000000000000000000000000000000000000000000000000000000002328000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001f400000000000000000000000000000000000000000000000000000000000007d0) |
-| 58 | ReserveInitialized(asset: 0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73 (symbol: GHO), aToken: 0x8917d4eE4609f991b559DAF8D0aD1b892c13B127, stableDebtToken: 0x0000000000000000000000000000000000000000, variableDebtToken: 0xeE1eABe23fA42028809F587B8fE1936b154d2620, interestRateStrategyAddress: 0x0a215D8ba66387DCA84B284D18c3B4ec3de6E54a) |
-| 59 | ReserveInterestRateDataChanged(asset: 0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73 (symbol: GHO), strategy: 0x0a215D8ba66387DCA84B284D18c3B4ec3de6E54a, data: 0x000000000000000000000000000000000000000000000000000000000000232800000000000000000000000000000000000000000000000000000000000000c8000000000000000000000000000000000000000000000000000000000000012c0000000000000000000000000000000000000000000000000000000000000fa0) |
+| 53 | ReserveInitialized(asset: 0x93e855643e940D025bE2e529272e4Dbd15a2Cf74 (symbol: unknown), aToken: 0x5cC6999aC46F4627309a7ce0F321a3f45D138ED5, stableDebtToken: 0x0000000000000000000000000000000000000000, variableDebtToken: 0x7C5549DE0dEb930bAb1e11B075151a19e400605c, interestRateStrategyAddress: 0x0a215D8ba66387DCA84B284D18c3B4ec3de6E54a) |
+| 54 | ReserveInterestRateDataChanged(asset: 0x93e855643e940D025bE2e529272e4Dbd15a2Cf74 (symbol: unknown), strategy: 0x0a215D8ba66387DCA84B284D18c3B4ec3de6E54a, data: 0x0000000000000000000000000000000000000000000000000000000000002328000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001f400000000000000000000000000000000000000000000000000000000000007d0) |
+| 58 | ReserveInitialized(asset: 0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73 (symbol: unknown), aToken: 0x8917d4eE4609f991b559DAF8D0aD1b892c13B127, stableDebtToken: 0x0000000000000000000000000000000000000000, variableDebtToken: 0xeE1eABe23fA42028809F587B8fE1936b154d2620, interestRateStrategyAddress: 0x0a215D8ba66387DCA84B284D18c3B4ec3de6E54a) |
+| 59 | ReserveInterestRateDataChanged(asset: 0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73 (symbol: unknown), strategy: 0x0a215D8ba66387DCA84B284D18c3B4ec3de6E54a, data: 0x000000000000000000000000000000000000000000000000000000000000232800000000000000000000000000000000000000000000000000000000000000c8000000000000000000000000000000000000000000000000000000000000012c0000000000000000000000000000000000000000000000000000000000000fa0) |
 | 60 | SupplyCapChanged(asset: 0xdEAddEaDdeadDEadDEADDEAddEADDEAddead1111 (symbol: WETH), oldSupplyCap: 0, newSupplyCap: 30000) |
-| 61 | BorrowCapChanged(asset: 0xdEAddEaDdeadDEadDEADDEAddEADDEAddead1111 (symbol: WETH), oldBorrowCap: 0, newBorrowCap: 28000) |
+| 61 | BorrowCapChanged(asset: 0xdEAddEaDdeadDEadDEADDEAddEADDEAddead1111 (symbol: unknown), oldBorrowCap: 0, newBorrowCap: 28000) |
 | 62 | SupplyCapChanged(asset: 0x78c1b0C915c4FAA5FffA6CAbf0219DA63d7f4cb8 (symbol: WMNT), oldSupplyCap: 0, newSupplyCap: 5000000) |
 | 63 | BorrowCapChanged(asset: 0x78c1b0C915c4FAA5FffA6CAbf0219DA63d7f4cb8 (symbol: WMNT), oldBorrowCap: 0, newBorrowCap: 1) |
 | 64 | SupplyCapChanged(asset: 0x779Ded0c9e1022225f8E0630b35a9b54bE713736 (symbol: USDT0), oldSupplyCap: 0, newSupplyCap: 50000000) |
-| 65 | BorrowCapChanged(asset: 0x779Ded0c9e1022225f8E0630b35a9b54bE713736 (symbol: USDT0), oldBorrowCap: 0, newBorrowCap: 47500000) |
-| 66 | SupplyCapChanged(asset: 0x09Bc4E0D864854c6aFB6eB9A9cdF58aC190D0dF9 (symbol: USDC), oldSupplyCap: 0, newSupplyCap: 10000000) |
+| 65 | BorrowCapChanged(asset: 0x779Ded0c9e1022225f8E0630b35a9b54bE713736 (symbol: unknown), oldBorrowCap: 0, newBorrowCap: 47500000) |
+| 66 | SupplyCapChanged(asset: 0x09Bc4E0D864854c6aFB6eB9A9cdF58aC190D0dF9 (symbol: unknown), oldSupplyCap: 0, newSupplyCap: 10000000) |
 | 67 | BorrowCapChanged(asset: 0x09Bc4E0D864854c6aFB6eB9A9cdF58aC190D0dF9 (symbol: USDC), oldBorrowCap: 0, newBorrowCap: 9500000) |
 | 68 | SupplyCapChanged(asset: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (symbol: USDe), oldSupplyCap: 0, newSupplyCap: 40000000) |
-| 69 | BorrowCapChanged(asset: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (symbol: USDe), oldBorrowCap: 0, newBorrowCap: 36000000) |
+| 69 | BorrowCapChanged(asset: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (symbol: unknown), oldBorrowCap: 0, newBorrowCap: 36000000) |
 | 70 | SupplyCapChanged(asset: 0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2 (symbol: sUSDe), oldSupplyCap: 0, newSupplyCap: 80000000) |
 | 71 | BorrowCapChanged(asset: 0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2 (symbol: sUSDe), oldBorrowCap: 0, newBorrowCap: 1) |
 | 72 | SupplyCapChanged(asset: 0xC96dE26018A54D51c097160568752c4E3BD6C364 (symbol: FBTC), oldSupplyCap: 0, newSupplyCap: 50) |
 | 73 | BorrowCapChanged(asset: 0xC96dE26018A54D51c097160568752c4E3BD6C364 (symbol: FBTC), oldBorrowCap: 0, newBorrowCap: 1) |
 | 74 | SupplyCapChanged(asset: 0x051665f2455116e929b9972c36d23070F5054Ce0 (symbol: syrupUSDT), oldSupplyCap: 0, newSupplyCap: 70000000) |
-| 75 | BorrowCapChanged(asset: 0x051665f2455116e929b9972c36d23070F5054Ce0 (symbol: syrupUSDT), oldBorrowCap: 0, newBorrowCap: 1) |
-| 76 | SupplyCapChanged(asset: 0x93e855643e940D025bE2e529272e4Dbd15a2Cf74 (symbol: wrsETH), oldSupplyCap: 0, newSupplyCap: 18000) |
+| 75 | BorrowCapChanged(asset: 0x051665f2455116e929b9972c36d23070F5054Ce0 (symbol: unknown), oldBorrowCap: 0, newBorrowCap: 1) |
+| 76 | SupplyCapChanged(asset: 0x93e855643e940D025bE2e529272e4Dbd15a2Cf74 (symbol: unknown), oldSupplyCap: 0, newSupplyCap: 18000) |
 | 77 | BorrowCapChanged(asset: 0x93e855643e940D025bE2e529272e4Dbd15a2Cf74 (symbol: wrsETH), oldBorrowCap: 0, newBorrowCap: 1) |
 | 78 | SupplyCapChanged(asset: 0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73 (symbol: GHO), oldSupplyCap: 0, newSupplyCap: 20000000) |
-| 79 | BorrowCapChanged(asset: 0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73 (symbol: GHO), oldBorrowCap: 0, newBorrowCap: 18000000) |
+| 79 | BorrowCapChanged(asset: 0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73 (symbol: unknown), oldBorrowCap: 0, newBorrowCap: 18000000) |
 | 80 | ReserveBorrowing(asset: 0xdEAddEaDdeadDEadDEADDEAddEADDEAddead1111 (symbol: WETH), enabled: true) |
 | 81 | BorrowableInIsolationChanged(asset: 0xdEAddEaDdeadDEadDEADDEAddEADDEAddead1111 (symbol: WETH), borrowable: false) |
 | 82 | SiloedBorrowingChanged(asset: 0xdEAddEaDdeadDEadDEADDEAddEADDEAddead1111 (symbol: WETH), oldState: false, newState: false) |
 | 83 | ReserveFactorChanged(asset: 0xdEAddEaDdeadDEadDEADDEAddEADDEAddead1111 (symbol: WETH), oldReserveFactor: 0, newReserveFactor: 1500) |
-| 85 | ReserveFlashLoaning(asset: 0xdEAddEaDdeadDEadDEADDEAddEADDEAddead1111 (symbol: WETH), enabled: true) |
-| 86 | ReserveBorrowing(asset: 0x78c1b0C915c4FAA5FffA6CAbf0219DA63d7f4cb8 (symbol: WMNT), enabled: false) |
+| 85 | ReserveFlashLoaning(asset: 0xdEAddEaDdeadDEadDEADDEAddEADDEAddead1111 (symbol: unknown), enabled: true) |
+| 86 | ReserveBorrowing(asset: 0x78c1b0C915c4FAA5FffA6CAbf0219DA63d7f4cb8 (symbol: unknown), enabled: false) |
 | 87 | BorrowableInIsolationChanged(asset: 0x78c1b0C915c4FAA5FffA6CAbf0219DA63d7f4cb8 (symbol: WMNT), borrowable: false) |
 | 88 | SiloedBorrowingChanged(asset: 0x78c1b0C915c4FAA5FffA6CAbf0219DA63d7f4cb8 (symbol: WMNT), oldState: false, newState: false) |
 | 89 | ReserveFactorChanged(asset: 0x78c1b0C915c4FAA5FffA6CAbf0219DA63d7f4cb8 (symbol: WMNT), oldReserveFactor: 0, newReserveFactor: 2000) |
@@ -600,35 +600,35 @@
 | 97 | ReserveFlashLoaning(asset: 0x779Ded0c9e1022225f8E0630b35a9b54bE713736 (symbol: USDT0), enabled: true) |
 | 98 | ReserveBorrowing(asset: 0x09Bc4E0D864854c6aFB6eB9A9cdF58aC190D0dF9 (symbol: USDC), enabled: true) |
 | 99 | BorrowableInIsolationChanged(asset: 0x09Bc4E0D864854c6aFB6eB9A9cdF58aC190D0dF9 (symbol: USDC), borrowable: true) |
-| 100 | SiloedBorrowingChanged(asset: 0x09Bc4E0D864854c6aFB6eB9A9cdF58aC190D0dF9 (symbol: USDC), oldState: false, newState: false) |
-| 101 | ReserveFactorChanged(asset: 0x09Bc4E0D864854c6aFB6eB9A9cdF58aC190D0dF9 (symbol: USDC), oldReserveFactor: 0, newReserveFactor: 1000) |
+| 100 | SiloedBorrowingChanged(asset: 0x09Bc4E0D864854c6aFB6eB9A9cdF58aC190D0dF9 (symbol: unknown), oldState: false, newState: false) |
+| 101 | ReserveFactorChanged(asset: 0x09Bc4E0D864854c6aFB6eB9A9cdF58aC190D0dF9 (symbol: unknown), oldReserveFactor: 0, newReserveFactor: 1000) |
 | 103 | ReserveFlashLoaning(asset: 0x09Bc4E0D864854c6aFB6eB9A9cdF58aC190D0dF9 (symbol: USDC), enabled: true) |
 | 104 | ReserveBorrowing(asset: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (symbol: USDe), enabled: true) |
 | 105 | BorrowableInIsolationChanged(asset: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (symbol: USDe), borrowable: true) |
-| 106 | SiloedBorrowingChanged(asset: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (symbol: USDe), oldState: false, newState: false) |
+| 106 | SiloedBorrowingChanged(asset: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (symbol: unknown), oldState: false, newState: false) |
 | 107 | ReserveFactorChanged(asset: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (symbol: USDe), oldReserveFactor: 0, newReserveFactor: 2500) |
-| 109 | ReserveFlashLoaning(asset: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (symbol: USDe), enabled: true) |
-| 110 | ReserveBorrowing(asset: 0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2 (symbol: sUSDe), enabled: false) |
-| 111 | BorrowableInIsolationChanged(asset: 0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2 (symbol: sUSDe), borrowable: false) |
+| 109 | ReserveFlashLoaning(asset: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (symbol: unknown), enabled: true) |
+| 110 | ReserveBorrowing(asset: 0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2 (symbol: unknown), enabled: false) |
+| 111 | BorrowableInIsolationChanged(asset: 0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2 (symbol: unknown), borrowable: false) |
 | 112 | SiloedBorrowingChanged(asset: 0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2 (symbol: sUSDe), oldState: false, newState: false) |
-| 113 | ReserveFactorChanged(asset: 0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2 (symbol: sUSDe), oldReserveFactor: 0, newReserveFactor: 2000) |
+| 113 | ReserveFactorChanged(asset: 0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2 (symbol: unknown), oldReserveFactor: 0, newReserveFactor: 2000) |
 | 115 | ReserveFlashLoaning(asset: 0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2 (symbol: sUSDe), enabled: true) |
 | 116 | ReserveBorrowing(asset: 0xC96dE26018A54D51c097160568752c4E3BD6C364 (symbol: FBTC), enabled: false) |
 | 117 | BorrowableInIsolationChanged(asset: 0xC96dE26018A54D51c097160568752c4E3BD6C364 (symbol: FBTC), borrowable: false) |
 | 118 | SiloedBorrowingChanged(asset: 0xC96dE26018A54D51c097160568752c4E3BD6C364 (symbol: FBTC), oldState: false, newState: false) |
 | 119 | ReserveFactorChanged(asset: 0xC96dE26018A54D51c097160568752c4E3BD6C364 (symbol: FBTC), oldReserveFactor: 0, newReserveFactor: 2000) |
 | 121 | ReserveFlashLoaning(asset: 0xC96dE26018A54D51c097160568752c4E3BD6C364 (symbol: FBTC), enabled: true) |
-| 122 | ReserveBorrowing(asset: 0x051665f2455116e929b9972c36d23070F5054Ce0 (symbol: syrupUSDT), enabled: false) |
+| 122 | ReserveBorrowing(asset: 0x051665f2455116e929b9972c36d23070F5054Ce0 (symbol: unknown), enabled: false) |
 | 123 | BorrowableInIsolationChanged(asset: 0x051665f2455116e929b9972c36d23070F5054Ce0 (symbol: syrupUSDT), borrowable: false) |
 | 124 | SiloedBorrowingChanged(asset: 0x051665f2455116e929b9972c36d23070F5054Ce0 (symbol: syrupUSDT), oldState: false, newState: false) |
-| 125 | ReserveFactorChanged(asset: 0x051665f2455116e929b9972c36d23070F5054Ce0 (symbol: syrupUSDT), oldReserveFactor: 0, newReserveFactor: 2000) |
-| 127 | ReserveFlashLoaning(asset: 0x051665f2455116e929b9972c36d23070F5054Ce0 (symbol: syrupUSDT), enabled: true) |
-| 128 | ReserveBorrowing(asset: 0x93e855643e940D025bE2e529272e4Dbd15a2Cf74 (symbol: wrsETH), enabled: false) |
-| 129 | BorrowableInIsolationChanged(asset: 0x93e855643e940D025bE2e529272e4Dbd15a2Cf74 (symbol: wrsETH), borrowable: false) |
-| 130 | SiloedBorrowingChanged(asset: 0x93e855643e940D025bE2e529272e4Dbd15a2Cf74 (symbol: wrsETH), oldState: false, newState: false) |
+| 125 | ReserveFactorChanged(asset: 0x051665f2455116e929b9972c36d23070F5054Ce0 (symbol: unknown), oldReserveFactor: 0, newReserveFactor: 2000) |
+| 127 | ReserveFlashLoaning(asset: 0x051665f2455116e929b9972c36d23070F5054Ce0 (symbol: unknown), enabled: true) |
+| 128 | ReserveBorrowing(asset: 0x93e855643e940D025bE2e529272e4Dbd15a2Cf74 (symbol: unknown), enabled: false) |
+| 129 | BorrowableInIsolationChanged(asset: 0x93e855643e940D025bE2e529272e4Dbd15a2Cf74 (symbol: unknown), borrowable: false) |
+| 130 | SiloedBorrowingChanged(asset: 0x93e855643e940D025bE2e529272e4Dbd15a2Cf74 (symbol: unknown), oldState: false, newState: false) |
 | 131 | ReserveFactorChanged(asset: 0x93e855643e940D025bE2e529272e4Dbd15a2Cf74 (symbol: wrsETH), oldReserveFactor: 0, newReserveFactor: 2000) |
 | 133 | ReserveFlashLoaning(asset: 0x93e855643e940D025bE2e529272e4Dbd15a2Cf74 (symbol: wrsETH), enabled: true) |
-| 134 | ReserveBorrowing(asset: 0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73 (symbol: GHO), enabled: true) |
+| 134 | ReserveBorrowing(asset: 0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73 (symbol: unknown), enabled: true) |
 | 135 | BorrowableInIsolationChanged(asset: 0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73 (symbol: GHO), borrowable: true) |
 | 136 | SiloedBorrowingChanged(asset: 0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73 (symbol: GHO), oldState: false, newState: false) |
 | 137 | ReserveFactorChanged(asset: 0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73 (symbol: GHO), oldReserveFactor: 0, newReserveFactor: 1000) |
@@ -677,8 +677,8 @@
 | index | event |
 | --- | --- |
 | 15 | Initialized(underlyingAsset: 0x78c1b0C915c4FAA5FffA6CAbf0219DA63d7f4cb8, pool: 0x458F293454fE0d67EC0655f3672301301DD51422, treasury: 0x0cd2670339Cd520BF9428Ad881bE60A698aB9B32, incentivesController: 0x682482a584eE20fefc01f4575c45C5d84de6F619, aTokenDecimals: 18, aTokenName: Aave Mantle WMNT, aTokenSymbol: aManWMNT, params: 0x) |
-| 191 | Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, value: 10 [10000000000000000000, 18 decimals]) |
-| 192 | Mint(caller: 0x70884634D0098782592111A2A6B8d223be31CB7b, onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, value: 10 [10000000000000000000, 18 decimals], balanceIncrease: 0, index: 1 [1000000000000000000000000000, 27 decimals]) |
+| 191 | Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, value: 10,000,000,000,000,000,000 [10000000000000000000, 0 decimals]) |
+| 192 | Mint(caller: 0x70884634D0098782592111A2A6B8d223be31CB7b, onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, value: 10,000,000,000,000,000,000 [10000000000000000000, 0 decimals], balanceIncrease: 0, index: 1 [1000000000000000000000000000, 27 decimals]) |
 
 #### 0x9c27A8ffacAbdEE0Ac5c415E018D295BB6444F0E (AaveV3Mantle.ASSETS.WMNT.V_TOKEN)
 
@@ -692,7 +692,7 @@
 | --- | --- |
 | 20 | Initialized(underlyingAsset: 0x779Ded0c9e1022225f8E0630b35a9b54bE713736, pool: 0x458F293454fE0d67EC0655f3672301301DD51422, treasury: 0x0cd2670339Cd520BF9428Ad881bE60A698aB9B32, incentivesController: 0x682482a584eE20fefc01f4575c45C5d84de6F619, aTokenDecimals: 6, aTokenName: Aave Mantle USDT0, aTokenSymbol: aManUSDT0, params: 0x) |
 | 200 | Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, value: 10 [10000000, 6 decimals]) |
-| 201 | Mint(caller: 0x70884634D0098782592111A2A6B8d223be31CB7b, onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, value: 10 [10000000, 6 decimals], balanceIncrease: 0, index: 1 [1000000000000000000000000000, 27 decimals]) |
+| 201 | Mint(caller: 0x70884634D0098782592111A2A6B8d223be31CB7b, onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, value: 10,000,000 [10000000, 0 decimals], balanceIncrease: 0, index: 1 [1000000000000000000000000000, 27 decimals]) |
 
 #### 0x5d9e4663d3d532179c404dBe9edF93045F89aDed (AaveV3Mantle.ASSETS.USDT0.V_TOKEN)
 
@@ -719,7 +719,7 @@
 | index | event |
 | --- | --- |
 | 30 | Initialized(underlyingAsset: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34, pool: 0x458F293454fE0d67EC0655f3672301301DD51422, treasury: 0x0cd2670339Cd520BF9428Ad881bE60A698aB9B32, incentivesController: 0x682482a584eE20fefc01f4575c45C5d84de6F619, aTokenDecimals: 18, aTokenName: Aave Mantle USDe, aTokenSymbol: aManUSDe, params: 0x) |
-| 216 | Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, value: 10 [10000000000000000000, 18 decimals]) |
+| 216 | Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, value: 10,000,000,000,000,000,000 [10000000000000000000, 0 decimals]) |
 | 217 | Mint(caller: 0x70884634D0098782592111A2A6B8d223be31CB7b, onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, value: 10 [10000000000000000000, 18 decimals], balanceIncrease: 0, index: 1 [1000000000000000000000000000, 27 decimals]) |
 
 #### 0x0169FD279c8c656037E5D199Cff8137f1e2d807c (AaveV3Mantle.ASSETS.USDe.V_TOKEN)
@@ -733,8 +733,8 @@
 | index | event |
 | --- | --- |
 | 35 | Initialized(underlyingAsset: 0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2, pool: 0x458F293454fE0d67EC0655f3672301301DD51422, treasury: 0x0cd2670339Cd520BF9428Ad881bE60A698aB9B32, incentivesController: 0x682482a584eE20fefc01f4575c45C5d84de6F619, aTokenDecimals: 18, aTokenName: Aave Mantle sUSDe, aTokenSymbol: aMansUSDe, params: 0x) |
-| 224 | Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, value: 10 [10000000000000000000, 18 decimals]) |
-| 225 | Mint(caller: 0x70884634D0098782592111A2A6B8d223be31CB7b, onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, value: 10 [10000000000000000000, 18 decimals], balanceIncrease: 0, index: 1 [1000000000000000000000000000, 27 decimals]) |
+| 224 | Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, value: 10,000,000,000,000,000,000 [10000000000000000000, 0 decimals]) |
+| 225 | Mint(caller: 0x70884634D0098782592111A2A6B8d223be31CB7b, onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, value: 10,000,000,000,000,000,000 [10000000000000000000, 0 decimals], balanceIncrease: 0, index: 1 [1000000000000000000000000000, 27 decimals]) |
 
 #### 0xc42B44c65bBe7AA8E5b02416918688c244ec7847 (AaveV3Mantle.ASSETS.sUSDe.V_TOKEN)
 
@@ -747,8 +747,8 @@
 | index | event |
 | --- | --- |
 | 40 | Initialized(underlyingAsset: 0xC96dE26018A54D51c097160568752c4E3BD6C364, pool: 0x458F293454fE0d67EC0655f3672301301DD51422, treasury: 0x0cd2670339Cd520BF9428Ad881bE60A698aB9B32, incentivesController: 0x682482a584eE20fefc01f4575c45C5d84de6F619, aTokenDecimals: 8, aTokenName: Aave Mantle FBTC, aTokenSymbol: aManFBTC, params: 0x) |
-| 232 | Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, value: 0.0005 [50000, 8 decimals]) |
-| 233 | Mint(caller: 0x70884634D0098782592111A2A6B8d223be31CB7b, onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, value: 0.0005 [50000, 8 decimals], balanceIncrease: 0, index: 1 [1000000000000000000000000000, 27 decimals]) |
+| 232 | Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, value: 50,000 [50000, 0 decimals]) |
+| 233 | Mint(caller: 0x70884634D0098782592111A2A6B8d223be31CB7b, onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, value: 50,000 [50000, 0 decimals], balanceIncrease: 0, index: 1 [1000000000000000000000000000, 27 decimals]) |
 
 #### 0x691AbCD512C1Cfef99442b0ACD3eD98Ee7F4e64E (AaveV3Mantle.ASSETS.FBTC.V_TOKEN)
 
@@ -761,8 +761,8 @@
 | index | event |
 | --- | --- |
 | 45 | Initialized(underlyingAsset: 0x051665f2455116e929b9972c36d23070F5054Ce0, pool: 0x458F293454fE0d67EC0655f3672301301DD51422, treasury: 0x0cd2670339Cd520BF9428Ad881bE60A698aB9B32, incentivesController: 0x682482a584eE20fefc01f4575c45C5d84de6F619, aTokenDecimals: 6, aTokenName: Aave Mantle syrupUSDT, aTokenSymbol: aMansyrupUSDT, params: 0x) |
-| 241 | Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, value: 10 [10000000, 6 decimals]) |
-| 242 | Mint(caller: 0x70884634D0098782592111A2A6B8d223be31CB7b, onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, value: 10 [10000000, 6 decimals], balanceIncrease: 0, index: 1 [1000000000000000000000000000, 27 decimals]) |
+| 241 | Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, value: 10,000,000 [10000000, 0 decimals]) |
+| 242 | Mint(caller: 0x70884634D0098782592111A2A6B8d223be31CB7b, onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, value: 10,000,000 [10000000, 0 decimals], balanceIncrease: 0, index: 1 [1000000000000000000000000000, 27 decimals]) |
 
 #### 0x2E20c5291CD675bFe52a533a6208588f5484999e (AaveV3Mantle.ASSETS.syrupUSDT.V_TOKEN)
 
@@ -790,7 +790,7 @@
 | --- | --- |
 | 55 | Initialized(underlyingAsset: 0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73, pool: 0x458F293454fE0d67EC0655f3672301301DD51422, treasury: 0x0cd2670339Cd520BF9428Ad881bE60A698aB9B32, incentivesController: 0x682482a584eE20fefc01f4575c45C5d84de6F619, aTokenDecimals: 18, aTokenName: Aave Mantle GHO, aTokenSymbol: aManGHO, params: 0x) |
 | 258 | Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, value: 10 [10000000000000000000, 18 decimals]) |
-| 259 | Mint(caller: 0x70884634D0098782592111A2A6B8d223be31CB7b, onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, value: 10 [10000000000000000000, 18 decimals], balanceIncrease: 0, index: 1 [1000000000000000000000000000, 27 decimals]) |
+| 259 | Mint(caller: 0x70884634D0098782592111A2A6B8d223be31CB7b, onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, value: 10,000,000,000,000,000,000 [10000000000000000000, 0 decimals], balanceIncrease: 0, index: 1 [1000000000000000000000000000, 27 decimals]) |
 
 #### 0xeE1eABe23fA42028809F587B8fE1936b154d2620 (AaveV3Mantle.ASSETS.GHO.V_TOKEN)
 
@@ -802,43 +802,43 @@
 
 | index | event |
 | --- | --- |
-| 84 | ReserveDataUpdated(reserve: 0xdEAddEaDdeadDEadDEADDEAddEADDEAddead1111 (symbol: WETH), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
-| 90 | ReserveDataUpdated(reserve: 0x78c1b0C915c4FAA5FffA6CAbf0219DA63d7f4cb8 (symbol: WMNT), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
-| 96 | ReserveDataUpdated(reserve: 0x779Ded0c9e1022225f8E0630b35a9b54bE713736 (symbol: USDT0), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
+| 84 | ReserveDataUpdated(reserve: 0xdEAddEaDdeadDEadDEADDEAddEADDEAddead1111 (symbol: unknown), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
+| 90 | ReserveDataUpdated(reserve: 0x78c1b0C915c4FAA5FffA6CAbf0219DA63d7f4cb8 (symbol: unknown), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
+| 96 | ReserveDataUpdated(reserve: 0x779Ded0c9e1022225f8E0630b35a9b54bE713736 (symbol: unknown), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
 | 102 | ReserveDataUpdated(reserve: 0x09Bc4E0D864854c6aFB6eB9A9cdF58aC190D0dF9 (symbol: USDC), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
 | 108 | ReserveDataUpdated(reserve: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (symbol: USDe), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
-| 114 | ReserveDataUpdated(reserve: 0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2 (symbol: sUSDe), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
+| 114 | ReserveDataUpdated(reserve: 0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2 (symbol: unknown), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
 | 120 | ReserveDataUpdated(reserve: 0xC96dE26018A54D51c097160568752c4E3BD6C364 (symbol: FBTC), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
 | 126 | ReserveDataUpdated(reserve: 0x051665f2455116e929b9972c36d23070F5054Ce0 (symbol: syrupUSDT), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
 | 132 | ReserveDataUpdated(reserve: 0x93e855643e940D025bE2e529272e4Dbd15a2Cf74 (symbol: wrsETH), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
 | 138 | ReserveDataUpdated(reserve: 0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73 (symbol: GHO), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 20000000000000000000000000, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
 | 179 | ReserveDataUpdated(reserve: 0xdEAddEaDdeadDEadDEADDEAddEADDEAddead1111 (symbol: WETH), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
-| 184 | Supply(reserve: 0xdEAddEaDdeadDEadDEADDEAddEADDEAddead1111 (symbol: WETH), onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, referralCode: 0, user: 0x70884634D0098782592111A2A6B8d223be31CB7b, amount: 0.0025 [2500000000000000, 18 decimals]) |
+| 184 | Supply(reserve: 0xdEAddEaDdeadDEadDEADDEAddEADDEAddead1111 (symbol: WETH), onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, referralCode: 0, user: 0x70884634D0098782592111A2A6B8d223be31CB7b, amount: 2,500,000,000,000,000 [2500000000000000, 0 decimals]) |
 | 188 | ReserveDataUpdated(reserve: 0x78c1b0C915c4FAA5FffA6CAbf0219DA63d7f4cb8 (symbol: WMNT), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
-| 193 | Supply(reserve: 0x78c1b0C915c4FAA5FffA6CAbf0219DA63d7f4cb8 (symbol: WMNT), onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, referralCode: 0, user: 0x70884634D0098782592111A2A6B8d223be31CB7b, amount: 10 [10000000000000000000, 18 decimals]) |
+| 193 | Supply(reserve: 0x78c1b0C915c4FAA5FffA6CAbf0219DA63d7f4cb8 (symbol: unknown), onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, referralCode: 0, user: 0x70884634D0098782592111A2A6B8d223be31CB7b, amount: 10,000,000,000,000,000,000 [10000000000000000000, 0 decimals]) |
 | 197 | ReserveDataUpdated(reserve: 0x779Ded0c9e1022225f8E0630b35a9b54bE713736 (symbol: USDT0), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
-| 202 | Supply(reserve: 0x779Ded0c9e1022225f8E0630b35a9b54bE713736 (symbol: USDT0), onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, referralCode: 0, user: 0x70884634D0098782592111A2A6B8d223be31CB7b, amount: 10 [10000000, 6 decimals]) |
-| 206 | ReserveDataUpdated(reserve: 0x09Bc4E0D864854c6aFB6eB9A9cdF58aC190D0dF9 (symbol: USDC), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
-| 210 | Supply(reserve: 0x09Bc4E0D864854c6aFB6eB9A9cdF58aC190D0dF9 (symbol: USDC), onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, referralCode: 0, user: 0x70884634D0098782592111A2A6B8d223be31CB7b, amount: 10 [10000000, 6 decimals]) |
-| 214 | ReserveDataUpdated(reserve: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (symbol: USDe), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
-| 218 | Supply(reserve: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (symbol: USDe), onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, referralCode: 0, user: 0x70884634D0098782592111A2A6B8d223be31CB7b, amount: 10 [10000000000000000000, 18 decimals]) |
+| 202 | Supply(reserve: 0x779Ded0c9e1022225f8E0630b35a9b54bE713736 (symbol: unknown), onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, referralCode: 0, user: 0x70884634D0098782592111A2A6B8d223be31CB7b, amount: 10 [10000000, 6 decimals]) |
+| 206 | ReserveDataUpdated(reserve: 0x09Bc4E0D864854c6aFB6eB9A9cdF58aC190D0dF9 (symbol: unknown), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
+| 210 | Supply(reserve: 0x09Bc4E0D864854c6aFB6eB9A9cdF58aC190D0dF9 (symbol: USDC), onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, referralCode: 0, user: 0x70884634D0098782592111A2A6B8d223be31CB7b, amount: 10,000,000 [10000000, 0 decimals]) |
+| 214 | ReserveDataUpdated(reserve: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (symbol: unknown), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
+| 218 | Supply(reserve: 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (symbol: unknown), onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, referralCode: 0, user: 0x70884634D0098782592111A2A6B8d223be31CB7b, amount: 10 [10000000000000000000, 18 decimals]) |
 | 222 | ReserveDataUpdated(reserve: 0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2 (symbol: sUSDe), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
-| 226 | Supply(reserve: 0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2 (symbol: sUSDe), onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, referralCode: 0, user: 0x70884634D0098782592111A2A6B8d223be31CB7b, amount: 10 [10000000000000000000, 18 decimals]) |
-| 230 | ReserveDataUpdated(reserve: 0xC96dE26018A54D51c097160568752c4E3BD6C364 (symbol: FBTC), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
-| 234 | Supply(reserve: 0xC96dE26018A54D51c097160568752c4E3BD6C364 (symbol: FBTC), onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, referralCode: 0, user: 0x70884634D0098782592111A2A6B8d223be31CB7b, amount: 0.0005 [50000, 8 decimals]) |
+| 226 | Supply(reserve: 0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2 (symbol: unknown), onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, referralCode: 0, user: 0x70884634D0098782592111A2A6B8d223be31CB7b, amount: 10,000,000,000,000,000,000 [10000000000000000000, 0 decimals]) |
+| 230 | ReserveDataUpdated(reserve: 0xC96dE26018A54D51c097160568752c4E3BD6C364 (symbol: unknown), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
+| 234 | Supply(reserve: 0xC96dE26018A54D51c097160568752c4E3BD6C364 (symbol: unknown), onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, referralCode: 0, user: 0x70884634D0098782592111A2A6B8d223be31CB7b, amount: 50,000 [50000, 0 decimals]) |
 | 238 | ReserveDataUpdated(reserve: 0x051665f2455116e929b9972c36d23070F5054Ce0 (symbol: syrupUSDT), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
-| 243 | Supply(reserve: 0x051665f2455116e929b9972c36d23070F5054Ce0 (symbol: syrupUSDT), onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, referralCode: 0, user: 0x70884634D0098782592111A2A6B8d223be31CB7b, amount: 10 [10000000, 6 decimals]) |
+| 243 | Supply(reserve: 0x051665f2455116e929b9972c36d23070F5054Ce0 (symbol: unknown), onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, referralCode: 0, user: 0x70884634D0098782592111A2A6B8d223be31CB7b, amount: 10,000,000 [10000000, 0 decimals]) |
 | 247 | ReserveDataUpdated(reserve: 0x93e855643e940D025bE2e529272e4Dbd15a2Cf74 (symbol: wrsETH), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 0, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
-| 252 | Supply(reserve: 0x93e855643e940D025bE2e529272e4Dbd15a2Cf74 (symbol: wrsETH), onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, referralCode: 0, user: 0x70884634D0098782592111A2A6B8d223be31CB7b, amount: 0.0025 [2500000000000000, 18 decimals]) |
+| 252 | Supply(reserve: 0x93e855643e940D025bE2e529272e4Dbd15a2Cf74 (symbol: unknown), onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, referralCode: 0, user: 0x70884634D0098782592111A2A6B8d223be31CB7b, amount: 2,500,000,000,000,000 [2500000000000000, 0 decimals]) |
 | 256 | ReserveDataUpdated(reserve: 0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73 (symbol: GHO), liquidityRate: 0, stableBorrowRate: 0, variableBorrowRate: 20000000000000000000000000, liquidityIndex: 1 [1000000000000000000000000000, 27 decimals], variableBorrowIndex: 1 [1000000000000000000000000000, 27 decimals]) |
-| 260 | Supply(reserve: 0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73 (symbol: GHO), onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, referralCode: 0, user: 0x70884634D0098782592111A2A6B8d223be31CB7b, amount: 10 [10000000000000000000, 18 decimals]) |
+| 260 | Supply(reserve: 0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73 (symbol: unknown), onBehalfOf: 0xB238ce4d8EA3D99b0d90Fe7DA3F17149F88a2601, referralCode: 0, user: 0x70884634D0098782592111A2A6B8d223be31CB7b, amount: 10 [10000000000000000000, 18 decimals]) |
 
 #### 0xdEAddEaDdeadDEadDEADDEAddEADDEAddead1111 (AaveV3Mantle.ASSETS.WETH.UNDERLYING)
 
 | index | event |
 | --- | --- |
 | 178 | Approval(owner: 0x70884634D0098782592111A2A6B8d223be31CB7b, spender: 0x458F293454fE0d67EC0655f3672301301DD51422, value: 0.0025 [2500000000000000, 18 decimals]) |
-| 180 | Approval(owner: 0x70884634D0098782592111A2A6B8d223be31CB7b, spender: 0x458F293454fE0d67EC0655f3672301301DD51422, value: 0 [0, 18 decimals]) |
+| 180 | Approval(owner: 0x70884634D0098782592111A2A6B8d223be31CB7b, spender: 0x458F293454fE0d67EC0655f3672301301DD51422, value: 0 [0, 0 decimals]) |
 | 181 | Transfer(from: 0x70884634D0098782592111A2A6B8d223be31CB7b, to: 0xeAC30Ed8609F564aE65C809C4bf42dB2fF426D2C, value: 0.0025 [2500000000000000, 18 decimals]) |
 
 #### 0x67eD9aC2b65F2ACa57ef2B6BA709251BC2B5036d (AaveV3Mantle.EMISSION_MANAGER)
@@ -870,8 +870,8 @@
 
 | index | event |
 | --- | --- |
-| 187 | Approval(owner: 0x70884634D0098782592111A2A6B8d223be31CB7b, spender: 0x458F293454fE0d67EC0655f3672301301DD51422, value: 10 [10000000000000000000, 18 decimals]) |
-| 189 | Transfer(from: 0x70884634D0098782592111A2A6B8d223be31CB7b, to: 0x85d86061e94CE01D3DA0f9EFa289c86ff136125a, value: 10 [10000000000000000000, 18 decimals]) |
+| 187 | Approval(owner: 0x70884634D0098782592111A2A6B8d223be31CB7b, spender: 0x458F293454fE0d67EC0655f3672301301DD51422, value: 10,000,000,000,000,000,000 [10000000000000000000, 0 decimals]) |
+| 189 | Transfer(from: 0x70884634D0098782592111A2A6B8d223be31CB7b, to: 0x85d86061e94CE01D3DA0f9EFa289c86ff136125a, value: 10,000,000,000,000,000,000 [10000000000000000000, 0 decimals]) |
 | 190 | Approval(owner: 0x70884634D0098782592111A2A6B8d223be31CB7b, spender: 0x458F293454fE0d67EC0655f3672301301DD51422, value: 0 [0, 18 decimals]) |
 
 #### 0x779Ded0c9e1022225f8E0630b35a9b54bE713736 (AaveV3Mantle.ASSETS.USDT0.UNDERLYING)
@@ -879,22 +879,22 @@
 | index | event |
 | --- | --- |
 | 196 | Approval(owner: 0x70884634D0098782592111A2A6B8d223be31CB7b, spender: 0x458F293454fE0d67EC0655f3672301301DD51422, value: 10 [10000000, 6 decimals]) |
-| 198 | Transfer(from: 0x70884634D0098782592111A2A6B8d223be31CB7b, to: 0x7053bAD224F0C021839f6AC645BdaE5F8b585b69, value: 10 [10000000, 6 decimals]) |
+| 198 | Transfer(from: 0x70884634D0098782592111A2A6B8d223be31CB7b, to: 0x7053bAD224F0C021839f6AC645BdaE5F8b585b69, value: 10,000,000 [10000000, 0 decimals]) |
 | 199 | Approval(owner: 0x70884634D0098782592111A2A6B8d223be31CB7b, spender: 0x458F293454fE0d67EC0655f3672301301DD51422, value: 0 [0, 6 decimals]) |
 
 #### 0x09Bc4E0D864854c6aFB6eB9A9cdF58aC190D0dF9 (AaveV3Mantle.ASSETS.USDC.UNDERLYING)
 
 | index | event |
 | --- | --- |
-| 205 | Approval(owner: 0x70884634D0098782592111A2A6B8d223be31CB7b, spender: 0x458F293454fE0d67EC0655f3672301301DD51422, value: 10 [10000000, 6 decimals]) |
-| 207 | Transfer(from: 0x70884634D0098782592111A2A6B8d223be31CB7b, to: 0xcb8164415274515867ec43CbD284ab5d6d2b304F, value: 10 [10000000, 6 decimals]) |
+| 205 | Approval(owner: 0x70884634D0098782592111A2A6B8d223be31CB7b, spender: 0x458F293454fE0d67EC0655f3672301301DD51422, value: 10,000,000 [10000000, 0 decimals]) |
+| 207 | Transfer(from: 0x70884634D0098782592111A2A6B8d223be31CB7b, to: 0xcb8164415274515867ec43CbD284ab5d6d2b304F, value: 10,000,000 [10000000, 0 decimals]) |
 
 #### 0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34 (AaveV3Mantle.ASSETS.USDe.UNDERLYING)
 
 | index | event |
 | --- | --- |
-| 213 | Approval(owner: 0x70884634D0098782592111A2A6B8d223be31CB7b, spender: 0x458F293454fE0d67EC0655f3672301301DD51422, value: 10 [10000000000000000000, 18 decimals]) |
-| 215 | Transfer(from: 0x70884634D0098782592111A2A6B8d223be31CB7b, to: 0xb9aCA933C9c0aa854a6DBb7b12f0CC3FdaC15ee7, value: 10 [10000000000000000000, 18 decimals]) |
+| 213 | Approval(owner: 0x70884634D0098782592111A2A6B8d223be31CB7b, spender: 0x458F293454fE0d67EC0655f3672301301DD51422, value: 10,000,000,000,000,000,000 [10000000000000000000, 0 decimals]) |
+| 215 | Transfer(from: 0x70884634D0098782592111A2A6B8d223be31CB7b, to: 0xb9aCA933C9c0aa854a6DBb7b12f0CC3FdaC15ee7, value: 10,000,000,000,000,000,000 [10000000000000000000, 0 decimals]) |
 
 #### 0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2 (AaveV3Mantle.ASSETS.sUSDe.UNDERLYING)
 
@@ -908,22 +908,22 @@
 | index | event |
 | --- | --- |
 | 229 | Approval(owner: 0x70884634D0098782592111A2A6B8d223be31CB7b, spender: 0x458F293454fE0d67EC0655f3672301301DD51422, value: 0.0005 [50000, 8 decimals]) |
-| 231 | Transfer(from: 0x70884634D0098782592111A2A6B8d223be31CB7b, to: 0xfa14c9DE267b59A586043372bd98Ed99e3Ee0533, value: 0.0005 [50000, 8 decimals]) |
+| 231 | Transfer(from: 0x70884634D0098782592111A2A6B8d223be31CB7b, to: 0xfa14c9DE267b59A586043372bd98Ed99e3Ee0533, value: 50,000 [50000, 0 decimals]) |
 
 #### 0x051665f2455116e929b9972c36d23070F5054Ce0 (AaveV3Mantle.ASSETS.syrupUSDT.UNDERLYING)
 
 | index | event |
 | --- | --- |
-| 237 | Approval(owner: 0x70884634D0098782592111A2A6B8d223be31CB7b, spender: 0x458F293454fE0d67EC0655f3672301301DD51422, value: 10 [10000000, 6 decimals]) |
-| 239 | Approval(owner: 0x70884634D0098782592111A2A6B8d223be31CB7b, spender: 0x458F293454fE0d67EC0655f3672301301DD51422, value: 0 [0, 6 decimals]) |
-| 240 | Transfer(from: 0x70884634D0098782592111A2A6B8d223be31CB7b, to: 0xF8400F3FA9cD9F9E84e93cD9De9f14EB7B5b59b5, value: 10 [10000000, 6 decimals]) |
+| 237 | Approval(owner: 0x70884634D0098782592111A2A6B8d223be31CB7b, spender: 0x458F293454fE0d67EC0655f3672301301DD51422, value: 10,000,000 [10000000, 0 decimals]) |
+| 239 | Approval(owner: 0x70884634D0098782592111A2A6B8d223be31CB7b, spender: 0x458F293454fE0d67EC0655f3672301301DD51422, value: 0 [0, 0 decimals]) |
+| 240 | Transfer(from: 0x70884634D0098782592111A2A6B8d223be31CB7b, to: 0xF8400F3FA9cD9F9E84e93cD9De9f14EB7B5b59b5, value: 10,000,000 [10000000, 0 decimals]) |
 
 #### 0x93e855643e940D025bE2e529272e4Dbd15a2Cf74 (AaveV3Mantle.ASSETS.wrsETH.UNDERLYING)
 
 | index | event |
 | --- | --- |
-| 246 | Approval(owner: 0x70884634D0098782592111A2A6B8d223be31CB7b, spender: 0x458F293454fE0d67EC0655f3672301301DD51422, value: 0.0025 [2500000000000000, 18 decimals]) |
-| 248 | Approval(owner: 0x70884634D0098782592111A2A6B8d223be31CB7b, spender: 0x458F293454fE0d67EC0655f3672301301DD51422, value: 0 [0, 18 decimals]) |
+| 246 | Approval(owner: 0x70884634D0098782592111A2A6B8d223be31CB7b, spender: 0x458F293454fE0d67EC0655f3672301301DD51422, value: 2,500,000,000,000,000 [2500000000000000, 0 decimals]) |
+| 248 | Approval(owner: 0x70884634D0098782592111A2A6B8d223be31CB7b, spender: 0x458F293454fE0d67EC0655f3672301301DD51422, value: 0 [0, 0 decimals]) |
 | 249 | Transfer(from: 0x70884634D0098782592111A2A6B8d223be31CB7b, to: 0x5cC6999aC46F4627309a7ce0F321a3f45D138ED5, value: 0.0025 [2500000000000000, 18 decimals]) |
 
 #### 0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73 (AaveV3Mantle.ASSETS.GHO.UNDERLYING, GhoMantle.GHO_TOKEN)
@@ -931,7 +931,7 @@
 | index | event |
 | --- | --- |
 | 255 | Approval(owner: 0x70884634D0098782592111A2A6B8d223be31CB7b, spender: 0x458F293454fE0d67EC0655f3672301301DD51422, value: 10 [10000000000000000000, 18 decimals]) |
-| 257 | Transfer(from: 0x70884634D0098782592111A2A6B8d223be31CB7b, to: 0x8917d4eE4609f991b559DAF8D0aD1b892c13B127, value: 10 [10000000000000000000, 18 decimals]) |
+| 257 | Transfer(from: 0x70884634D0098782592111A2A6B8d223be31CB7b, to: 0x8917d4eE4609f991b559DAF8D0aD1b892c13B127, value: 10,000,000,000,000,000,000 [10000000000000000000, 0 decimals]) |
 
 #### 0x810D46F9a9027E28F9B01F75E2bdde839dA61115 (AaveV3Mantle.ACL_MANAGER)
 

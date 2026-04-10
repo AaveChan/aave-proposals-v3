@@ -50,4 +50,30 @@ contract AaveV3Plasma_ChangeOfSupplyCapsAndEModeAdjustments_20260410 is AaveV3Pa
 
     return eModeUpdates;
   }
+
+  function assetsEModeUpdates()
+    public
+    pure
+    override
+    returns (IAaveV3ConfigEngine.AssetEModeUpdate[] memory)
+  {
+    IAaveV3ConfigEngine.AssetEModeUpdate[]
+      memory assetEModeUpdates = new IAaveV3ConfigEngine.AssetEModeUpdate[](2);
+
+    assetEModeUpdates[0] = IAaveV3ConfigEngine.AssetEModeUpdate({
+      asset: AaveV3PlasmaAssets.GHO_UNDERLYING,
+      eModeCategory: AaveV3PlasmaEModes.sUSDe_PT_sUSDE_9APR2026_PT_sUSDE_18JUN2026__USDT0_USDe,
+      borrowable: EngineFlags.ENABLED,
+      collateral: EngineFlags.KEEP_CURRENT,
+      ltvzero: EngineFlags.KEEP_CURRENT
+    });
+    assetEModeUpdates[1] = IAaveV3ConfigEngine.AssetEModeUpdate({
+      asset: AaveV3PlasmaAssets.PT_sUSDE_18JUN2026_UNDERLYING,
+      eModeCategory: AaveV3PlasmaEModes.USDe_PT_USDe_9APR2026_PT_USDe_18JUN2026__USDT0_USDe,
+      borrowable: EngineFlags.ENABLED,
+      collateral: EngineFlags.KEEP_CURRENT,
+      ltvzero: EngineFlags.KEEP_CURRENT
+    });
+    return assetEModeUpdates;
+  }
 }
