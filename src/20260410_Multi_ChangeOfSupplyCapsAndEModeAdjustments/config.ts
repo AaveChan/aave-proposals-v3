@@ -2,8 +2,8 @@ import {ConfigFile} from '../../generator/types';
 export const config: ConfigFile = {
   rootOptions: {
     author: 'Chaos Labs (implemented by Aavechan Initiative @aci via Skyward)',
-    pools: ['AaveV3Ethereum', 'AaveV3Plasma', 'AaveV3Mantle'],
-    title: 'Change of supply caps and e-mode adjustments',
+    pools: ['AaveV3Plasma'],
+    title: 'GHO Inclusion into E-Modes on Aave V3 Plasma',
     shortName: 'ChangeOfSupplyCapsAndEModeAdjustments',
     date: '20260410',
     discussion:
@@ -12,15 +12,8 @@ export const config: ConfigFile = {
     votingNetwork: 'AVALANCHE',
   },
   poolOptions: {
-    AaveV3Ethereum: {
-      configs: {
-        CAPS_UPDATE: [{asset: 'PT_srUSDe_25JUN2026', supplyCap: '100000000', borrowCap: ''}],
-      },
-      cache: {blockNumber: 24847899},
-    },
     AaveV3Plasma: {
       configs: {
-        CAPS_UPDATE: [{asset: 'PT_sUSDE_18JUN2026', supplyCap: '500000000', borrowCap: ''}],
         EMODES_UPDATES: [
           {
             eModeCategory: 'AaveV3PlasmaEModes.USDe_PT_USDe_9APR2026_PT_USDe_18JUN2026__USDT0_USDe',
@@ -40,15 +33,6 @@ export const config: ConfigFile = {
         ],
       },
       cache: {blockNumber: 18875103},
-    },
-    AaveV3Mantle: {
-      configs: {
-        CAPS_UPDATE: [
-          {asset: 'FBTC', supplyCap: '100', borrowCap: ''},
-          {asset: 'wrsETH', supplyCap: '70000', borrowCap: ''},
-        ],
-      },
-      cache: {blockNumber: 93838405},
     },
   },
 };
