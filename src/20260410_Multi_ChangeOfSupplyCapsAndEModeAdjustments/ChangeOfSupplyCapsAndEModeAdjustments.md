@@ -12,7 +12,7 @@ Chaos Labs proposed the following changes to be implemented through AIP:
 - Increase the supply cap of PT-srUSDe-25JUN2026 on the Plasma Instance
 - Increase the supply cap of wrsETH on the Mantle Instance.
 - Increase the supply cap of FBTC on the Mantle Instance.
-- Include GHO within the PT asset Emodes on the Plasma Instance
+- Include GHO within the PT asset E-modes on the Plasma Instance
 
 All cap increases are backed by [Chaos Labs’ risk simulations](https://cdn.sanity.io/files/zmh9mnff/production/130e1060165f7ab0766bb4c70cc2ec41c1d1e458.pdf), which consider user behavior, on-chain liquidity, and price impact, ensuring that higher caps do not introduce additional risk to the platform.
 
@@ -60,9 +60,9 @@ At the time of writing, PT-sUSDe-18JUN2026 has sufficient liquidity in the Pendl
 
 Given the sufficient on-chain liquidity and the limited liquidation risk, we recommend increasing the supply cap for PT-sUSDe-18JUN2026 on the Plasma instance.
 
-#### Emode Adjustments
+#### E-Mode Adjustments
 
-Following the listing of the assets, we recommend the addition of GHO as a borrowable asset in the PT-sUSDE-18JUN2026/Stablecoins Emode and in the PT-USDe-18JUN2026/Stablecoins Emode.
+Following the listing of the assets, we recommend the addition of GHO as a borrowable asset in the PT-sUSDe-18JUN2026/Stablecoins E-mode and in the PT-USDe-18JUN2026/Stablecoins E-mode.
 
 ### wrsETH (Mantle)
 
