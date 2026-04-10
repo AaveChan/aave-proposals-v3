@@ -1,0 +1,45 @@
+## Event logs
+
+#### 0x115E662Fa3f0b83014eB3f6F86F3D94BeC5eB411 (MiscBase.AGENT_HUB)
+
+| index | event |
+| --- | --- |
+| 0 | AgentEnabledSet(agentId: 0, enable: false) |
+| 1 | AgentEnabledSet(agentId: 1, enable: false) |
+| 2 | AgentEnabledSet(agentId: 2, enable: false) |
+
+#### 0x9390B1735def18560c509E2d0bc090E9d6BA257a (AaveV3Base.ACL_ADMIN, GovernanceV3Base.EXECUTOR_LVL_1)
+
+| index | event |
+| --- | --- |
+| 3 | ExecutedAction(target: 0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f, value: 0, signature: execute(), data: 0x, executionTime: 1775833673, withDelegatecall: true, resultData: 0x) |
+
+#### 0x2DC219E716793fb4b21548C0f009Ba3Af753ab01 (GovernanceV3Base.PAYLOADS_CONTROLLER)
+
+| index | event |
+| --- | --- |
+| 4 | PayloadExecuted(payloadId: 105) |
+
+## Raw storage changes
+
+### 0x115e662fa3f0b83014eb3f6f86f3d94bec5eb411 (MiscBase.AGENT_HUB)
+
+| slot | previous value | new value |
+| --- | --- | --- |
+| 0x60b0da6b08ce0785d28a00df35f82788b00e12ed74fbd751b7f17e2061d651cf | 0x000000000000000000000001239d3bc5fa247337287cb03f53b8bc63dbbc332d | 0x000000000000000000000000239d3bc5fa247337287cb03f53b8bc63dbbc332d |
+| 0xaf23a9fe98ab74c8206d31b4f275ddf8dabc82d8a5daa7c12084d552666b96fd | 0x000000000000000000000001239d3bc5fa247337287cb03f53b8bc63dbbc332d | 0x000000000000000000000000239d3bc5fa247337287cb03f53b8bc63dbbc332d |
+| 0xf80cf091d48cb329813162312cf78c924f5aae0ee991535608533f788290f887 | 0x000000000000000000000001239d3bc5fa247337287cb03f53b8bc63dbbc332d | 0x000000000000000000000000239d3bc5fa247337287cb03f53b8bc63dbbc332d |
+
+### 0x2dc219e716793fb4b21548c0f009ba3af753ab01 (GovernanceV3Base.PAYLOADS_CONTROLLER)
+
+| slot | previous value | new value |
+| --- | --- | --- |
+| 0x8bd72d705e704e96ab1fa5baf1ac8053f4ec008dca8cf0376ca60a5648fa9532 | 0x0069d91248000000000002000000000000000000000000000000000000000000 | 0x0069d91248000000000003000000000000000000000000000000000000000000 |
+| 0x8bd72d705e704e96ab1fa5baf1ac8053f4ec008dca8cf0376ca60a5648fa9533 | 0x000000000000000000093a800000000000006a0736c900000000000000000000 | 0x000000000000000000093a800000000000006a0736c900000000000069d91249 |
+
+
+## Raw diff
+
+```json
+{}
+```

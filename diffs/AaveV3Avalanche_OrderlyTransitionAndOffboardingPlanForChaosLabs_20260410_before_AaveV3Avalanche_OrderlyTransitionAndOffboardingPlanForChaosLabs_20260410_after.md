@@ -1,0 +1,45 @@
+## Event logs
+
+#### 0x556bBE96f04b4610E48EE003DAcEE1C74de7AC6a (MiscAvalanche.AGENT_HUB)
+
+| index | event |
+| --- | --- |
+| 0 | AgentEnabledSet(agentId: 0, enable: false) |
+| 1 | AgentEnabledSet(agentId: 1, enable: false) |
+| 2 | AgentEnabledSet(agentId: 2, enable: false) |
+
+#### 0x3C06dce358add17aAf230f2234bCCC4afd50d090 (AaveV2Avalanche.POOL_ADMIN, AaveV3Avalanche.ACL_ADMIN, GovernanceV3Avalanche.EXECUTOR_LVL_1)
+
+| index | event |
+| --- | --- |
+| 3 | ExecutedAction(target: 0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f, value: 0, signature: execute(), data: 0x, executionTime: 1775833666, withDelegatecall: true, resultData: 0x) |
+
+#### 0x1140CB7CAfAcC745771C2Ea31e7B5C653c5d0B80 (GovernanceV3Avalanche.PAYLOADS_CONTROLLER)
+
+| index | event |
+| --- | --- |
+| 4 | PayloadExecuted(payloadId: 112) |
+
+## Raw storage changes
+
+### 0x1140cb7cafacc745771c2ea31e7b5c653c5d0b80 (GovernanceV3Avalanche.PAYLOADS_CONTROLLER)
+
+| slot | previous value | new value |
+| --- | --- | --- |
+| 0x9ff053d1d05d615e9da14e487ea593a41d5f35a8cc975b547dec50b34f0a1fc3 | 0x0069d91241000000000002000000000000000000000000000000000000000000 | 0x0069d91241000000000003000000000000000000000000000000000000000000 |
+| 0x9ff053d1d05d615e9da14e487ea593a41d5f35a8cc975b547dec50b34f0a1fc4 | 0x000000000000000000093a800000000000006a0736c200000000000000000000 | 0x000000000000000000093a800000000000006a0736c200000000000069d91242 |
+
+### 0x556bbe96f04b4610e48ee003dacee1c74de7ac6a (MiscAvalanche.AGENT_HUB)
+
+| slot | previous value | new value |
+| --- | --- | --- |
+| 0x60b0da6b08ce0785d28a00df35f82788b00e12ed74fbd751b7f17e2061d651cf | 0x0000000000000000000000011273f29204fc102bd4620485b13cfe27a794ff32 | 0x0000000000000000000000001273f29204fc102bd4620485b13cfe27a794ff32 |
+| 0xaf23a9fe98ab74c8206d31b4f275ddf8dabc82d8a5daa7c12084d552666b96fd | 0x0000000000000000000000011273f29204fc102bd4620485b13cfe27a794ff32 | 0x0000000000000000000000001273f29204fc102bd4620485b13cfe27a794ff32 |
+| 0xf80cf091d48cb329813162312cf78c924f5aae0ee991535608533f788290f887 | 0x0000000000000000000000011273f29204fc102bd4620485b13cfe27a794ff32 | 0x0000000000000000000000001273f29204fc102bd4620485b13cfe27a794ff32 |
+
+
+## Raw diff
+
+```json
+{}
+```

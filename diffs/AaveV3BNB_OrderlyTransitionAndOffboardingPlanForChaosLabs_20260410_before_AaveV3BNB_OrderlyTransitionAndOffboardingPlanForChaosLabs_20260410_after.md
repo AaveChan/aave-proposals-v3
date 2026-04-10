@@ -1,0 +1,43 @@
+## Event logs
+
+#### 0x115E662Fa3f0b83014eB3f6F86F3D94BeC5eB411 (MiscBNB.AGENT_HUB)
+
+| index | event |
+| --- | --- |
+| 0 | AgentEnabledSet(agentId: 0, enable: false) |
+| 1 | AgentEnabledSet(agentId: 1, enable: false) |
+
+#### 0x9390B1735def18560c509E2d0bc090E9d6BA257a (AaveV3BNB.ACL_ADMIN, GovernanceV3BNB.EXECUTOR_LVL_1)
+
+| index | event |
+| --- | --- |
+| 2 | ExecutedAction(target: 0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f, value: 0, signature: execute(), data: 0x, executionTime: 1775833678, withDelegatecall: true, resultData: 0x) |
+
+#### 0xE5EF2Dd06755A97e975f7E282f828224F2C3e627 (GovernanceV3BNB.PAYLOADS_CONTROLLER)
+
+| index | event |
+| --- | --- |
+| 3 | PayloadExecuted(payloadId: 57) |
+
+## Raw storage changes
+
+### 0x115e662fa3f0b83014eb3f6f86f3d94bec5eb411 (MiscBNB.AGENT_HUB)
+
+| slot | previous value | new value |
+| --- | --- | --- |
+| 0xaf23a9fe98ab74c8206d31b4f275ddf8dabc82d8a5daa7c12084d552666b96fd | 0x000000000000000000000001239d3bc5fa247337287cb03f53b8bc63dbbc332d | 0x000000000000000000000000239d3bc5fa247337287cb03f53b8bc63dbbc332d |
+| 0xf80cf091d48cb329813162312cf78c924f5aae0ee991535608533f788290f887 | 0x000000000000000000000001239d3bc5fa247337287cb03f53b8bc63dbbc332d | 0x000000000000000000000000239d3bc5fa247337287cb03f53b8bc63dbbc332d |
+
+### 0xe5ef2dd06755a97e975f7e282f828224f2c3e627 (GovernanceV3BNB.PAYLOADS_CONTROLLER)
+
+| slot | previous value | new value |
+| --- | --- | --- |
+| 0x7328c223b526ac18a2ca34e3cc928d22c174fde8c81d65ae5d17c01763d134b1 | 0x0069d9124d000000000002000000000000000000000000000000000000000000 | 0x0069d9124d000000000003000000000000000000000000000000000000000000 |
+| 0x7328c223b526ac18a2ca34e3cc928d22c174fde8c81d65ae5d17c01763d134b2 | 0x000000000000000000093a800000000000006a0736ce00000000000000000000 | 0x000000000000000000093a800000000000006a0736ce00000000000069d9124e |
+
+
+## Raw diff
+
+```json
+{}
+```
