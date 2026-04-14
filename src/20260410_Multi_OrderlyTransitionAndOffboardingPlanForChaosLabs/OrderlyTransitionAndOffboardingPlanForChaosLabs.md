@@ -2,7 +2,7 @@
 title: "Orderly Transition and Offboarding Plan for Chaos Labs"
 author: "ChaosLabs (implemented by Aavechan Initiative @aci via Skyward)"
 discussions: "https://governance.aave.com/t/orderly-transition-and-offboarding-plan-for-chaos-labs/24399"
-snapshot: TODO
+snapshot: direct-to-AIP
 ---
 
 ## Summary
@@ -23,9 +23,9 @@ During the transition window, we will dedicate resources to completing outstandi
 
 ## Continuity of Risk Management
 
-The DAO is in a position to transition the majority of ongoing risk-management responsibilities without significant delay. LlamaRisk already exists a secondary risk provider, and has [stated](https://governance.aave.com/t/llamarisk-ensuring-continuity-of-aaves-risk-management/24397) they are fully ready and prepared to take on all risk management functionality. With the key rotation finalized at their [request](https://governance.aave.com/t/llamarisk-ensuring-continuity-of-aaves-risk-management/24397#p-62730-scope-we-will-absorb-4), they’ll be able to update parameters manually via the risk steward.
+The DAO is in a position to transition the majority of ongoing risk-management responsibilities without significant delay. LlamaRisk already exists as a secondary risk provider, and has [stated](https://governance.aave.com/t/llamarisk-ensuring-continuity-of-aaves-risk-management/24397) they are fully ready and prepared to take on all risk management functionality. With the key rotation finalized at their [request](https://governance.aave.com/t/llamarisk-ensuring-continuity-of-aaves-risk-management/24397#p-62730-scope-we-will-absorb-4), they’ll be able to update parameters manually via the risk steward.
 
-In summary, the addresses associated with the current 2/2 multisig for manual Risk Steward purposes will be rotated from Chaos Labs and BGD to Aave Labs and LlamaRisk, as requested by both, to ensure operational continuity.
+In summary, the addresses associated with the current 2/2 multisig for manual Risk Steward purposes doesn't change, the signers will be rotated from Chaos Labs and BGD to Aave Labs and LlamaRisk, as requested by both, to ensure operational continuity.
 
 ## Risk Oracle Transition
 
@@ -65,18 +65,17 @@ This AIP will disable all the agents operating on the followings V3 instances:
 - Gnosis
 - Linea
 - Optimism
-- Plasma
 - Polygon
 
-### Stream cancelation and bulk payement
+### Stream cancelation and bulk payment
 
-The stream 100073 will be canceled (if not already done) and an amount equivalent to 30 days of said stream will be stransfered from the collector to the following Chaos Labs operated wallet: [0xbC540e0729B732fb14afA240aA5A047aE9ba7dF0](https://etherscan.io/address/0xbC540e0729B732fb14afA240aA5A047aE9ba7dF0)
+The stream 100073 will be canceled (if not already done) and an amount equivalent to 30 days of said stream will be transfered from the collector to the following Chaos Labs operated wallet: [0xbC540e0729B732fb14afA240aA5A047aE9ba7dF0](https://etherscan.io/address/0xbC540e0729B732fb14afA240aA5A047aE9ba7dF0)
 
 ## References
 
 - Implementation: [AaveV3Ethereum](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Ethereum_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol), [AaveV3Polygon](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Polygon_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol), [AaveV3Avalanche](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Avalanche_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol), [AaveV3Optimism](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Optimism_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol), [AaveV3Arbitrum](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Arbitrum_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol), [AaveV3Base](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Base_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol), [AaveV3Gnosis](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Gnosis_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol), [AaveV3BNB](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3BNB_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol), [AaveV3Linea](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Linea_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol), [AaveV3Plasma](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Plasma_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol)
 - Tests: [AaveV3Ethereum](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Ethereum_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.t.sol), [AaveV3Polygon](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Polygon_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.t.sol), [AaveV3Avalanche](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Avalanche_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.t.sol), [AaveV3Optimism](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Optimism_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.t.sol), [AaveV3Arbitrum](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Arbitrum_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.t.sol), [AaveV3Base](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Base_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.t.sol), [AaveV3Gnosis](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Gnosis_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.t.sol), [AaveV3BNB](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3BNB_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.t.sol), [AaveV3Linea](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Linea_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.t.sol), [AaveV3Plasma](https://github.com/aave-dao/aave-proposals-v3/blob/main/src/20260410_Multi_OrderlyTransitionAndOffboardingPlanForChaosLabs/AaveV3Plasma_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.t.sol)
-  [Snapshot](TODO)
+- Snapshot: direct-to-AIP
 - [Discussion](https://governance.aave.com/t/orderly-transition-and-offboarding-plan-for-chaos-labs/24399)
 
 ## Copyright

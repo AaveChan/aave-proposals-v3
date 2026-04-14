@@ -9,7 +9,7 @@ import {IERC20} from 'openzeppelin-contracts/contracts/token/ERC20/IERC20.sol';
 /**
  * @title Orderly Transition and Offboarding Plan for Chaos Labs
  * @author ChaosLabs (implemented by Aavechan Initiative @aci via Skyward)
- * - Snapshot: TODO
+ * - Snapshot: direct-to-AIP
  * - Discussion: https://governance.aave.com/t/orderly-transition-and-offboarding-plan-for-chaos-labs/24399
  */
 contract AaveV3Ethereum_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410 is
@@ -26,7 +26,7 @@ contract AaveV3Ethereum_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410
       IAgentHub(MiscEthereum.AGENT_HUB).setAgentEnabled(i, false);
     }
 
-    // chaos labs mentionned cutting the stream themselves
+    // chaos labs mentioned cutting the stream themselves
     try AaveV3EthereumLido.COLLECTOR.cancelStream(PREVIOUS_STREAM) {} catch {}
 
     // bulk transfer

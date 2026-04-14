@@ -7,7 +7,7 @@ import {IAgentHub} from '../interfaces/chaos-agents/IAgentHub.sol';
 /**
  * @title Orderly Transition and Offboarding Plan for Chaos Labs
  * @author ChaosLabs (implemented by Aavechan Initiative @aci via Skyward)
- * - Snapshot: TODO
+ * - Snapshot: direct-to-AIP
  * - Discussion: https://governance.aave.com/t/orderly-transition-and-offboarding-plan-for-chaos-labs/24399
  */
 contract AaveV3Arbitrum_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410 is
