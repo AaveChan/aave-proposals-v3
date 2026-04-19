@@ -5,19 +5,26 @@
 | index | event |
 | --- | --- |
 | 0 | AgentEnabledSet(agentId: 0, enable: false) |
-| 1 | AgentEnabledSet(agentId: 1, enable: false) |
+| 2 | AgentEnabledSet(agentId: 1, enable: false) |
+
+#### 0x2D97F8FA96886Fd923c065F5457F9DDd494e3877 (AaveV3BNB.ACL_MANAGER)
+
+| index | event |
+| --- | --- |
+| 1 | RoleRevoked(role: 0x8aa855a911518ecfbe5bc3088c8f3dda7badf130faaf8ace33fdc33828e18167, account: 0x2cf0fA5b36F0f89a5EA18F835d1375974a7720B8, sender: 0x9390B1735def18560c509E2d0bc090E9d6BA257a) |
+| 3 | RoleRevoked(role: 0x8aa855a911518ecfbe5bc3088c8f3dda7badf130faaf8ace33fdc33828e18167, account: 0x970dDfF6c38B29D67DFe282306f7c0e1f5f31207, sender: 0x9390B1735def18560c509E2d0bc090E9d6BA257a) |
 
 #### 0x9390B1735def18560c509E2d0bc090E9d6BA257a (AaveV3BNB.ACL_ADMIN, GovernanceV3BNB.EXECUTOR_LVL_1)
 
 | index | event |
 | --- | --- |
-| 2 | ExecutedAction(target: 0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f, value: 0, signature: execute(), data: 0x, executionTime: 1775833678, withDelegatecall: true, resultData: 0x) |
+| 4 | ExecutedAction(target: 0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f, value: 0, signature: execute(), data: 0x, executionTime: 1775833678, withDelegatecall: true, resultData: 0x) |
 
 #### 0xE5EF2Dd06755A97e975f7E282f828224F2C3e627 (GovernanceV3BNB.PAYLOADS_CONTROLLER)
 
 | index | event |
 | --- | --- |
-| 3 | PayloadExecuted(payloadId: 57) |
+| 5 | PayloadExecuted(payloadId: 57) |
 
 ## Raw storage changes
 
@@ -27,6 +34,13 @@
 | --- | --- | --- |
 | 0xaf23a9fe98ab74c8206d31b4f275ddf8dabc82d8a5daa7c12084d552666b96fd | 0x000000000000000000000001239d3bc5fa247337287cb03f53b8bc63dbbc332d | 0x000000000000000000000000239d3bc5fa247337287cb03f53b8bc63dbbc332d |
 | 0xf80cf091d48cb329813162312cf78c924f5aae0ee991535608533f788290f887 | 0x000000000000000000000001239d3bc5fa247337287cb03f53b8bc63dbbc332d | 0x000000000000000000000000239d3bc5fa247337287cb03f53b8bc63dbbc332d |
+
+### 0x2d97f8fa96886fd923c065f5457f9ddd494e3877 (AaveV3BNB.ACL_MANAGER)
+
+| slot | previous value | new value |
+| --- | --- | --- |
+| 0x471017140763f83b11f69c0d8a269988f60f179e9470ce4a7c604644d1a8b7df | 0x0000000000000000000000000000000000000000000000000000000000000001 | 0x0000000000000000000000000000000000000000000000000000000000000000 |
+| 0x5306861f203ea0ed6a7b80b9e7d884718dcfd6279a3d2150e83d04bbf748ecf1 | 0x0000000000000000000000000000000000000000000000000000000000000001 | 0x0000000000000000000000000000000000000000000000000000000000000000 |
 
 ### 0xe5ef2dd06755a97e975f7e282f828224f2c3e627 (GovernanceV3BNB.PAYLOADS_CONTROLLER)
 

@@ -3,8 +3,8 @@ pragma solidity ^0.8.0;
 
 import {IProposalGenericExecutor} from 'aave-helpers/src/interfaces/IProposalGenericExecutor.sol';
 import {MiscPolygon} from 'aave-address-book/MiscPolygon.sol';
-import {IAgentHub} from '../interfaces/chaos-agents/IAgentHub.sol';
-
+import {AaveV3Polygon} from 'aave-address-book/AaveV3Polygon.sol';
+import {DelistAllAgents} from './DelistAllAgents.sol';
 /**
  * @title Orderly Transition and Offboarding Plan for Chaos Labs
  * @author ChaosLabs (implemented by Aavechan Initiative @aci via Skyward)
@@ -15,10 +15,6 @@ contract AaveV3Polygon_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410 
   IProposalGenericExecutor
 {
   function execute() external {
-    // custom code goes here
-    uint256 agentCount = IAgentHub(MiscPolygon.AGENT_HUB).getAgentCount();
-    for (uint256 i = 0; i < agentCount; i++) {
-      IAgentHub(MiscPolygon.AGENT_HUB).setAgentEnabled(i, false);
-    }
+    DelistAllAgents.delist(MiscPolygon.AGENT_HUB, address(AaveV3Polygon.ACL_MANAGER));
   }
 }

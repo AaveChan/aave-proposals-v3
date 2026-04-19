@@ -5,19 +5,26 @@
 | index | event |
 | --- | --- |
 | 0 | AgentEnabledSet(agentId: 0, enable: false) |
-| 1 | AgentEnabledSet(agentId: 1, enable: false) |
+| 2 | AgentEnabledSet(agentId: 1, enable: false) |
+
+#### 0xEc710f59005f48703908bC519D552Df5B8472614 (AaveV3Gnosis.ACL_MANAGER)
+
+| index | event |
+| --- | --- |
+| 1 | RoleRevoked(role: 0x8aa855a911518ecfbe5bc3088c8f3dda7badf130faaf8ace33fdc33828e18167, account: 0x8d3C192BC8D0913Ecc4eAACf0Fe99B6F6226B486, sender: 0x1dF462e2712496373A347f8ad10802a5E95f053D) |
+| 3 | RoleRevoked(role: 0x8aa855a911518ecfbe5bc3088c8f3dda7badf130faaf8ace33fdc33828e18167, account: 0xcCeb5996cF9976168fdbE6fF88B1d89e1180A0EA, sender: 0x1dF462e2712496373A347f8ad10802a5E95f053D) |
 
 #### 0x1dF462e2712496373A347f8ad10802a5E95f053D (AaveV3Gnosis.ACL_ADMIN, GovernanceV3Gnosis.EXECUTOR_LVL_1)
 
 | index | event |
 | --- | --- |
-| 2 | ExecutedAction(target: 0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f, value: 0, signature: execute(), data: 0x, executionTime: 1775833675, withDelegatecall: true, resultData: 0x) |
+| 4 | ExecutedAction(target: 0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f, value: 0, signature: execute(), data: 0x, executionTime: 1775833675, withDelegatecall: true, resultData: 0x) |
 
 #### 0x9A1F491B86D09fC1484b5fab10041B189B60756b (GovernanceV3Gnosis.PAYLOADS_CONTROLLER)
 
 | index | event |
 | --- | --- |
-| 3 | PayloadExecuted(payloadId: 74) |
+| 5 | PayloadExecuted(payloadId: 74) |
 
 ## Raw storage changes
 
@@ -34,6 +41,13 @@
 | --- | --- | --- |
 | 0x4527180e78e4a6462bf9deb3d847e2025103f904bac3cb89e4a58cffdf5fa004 | 0x0069d9124a000000000002000000000000000000000000000000000000000000 | 0x0069d9124a000000000003000000000000000000000000000000000000000000 |
 | 0x4527180e78e4a6462bf9deb3d847e2025103f904bac3cb89e4a58cffdf5fa005 | 0x000000000000000000093a800000000000006a0736cb00000000000000000000 | 0x000000000000000000093a800000000000006a0736cb00000000000069d9124b |
+
+### 0xec710f59005f48703908bc519d552df5b8472614 (AaveV3Gnosis.ACL_MANAGER)
+
+| slot | previous value | new value |
+| --- | --- | --- |
+| 0x48bfa2ff9acce2f049f34106adad0dd5190f47504cb98418a76221bb280599ef | 0x0000000000000000000000000000000000000000000000000000000000000001 | 0x0000000000000000000000000000000000000000000000000000000000000000 |
+| 0x9f231bf200122d82fe33ec471b4f49d8e4ffc37917368eb305f405222d453715 | 0x0000000000000000000000000000000000000000000000000000000000000001 | 0x0000000000000000000000000000000000000000000000000000000000000000 |
 
 
 ## Raw diff

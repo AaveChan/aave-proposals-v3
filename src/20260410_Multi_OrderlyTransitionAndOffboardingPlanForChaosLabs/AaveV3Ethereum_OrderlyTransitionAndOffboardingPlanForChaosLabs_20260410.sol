@@ -3,8 +3,9 @@ pragma solidity ^0.8.0;
 
 import {IProposalGenericExecutor} from 'aave-helpers/src/interfaces/IProposalGenericExecutor.sol';
 import {MiscEthereum} from 'aave-address-book/MiscEthereum.sol';
-import {IAgentHub} from '../interfaces/chaos-agents/IAgentHub.sol';
 import {AaveV3EthereumLido, AaveV3EthereumLidoAssets} from 'aave-address-book/AaveV3EthereumLido.sol';
+import {DelistAllAgents} from './DelistAllAgents.sol';
+import {AaveV3Ethereum} from 'aave-address-book/AaveV3Ethereum.sol';
 import {IERC20} from 'openzeppelin-contracts/contracts/token/ERC20/IERC20.sol';
 /**
  * @title Orderly Transition and Offboarding Plan for Chaos Labs
@@ -21,10 +22,7 @@ contract AaveV3Ethereum_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410
 
   function execute() external {
     // custom code goes here
-    uint256 agentCount = IAgentHub(MiscEthereum.AGENT_HUB).getAgentCount();
-    for (uint256 i = 0; i < agentCount; i++) {
-      IAgentHub(MiscEthereum.AGENT_HUB).setAgentEnabled(i, false);
-    }
+    DelistAllAgents.delist(MiscEthereum.AGENT_HUB, address(AaveV3Ethereum.ACL_MANAGER));
 
     // chaos labs mentioned cutting the stream themselves
     try AaveV3EthereumLido.COLLECTOR.cancelStream(PREVIOUS_STREAM) {} catch {}

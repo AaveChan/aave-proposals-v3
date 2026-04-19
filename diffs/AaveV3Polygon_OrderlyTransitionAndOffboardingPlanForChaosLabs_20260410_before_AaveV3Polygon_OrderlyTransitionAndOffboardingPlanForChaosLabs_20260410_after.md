@@ -5,19 +5,26 @@
 | index | event |
 | --- | --- |
 | 0 | AgentEnabledSet(agentId: 0, enable: false) |
-| 1 | AgentEnabledSet(agentId: 1, enable: false) |
+| 2 | AgentEnabledSet(agentId: 1, enable: false) |
+
+#### 0xa72636CbcAa8F5FF95B2cc47F3CDEe83F3294a0B (AaveV3Polygon.ACL_MANAGER)
+
+| index | event |
+| --- | --- |
+| 1 | RoleRevoked(role: 0x8aa855a911518ecfbe5bc3088c8f3dda7badf130faaf8ace33fdc33828e18167, account: 0xd99D0A740AF7B68f1CB635294C013552423666b1, sender: 0xDf7d0e6454DB638881302729F5ba99936EaAB233) |
+| 3 | RoleRevoked(role: 0x8aa855a911518ecfbe5bc3088c8f3dda7badf130faaf8ace33fdc33828e18167, account: 0xA512909edCf6D9aE46b0414ce0aD724968448177, sender: 0xDf7d0e6454DB638881302729F5ba99936EaAB233) |
 
 #### 0xDf7d0e6454DB638881302729F5ba99936EaAB233 (AaveV2Polygon.POOL_ADMIN, AaveV3Polygon.ACL_ADMIN, GovernanceV3Polygon.EXECUTOR_LVL_1)
 
 | index | event |
 | --- | --- |
-| 2 | ExecutedAction(target: 0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f, value: 0, signature: execute(), data: 0x, executionTime: 1775833669, withDelegatecall: true, resultData: 0x) |
+| 4 | ExecutedAction(target: 0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f, value: 0, signature: execute(), data: 0x, executionTime: 1775833669, withDelegatecall: true, resultData: 0x) |
 
 #### 0x401B5D0294E23637c18fcc38b1Bca814CDa2637C (GovernanceV3Polygon.PAYLOADS_CONTROLLER)
 
 | index | event |
 | --- | --- |
-| 3 | PayloadExecuted(payloadId: 142) |
+| 5 | PayloadExecuted(payloadId: 142) |
 
 ## Raw storage changes
 
@@ -27,6 +34,13 @@
 | --- | --- | --- |
 | 0xe20d6cec910e4e2dd7ac9f6fe69eb0209ee2e78a233f210927c28bf602584ae6 | 0x0069d91244000000000002000000000000000000000000000000000000000000 | 0x0069d91244000000000003000000000000000000000000000000000000000000 |
 | 0xe20d6cec910e4e2dd7ac9f6fe69eb0209ee2e78a233f210927c28bf602584ae7 | 0x000000000000000000093a800000000000006a0736c500000000000000000000 | 0x000000000000000000093a800000000000006a0736c500000000000069d91245 |
+
+### 0xa72636cbcaa8f5ff95b2cc47f3cdee83f3294a0b (AaveV3Polygon.ACL_MANAGER)
+
+| slot | previous value | new value |
+| --- | --- | --- |
+| 0x9d469322d8108290728864bd0600721554b3674e199099054ee2ba84a4a37311 | 0x0000000000000000000000000000000000000000000000000000000000000001 | 0x0000000000000000000000000000000000000000000000000000000000000000 |
+| 0xe808ff36c7f94c5225cf8bade736af27222f1d16c2dce1ba8b9faaed98c646e5 | 0x0000000000000000000000000000000000000000000000000000000000000001 | 0x0000000000000000000000000000000000000000000000000000000000000000 |
 
 ### 0xd44342b1ac132353d3148ea6ed330d1ae6f0c664 (MiscPolygon.AGENT_HUB)
 

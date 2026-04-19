@@ -3,8 +3,8 @@ pragma solidity ^0.8.0;
 
 import {IProposalGenericExecutor} from 'aave-helpers/src/interfaces/IProposalGenericExecutor.sol';
 import {MiscAvalanche} from 'aave-address-book/MiscAvalanche.sol';
-import {IAgentHub} from '../interfaces/chaos-agents/IAgentHub.sol';
-
+import {AaveV3Avalanche} from 'aave-address-book/AaveV3Avalanche.sol';
+import {DelistAllAgents} from './DelistAllAgents.sol';
 /**
  * @title Orderly Transition and Offboarding Plan for Chaos Labs
  * @author ChaosLabs (implemented by Aavechan Initiative @aci via Skyward)
@@ -16,9 +16,6 @@ contract AaveV3Avalanche_OrderlyTransitionAndOffboardingPlanForChaosLabs_2026041
 {
   function execute() external {
     // custom code goes here
-    uint256 agentCount = IAgentHub(MiscAvalanche.AGENT_HUB).getAgentCount();
-    for (uint256 i = 0; i < agentCount; i++) {
-      IAgentHub(MiscAvalanche.AGENT_HUB).setAgentEnabled(i, false);
-    }
+    DelistAllAgents.delist(MiscAvalanche.AGENT_HUB, address(AaveV3Avalanche.ACL_MANAGER));
   }
 }

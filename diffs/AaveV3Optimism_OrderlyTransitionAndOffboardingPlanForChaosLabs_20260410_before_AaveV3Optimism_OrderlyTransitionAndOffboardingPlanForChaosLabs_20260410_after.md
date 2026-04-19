@@ -5,19 +5,26 @@
 | index | event |
 | --- | --- |
 | 0 | AgentEnabledSet(agentId: 0, enable: false) |
-| 1 | AgentEnabledSet(agentId: 1, enable: false) |
+| 2 | AgentEnabledSet(agentId: 1, enable: false) |
+
+#### 0xa72636CbcAa8F5FF95B2cc47F3CDEe83F3294a0B (AaveV3Optimism.ACL_MANAGER)
+
+| index | event |
+| --- | --- |
+| 1 | RoleRevoked(role: 0x8aa855a911518ecfbe5bc3088c8f3dda7badf130faaf8ace33fdc33828e18167, account: 0x8963Abfb008A668346B18d0BeE82b171F3b2Be24, sender: 0x746c675dAB49Bcd5BB9Dc85161f2d7Eb435009bf) |
+| 3 | RoleRevoked(role: 0x8aa855a911518ecfbe5bc3088c8f3dda7badf130faaf8ace33fdc33828e18167, account: 0x3993695F48d64076C5Df1EeC9490501F9bB400C8, sender: 0x746c675dAB49Bcd5BB9Dc85161f2d7Eb435009bf) |
 
 #### 0x746c675dAB49Bcd5BB9Dc85161f2d7Eb435009bf (AaveV3Optimism.ACL_ADMIN, GovernanceV3Optimism.EXECUTOR_LVL_1)
 
 | index | event |
 | --- | --- |
-| 2 | ExecutedAction(target: 0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f, value: 0, signature: execute(), data: 0x, executionTime: 1775833669, withDelegatecall: true, resultData: 0x) |
+| 4 | ExecutedAction(target: 0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f, value: 0, signature: execute(), data: 0x, executionTime: 1775833669, withDelegatecall: true, resultData: 0x) |
 
 #### 0x0E1a3Af1f9cC76A62eD31eDedca291E63632e7c4 (GovernanceV3Optimism.PAYLOADS_CONTROLLER)
 
 | index | event |
 | --- | --- |
-| 3 | PayloadExecuted(payloadId: 94) |
+| 5 | PayloadExecuted(payloadId: 94) |
 
 ## Raw storage changes
 
@@ -34,6 +41,13 @@
 | --- | --- | --- |
 | 0xaf23a9fe98ab74c8206d31b4f275ddf8dabc82d8a5daa7c12084d552666b96fd | 0x0000000000000000000000019f6aa2ab14bff53e4b79a81ce1554f1dfdbb6608 | 0x0000000000000000000000009f6aa2ab14bff53e4b79a81ce1554f1dfdbb6608 |
 | 0xf80cf091d48cb329813162312cf78c924f5aae0ee991535608533f788290f887 | 0x0000000000000000000000019f6aa2ab14bff53e4b79a81ce1554f1dfdbb6608 | 0x0000000000000000000000009f6aa2ab14bff53e4b79a81ce1554f1dfdbb6608 |
+
+### 0xa72636cbcaa8f5ff95b2cc47f3cdee83f3294a0b (AaveV3Optimism.ACL_MANAGER)
+
+| slot | previous value | new value |
+| --- | --- | --- |
+| 0x41c3f33d4056955c6853725a2604d2362e57cc2cd00c5740a2261cda78936c31 | 0x0000000000000000000000000000000000000000000000000000000000000001 | 0x0000000000000000000000000000000000000000000000000000000000000000 |
+| 0x4de2755bf0185e82982dc1d121facb6594fd38f27de0bce47f3e82ff0ba3d252 | 0x0000000000000000000000000000000000000000000000000000000000000001 | 0x0000000000000000000000000000000000000000000000000000000000000000 |
 
 
 ## Raw diff

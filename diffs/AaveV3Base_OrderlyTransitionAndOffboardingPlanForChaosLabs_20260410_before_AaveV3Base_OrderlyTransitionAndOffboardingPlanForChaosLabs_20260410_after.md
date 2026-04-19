@@ -5,20 +5,28 @@
 | index | event |
 | --- | --- |
 | 0 | AgentEnabledSet(agentId: 0, enable: false) |
-| 1 | AgentEnabledSet(agentId: 1, enable: false) |
-| 2 | AgentEnabledSet(agentId: 2, enable: false) |
+| 2 | AgentEnabledSet(agentId: 1, enable: false) |
+| 4 | AgentEnabledSet(agentId: 2, enable: false) |
+
+#### 0x43955b0899Ab7232E3a454cf84AedD22Ad46FD33 (AaveV3Base.ACL_MANAGER)
+
+| index | event |
+| --- | --- |
+| 1 | RoleRevoked(role: 0x8aa855a911518ecfbe5bc3088c8f3dda7badf130faaf8ace33fdc33828e18167, account: 0x42ca9E62C9B61d01Bb222d6E69f095eE98e61cE8, sender: 0x9390B1735def18560c509E2d0bc090E9d6BA257a) |
+| 3 | RoleRevoked(role: 0x8aa855a911518ecfbe5bc3088c8f3dda7badf130faaf8ace33fdc33828e18167, account: 0x0ae2815b1f607EfEe34C15E63c72Cd6C99d1D6fa, sender: 0x9390B1735def18560c509E2d0bc090E9d6BA257a) |
+| 5 | RoleRevoked(role: 0x8aa855a911518ecfbe5bc3088c8f3dda7badf130faaf8ace33fdc33828e18167, account: 0xAD83c71619368390c4C4fd1Aa472235FD4Ea3F32, sender: 0x9390B1735def18560c509E2d0bc090E9d6BA257a) |
 
 #### 0x9390B1735def18560c509E2d0bc090E9d6BA257a (AaveV3Base.ACL_ADMIN, GovernanceV3Base.EXECUTOR_LVL_1)
 
 | index | event |
 | --- | --- |
-| 3 | ExecutedAction(target: 0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f, value: 0, signature: execute(), data: 0x, executionTime: 1775833673, withDelegatecall: true, resultData: 0x) |
+| 6 | ExecutedAction(target: 0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f, value: 0, signature: execute(), data: 0x, executionTime: 1775833673, withDelegatecall: true, resultData: 0x) |
 
 #### 0x2DC219E716793fb4b21548C0f009Ba3Af753ab01 (GovernanceV3Base.PAYLOADS_CONTROLLER)
 
 | index | event |
 | --- | --- |
-| 4 | PayloadExecuted(payloadId: 105) |
+| 7 | PayloadExecuted(payloadId: 105) |
 
 ## Raw storage changes
 
@@ -36,6 +44,14 @@
 | --- | --- | --- |
 | 0x8bd72d705e704e96ab1fa5baf1ac8053f4ec008dca8cf0376ca60a5648fa9532 | 0x0069d91248000000000002000000000000000000000000000000000000000000 | 0x0069d91248000000000003000000000000000000000000000000000000000000 |
 | 0x8bd72d705e704e96ab1fa5baf1ac8053f4ec008dca8cf0376ca60a5648fa9533 | 0x000000000000000000093a800000000000006a0736c900000000000000000000 | 0x000000000000000000093a800000000000006a0736c900000000000069d91249 |
+
+### 0x43955b0899ab7232e3a454cf84aedd22ad46fd33 (AaveV3Base.ACL_MANAGER)
+
+| slot | previous value | new value |
+| --- | --- | --- |
+| 0x18178f8ff305ace32902ddd18a4333278f186aa0fc03b8ac669480594cf25422 | 0x0000000000000000000000000000000000000000000000000000000000000001 | 0x0000000000000000000000000000000000000000000000000000000000000000 |
+| 0x818f3090e35dd02bd920a5476f176aefefb9ccb4f1f4dbd29bdf05acab72d676 | 0x0000000000000000000000000000000000000000000000000000000000000001 | 0x0000000000000000000000000000000000000000000000000000000000000000 |
+| 0xecef8c5a072f9713c13ba2fd74925e933cdffd50c06b942422c7e7f435c920ca | 0x0000000000000000000000000000000000000000000000000000000000000001 | 0x0000000000000000000000000000000000000000000000000000000000000000 |
 
 
 ## Raw diff
