@@ -19,13 +19,13 @@ As part of this transition, Chaos Labs will cancel its outstanding stream and tr
 
 The offboarding process will run for thirty days from the approval of this proposal.
 
-During the transition window, we will dedicate resources to completing outstanding analyses, finalizing any in-progress deliverables, preparing handoff materials, and supporting an orderly wind-down of responsibilities. Plasma PT oracles will be turned off on June 18th
+During the transition window, we will dedicate resources to completing outstanding analyses, finalizing any in-progress deliverables, preparing handoff materials, and supporting an orderly wind-down of responsibilities. Plasma PT oracles will be turned off on June 18th.
 
 ## Continuity of Risk Management
 
 The DAO is in a position to transition the majority of ongoing risk-management responsibilities without significant delay. LlamaRisk already exists as a secondary risk provider, and has [stated](https://governance.aave.com/t/llamarisk-ensuring-continuity-of-aaves-risk-management/24397) they are fully ready and prepared to take on all risk management functionality. With the key rotation finalized at their [request](https://governance.aave.com/t/llamarisk-ensuring-continuity-of-aaves-risk-management/24397#p-62730-scope-we-will-absorb-4), they’ll be able to update parameters manually via the risk steward.
 
-In summary, the addresses associated with the current 2/2 multisig for manual Risk Steward purposes doesn't change, the signers will be rotated from Chaos Labs and BGD to Aave Labs and LlamaRisk, as requested by both, to ensure operational continuity.
+In summary, the addresses associated with the current 2/2 multisig for manual Risk Steward purposes do not change, the signers will be rotated from Chaos Labs and BGD to Aave Labs and LlamaRisk, as requested by both, to ensure operational continuity.
 
 ## Risk Oracle Transition
 
@@ -47,7 +47,7 @@ In connection with this transition, 30 days’ worth of stream will be transferr
 - all remaining outstanding work will then be brought to completion before departure;
 - Supply Cap, Borrow Cap, Interest Rate Risk Oracles, and PT Risk Oracles for existing PTs will be shut down immediately;
 - the outstanding stream will be canceled immediately;
-- 30 days worth of revenue will serve as the final transition-period compensation.
+- 30 days' worth of revenue will serve as the final transition-period compensation.
 
 We believe this framework gives the DAO sufficient continuity, predictability, and time to transfer responsibilities in an orderly manner.
 
@@ -71,9 +71,9 @@ This AIP will disable all the agents operating on the following V3 instances and
 
 The Chainlink Automation upkeeps registered under the AgentHub automation contract will be cancelled on each chain where agents are deployed. Once cancelled, the freed LINK balance can be withdrawn permissionlessly to the Aave Collector after the registry's cancellation delay (~50 blocks).
 
-### Stream cancelation and bulk payment
+### Stream cancellation and bulk payment
 
-The stream 100073 will be canceled (if not already done) and an amount equivalent to 30 days of said stream will be transfered from the collector to the following Chaos Labs operated wallet: [0xbC540e0729B732fb14afA240aA5A047aE9ba7dF0](https://etherscan.io/address/0xbC540e0729B732fb14afA240aA5A047aE9ba7dF0)
+The stream 100073 will be canceled (if not already done) and an amount equivalent to 30 days of said stream will be transferred from the collector to the following Chaos Labs operated wallet: [0xbC540e0729B732fb14afA240aA5A047aE9ba7dF0](https://etherscan.io/address/0xbC540e0729B732fb14afA240aA5A047aE9ba7dF0)
 
 ## References
 
