@@ -15,7 +15,6 @@ contract AaveV3Gnosis_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410 i
   IProposalGenericExecutor
 {
   function execute() external {
-    // custom code goes here
     DelistAllAgents.delist(MiscGnosis.AGENT_HUB, address(AaveV3Gnosis.ACL_MANAGER));
   }
 }

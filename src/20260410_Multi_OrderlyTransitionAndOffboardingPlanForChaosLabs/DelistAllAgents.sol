@@ -10,14 +10,21 @@ import {IACLManager} from 'aave-address-book/AaveV3.sol';
  */
 
 library DelistAllAgents {
-  function delist(address AGENT_HUB, address ACL_MANAGER) internal {
-    uint256 agentCount = IAgentHub(AGENT_HUB).getAgentCount();
+  function delist(address agentHub, address aclManager) internal {
+    uint256 agentCount = IAgentHub(agentHub).getAgentCount();
     for (uint256 i = 0; i < agentCount; i++) {
-      IAgentHub(AGENT_HUB).setAgentEnabled(i, false);
-      IACLManager(ACL_MANAGER).removeRiskAdmin(
-        IAgentHub(AGENT_HUB).getAgentAddress(i)
-      );
+      IAgentHub(agentHub).setAgentEnabled(i, false);
+      IACLManager(aclManager).removeRiskAdmin(IAgentHub(agentHub).getAgentAddress(i));
+    }
+  }
+
+  function delist(address agentHub, address aclManager1, address aclManager2) internal {
+    uint256 agentCount = IAgentHub(agentHub).getAgentCount();
+    for (uint256 i = 0; i < agentCount; i++) {
+      IAgentHub(agentHub).setAgentEnabled(i, false);
+      address agent = IAgentHub(agentHub).getAgentAddress(i);
+      IACLManager(aclManager1).removeRiskAdmin(agent);
+      IACLManager(aclManager2).removeRiskAdmin(agent);
     }
   }
 }
-

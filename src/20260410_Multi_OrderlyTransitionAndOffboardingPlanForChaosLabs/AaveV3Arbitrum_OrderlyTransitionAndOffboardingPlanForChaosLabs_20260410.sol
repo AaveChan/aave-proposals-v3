@@ -5,6 +5,7 @@ import {IProposalGenericExecutor} from 'aave-helpers/src/interfaces/IProposalGen
 import {MiscArbitrum} from 'aave-address-book/MiscArbitrum.sol';
 import {AaveV3Arbitrum} from 'aave-address-book/AaveV3Arbitrum.sol';
 import {DelistAllAgents} from './DelistAllAgents.sol';
+import {CancelAgentRobots} from './CancelAgentRobots.sol';
 /**
  * @title Orderly Transition and Offboarding Plan for Chaos Labs
  * @author ChaosLabs (implemented by Aavechan Initiative @aci via Skyward)
@@ -15,7 +16,10 @@ contract AaveV3Arbitrum_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410
   IProposalGenericExecutor
 {
   function execute() external {
-    // custom code goes here
     DelistAllAgents.delist(MiscArbitrum.AGENT_HUB, address(AaveV3Arbitrum.ACL_MANAGER));
+    CancelAgentRobots.cancel(
+      MiscArbitrum.AAVE_CL_ROBOT_OPERATOR,
+      MiscArbitrum.AGENT_HUB_AUTOMATION
+    );
   }
 }

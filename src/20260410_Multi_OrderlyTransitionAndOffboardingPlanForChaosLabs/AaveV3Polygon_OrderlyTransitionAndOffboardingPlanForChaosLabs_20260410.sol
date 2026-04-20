@@ -5,6 +5,7 @@ import {IProposalGenericExecutor} from 'aave-helpers/src/interfaces/IProposalGen
 import {MiscPolygon} from 'aave-address-book/MiscPolygon.sol';
 import {AaveV3Polygon} from 'aave-address-book/AaveV3Polygon.sol';
 import {DelistAllAgents} from './DelistAllAgents.sol';
+import {CancelAgentRobots} from './CancelAgentRobots.sol';
 /**
  * @title Orderly Transition and Offboarding Plan for Chaos Labs
  * @author ChaosLabs (implemented by Aavechan Initiative @aci via Skyward)
@@ -16,5 +17,6 @@ contract AaveV3Polygon_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410 
 {
   function execute() external {
     DelistAllAgents.delist(MiscPolygon.AGENT_HUB, address(AaveV3Polygon.ACL_MANAGER));
+    CancelAgentRobots.cancel(MiscPolygon.AAVE_CL_ROBOT_OPERATOR, MiscPolygon.AGENT_HUB_AUTOMATION);
   }
 }

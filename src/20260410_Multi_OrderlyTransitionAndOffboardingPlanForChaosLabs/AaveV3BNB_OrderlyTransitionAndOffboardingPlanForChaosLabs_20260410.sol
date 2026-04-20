@@ -5,6 +5,7 @@ import {IProposalGenericExecutor} from 'aave-helpers/src/interfaces/IProposalGen
 import {MiscBNB} from 'aave-address-book/MiscBNB.sol';
 import {AaveV3BNB} from 'aave-address-book/AaveV3BNB.sol';
 import {DelistAllAgents} from './DelistAllAgents.sol';
+import {CancelAgentRobots} from './CancelAgentRobots.sol';
 
 /**
  * @title Orderly Transition and Offboarding Plan for Chaos Labs
@@ -16,7 +17,7 @@ contract AaveV3BNB_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410 is
   IProposalGenericExecutor
 {
   function execute() external {
-    // custom code goes here
     DelistAllAgents.delist(MiscBNB.AGENT_HUB, address(AaveV3BNB.ACL_MANAGER));
+    CancelAgentRobots.cancel(MiscBNB.AAVE_CL_ROBOT_OPERATOR, MiscBNB.AGENT_HUB_AUTOMATION);
   }
 }

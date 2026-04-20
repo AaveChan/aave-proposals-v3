@@ -4,9 +4,9 @@ pragma solidity ^0.8.0;
 import {IProposalGenericExecutor} from 'aave-helpers/src/interfaces/IProposalGenericExecutor.sol';
 import {MiscEthereum} from 'aave-address-book/MiscEthereum.sol';
 import {AaveV3EthereumLido, AaveV3EthereumLidoAssets} from 'aave-address-book/AaveV3EthereumLido.sol';
-import {DelistAllAgents} from './DelistAllAgents.sol';
 import {AaveV3Ethereum} from 'aave-address-book/AaveV3Ethereum.sol';
-import {IAaveCLRobotOperator} from '../interfaces/IAaveCLRobotOperator.sol';
+import {DelistAllAgents} from './DelistAllAgents.sol';
+import {CancelAgentRobots} from './CancelAgentRobots.sol';
 import {IERC20} from 'openzeppelin-contracts/contracts/token/ERC20/IERC20.sol';
 /**
  * @title Orderly Transition and Offboarding Plan for Chaos Labs
@@ -22,8 +22,11 @@ contract AaveV3Ethereum_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410
   uint256 public constant AMOUNT_PER_SECOND = 80859969558599695; // from stream 100073
 
   function execute() external {
-    DelistAllAgents.delist(MiscEthereum.AGENT_HUB, address(AaveV3Ethereum.ACL_MANAGER));
-    DelistAllAgents.delist(MiscEthereum.AGENT_HUB, address(AaveV3EthereumLido.ACL_MANAGER));
+    DelistAllAgents.delist(
+      MiscEthereum.AGENT_HUB,
+      address(AaveV3Ethereum.ACL_MANAGER),
+      address(AaveV3EthereumLido.ACL_MANAGER)
+    );
 
     // chaos labs mentioned cutting the stream themselves
     try AaveV3EthereumLido.COLLECTOR.cancelStream(PREVIOUS_STREAM) {} catch {}
@@ -35,14 +38,10 @@ contract AaveV3Ethereum_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410
       AMOUNT_PER_SECOND * 30 days
     );
 
-    // Cancel all Chainlink robots registered for AGENT_HUB_AUTOMATION.
-    // withdrawLink() is permissionless and can be called by anyone ~20 blocks after execution.
-    IAaveCLRobotOperator operator = IAaveCLRobotOperator(MiscEthereum.AAVE_CL_ROBOT_OPERATOR);
-    uint256[] memory keeperIds = operator.getKeepersList();
-    for (uint256 i = 0; i < keeperIds.length; i++) {
-      if (operator.getKeeperInfo(keeperIds[i]).upkeep == MiscEthereum.AGENT_HUB_AUTOMATION) {
-        operator.cancel(keeperIds[i]);
-      }
-    }
+    // withdrawLink() is permissionless and can be called by anyone ~20 blocks after execution
+    CancelAgentRobots.cancel(
+      MiscEthereum.AAVE_CL_ROBOT_OPERATOR,
+      MiscEthereum.AGENT_HUB_AUTOMATION
+    );
   }
 }
