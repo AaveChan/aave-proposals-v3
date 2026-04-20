@@ -10,11 +10,7 @@ import {AaveV3BNB_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410} from
 import {IAgentHub} from '../interfaces/chaos-agents/IAgentHub.sol';
 import {IAaveCLRobotOperator} from '../interfaces/IAaveCLRobotOperator.sol';
 import {IERC20} from 'openzeppelin-contracts/contracts/token/ERC20/IERC20.sol';
-
-interface IKeeperRegistry {
-  // https://github.com/smartcontractkit/chainlink/blob/contracts-v1.3.0/contracts/src/v0.8/automation/v2_1/KeeperRegistryBase2_1.sol
-  function getCancellationDelay() external view returns (uint256);
-}
+import {IKeeperRegistry} from './IKeeperRegistry.sol';
 
 /**
  * @dev Test for AaveV3BNB_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410
@@ -84,7 +80,6 @@ contract AaveV3BNB_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410_Test
 
   function test_linkReturnedToCollectorAfterCancellation() public {
     address CHAINLINK_REGISTRY = 0xDc21E279934fF6721CaDfDD112DAfb3261f09A2C; // not in address book
-    address LINK = 0x404460C6A5EdE2D891e8297795264fDe62ADBB75; // LINK on BNB, not in address book
 
     IAaveCLRobotOperator operator = IAaveCLRobotOperator(MiscBNB.AAVE_CL_ROBOT_OPERATOR);
     uint256[] memory ids = operator.getKeepersList();
@@ -100,16 +95,18 @@ contract AaveV3BNB_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410_Test
 
     executePayload(vm, address(proposal));
 
-    uint256 delay = IKeeperRegistry(CHAINLINK_REGISTRY).getCancellationDelay();
+    IKeeperRegistry registry = IKeeperRegistry(CHAINLINK_REGISTRY);
+    uint256 delay = registry.getCancellationDelay();
+    address link = registry.getLinkAddress();
     vm.roll(block.number + delay);
 
-    uint256 collectorLinkBefore = IERC20(LINK).balanceOf(address(AaveV3BNB.COLLECTOR));
+    uint256 collectorLinkBefore = IERC20(link).balanceOf(address(AaveV3BNB.COLLECTOR));
 
     for (uint256 i = 0; i < agentRobotCount; i++) {
       operator.withdrawLink(agentRobotIds[i]);
     }
 
-    uint256 collectorLinkAfter = IERC20(LINK).balanceOf(address(AaveV3BNB.COLLECTOR));
+    uint256 collectorLinkAfter = IERC20(link).balanceOf(address(AaveV3BNB.COLLECTOR));
     assertGt(collectorLinkAfter, collectorLinkBefore, 'LINK not returned to collector');
   }
 }
