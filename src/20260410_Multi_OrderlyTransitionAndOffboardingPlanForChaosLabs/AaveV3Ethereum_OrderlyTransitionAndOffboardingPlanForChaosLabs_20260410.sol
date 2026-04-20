@@ -38,7 +38,8 @@ contract AaveV3Ethereum_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410
       AMOUNT_PER_SECOND * 30 days
     );
 
-    // withdrawLink() is permissionless and can be called by anyone ~20 blocks after execution
+    // withdrawLink() is permissionless and can be called by anyone 50 blocks after execution
+    // (CANCELLATION_DELAY constant in KeeperRegistryBase2_1: https://github.com/smartcontractkit/chainlink/blob/contracts-v1.3.0/contracts/src/v0.8/automation/v2_1/KeeperRegistryBase2_1.sol)
     CancelAgentRobots.cancel(
       MiscEthereum.AAVE_CL_ROBOT_OPERATOR,
       MiscEthereum.AGENT_HUB_AUTOMATION
