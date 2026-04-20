@@ -53,9 +53,9 @@ We believe this framework gives the DAO sufficient continuity, predictability, a
 
 ## Specification
 
-### Oracle deactivation
+### Oracle deactivation and RISK_ADMIN revocation
 
-This AIP will disable all the agents operating on the followings V3 instances:
+This AIP will disable all the agents operating on the following V3 instances and revoke their RISK_ADMIN role from the respective ACL Manager(s):
 
 - Arbitrum
 - Avalanche
@@ -66,6 +66,10 @@ This AIP will disable all the agents operating on the followings V3 instances:
 - Linea
 - Optimism
 - Polygon
+
+### Chainlink Automation robots cancellation
+
+The Chainlink Automation upkeeps registered under the AgentHub automation contract will be cancelled on each chain where agents are deployed. Once cancelled, the freed LINK balance can be withdrawn permissionlessly to the Aave Collector after the registry's cancellation delay (~50 blocks).
 
 ### Stream cancelation and bulk payment
 
