@@ -7,6 +7,7 @@ import {MiscArbitrum} from 'aave-address-book/MiscArbitrum.sol';
 import 'forge-std/Test.sol';
 import {ProtocolV3TestBase, ReserveConfig} from 'aave-helpers/src/ProtocolV3TestBase.sol';
 import {AaveV3Arbitrum_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410} from './AaveV3Arbitrum_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol';
+import {IAgentHub} from '../interfaces/chaos-agents/IAgentHub.sol';
 import {IAaveCLRobotOperator} from '../interfaces/IAaveCLRobotOperator.sol';
 import {IERC20} from 'openzeppelin-contracts/contracts/token/ERC20/IERC20.sol';
 
@@ -33,13 +34,6 @@ contract AaveV3Arbitrum_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410
     //   https://github.com/foundry-rs/foundry/issues/7294
     //   https://github.com/foundry-rs/foundry/issues/6035
     // The proposal executes correctly on Arbitrum mainnet where the precompile is native.
-    // The Chainlink Automation Registry on Arbitrum calls the arbBlockNumber() precompile
-    // (0x0000...0064) inside cancelUpkeep. Foundry fork mode does not replicate Arbitrum
-    // native precompiles so the call hits INVALID (0xFE) — known limitation:
-    //   https://github.com/foundry-rs/foundry/issues/5085
-    //   https://github.com/foundry-rs/foundry/issues/7294
-    //   https://github.com/foundry-rs/foundry/issues/6035
-    // The proposal executes correctly on Arbitrum mainnet where the precompile is native.
     vm.mockCall(
       address(0x0000000000000000000000000000000000000064),
       abi.encodeWithSignature('arbBlockNumber()'),
@@ -57,6 +51,47 @@ contract AaveV3Arbitrum_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410
       AaveV3Arbitrum.POOL,
       address(proposal)
     );
+  }
+
+  function test_agentsDisabledAndRiskAdminRevoked() public {
+    IAgentHub hub = IAgentHub(MiscArbitrum.AGENT_HUB);
+    uint256 count = hub.getAgentCount();
+    require(count > 0, 'no agents registered');
+
+    executePayload(vm, address(proposal));
+
+    for (uint256 i = 0; i < count; i++) {
+      address agent = hub.getAgentAddress(i);
+      assertFalse(hub.isAgentEnabled(i), 'agent still enabled');
+      assertFalse(AaveV3Arbitrum.ACL_MANAGER.isRiskAdmin(agent), 'agent still risk admin');
+    }
+  }
+
+  function test_robotsCancelled() public {
+    IAaveCLRobotOperator operator = IAaveCLRobotOperator(MiscArbitrum.AAVE_CL_ROBOT_OPERATOR);
+    uint256[] memory ids = operator.getKeepersList();
+
+    uint256 agentHubRobotCount = 0;
+    for (uint256 i = 0; i < ids.length; i++) {
+      if (operator.getKeeperInfo(ids[i]).upkeep == MiscArbitrum.AGENT_HUB_AUTOMATION) {
+        agentHubRobotCount++;
+      }
+    }
+    require(agentHubRobotCount > 0, 'no agent hub robots found');
+
+    vm.recordLogs();
+    executePayload(vm, address(proposal));
+
+    Vm.Log[] memory logs = vm.getRecordedLogs();
+    uint256 cancelledCount = 0;
+    bytes32 cancelledSig = keccak256('KeeperCancelled(uint256,address)');
+    for (uint256 i = 0; i < logs.length; i++) {
+      if (logs[i].topics[0] == cancelledSig) {
+        cancelledCount++;
+      }
+    }
+
+    assertEq(cancelledCount, agentHubRobotCount, 'not all agent hub robots cancelled');
   }
 
   function test_linkReturnedToCollectorAfterCancellation() public {
