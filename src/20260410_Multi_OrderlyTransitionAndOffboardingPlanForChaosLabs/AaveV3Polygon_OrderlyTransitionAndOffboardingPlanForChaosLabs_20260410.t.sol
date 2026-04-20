@@ -2,10 +2,19 @@
 pragma solidity ^0.8.0;
 
 import {AaveV3Polygon} from 'aave-address-book/AaveV3Polygon.sol';
+import {MiscPolygon} from 'aave-address-book/MiscPolygon.sol';
 
 import 'forge-std/Test.sol';
 import {ProtocolV3TestBase, ReserveConfig} from 'aave-helpers/src/ProtocolV3TestBase.sol';
 import {AaveV3Polygon_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410} from './AaveV3Polygon_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol';
+import {IAaveCLRobotOperator} from '../interfaces/IAaveCLRobotOperator.sol';
+import {IERC20} from 'openzeppelin-contracts/contracts/token/ERC20/IERC20.sol';
+
+interface IKeeperRegistry {
+  // https://github.com/smartcontractkit/chainlink/blob/contracts-v1.3.0/contracts/src/v0.8/automation/v2_1/KeeperRegistryBase2_1.sol
+  function getCancellationDelay() external view returns (uint256);
+  function getLinkAddress() external view returns (address);
+}
 
 /**
  * @dev Test for AaveV3Polygon_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410
@@ -30,5 +39,37 @@ contract AaveV3Polygon_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410_
       AaveV3Polygon.POOL,
       address(proposal)
     );
+  }
+
+  function test_linkReturnedToCollectorAfterCancellation() public {
+    address CHAINLINK_REGISTRY = 0x08a8eea76D2395807Ce7D1FC942382515469cCA1; // not in address book
+
+    IAaveCLRobotOperator operator = IAaveCLRobotOperator(MiscPolygon.AAVE_CL_ROBOT_OPERATOR);
+    uint256[] memory ids = operator.getKeepersList();
+
+    uint256[] memory agentRobotIds = new uint256[](ids.length);
+    uint256 agentRobotCount = 0;
+    for (uint256 i = 0; i < ids.length; i++) {
+      if (operator.getKeeperInfo(ids[i]).upkeep == MiscPolygon.AGENT_HUB_AUTOMATION) {
+        agentRobotIds[agentRobotCount++] = ids[i];
+      }
+    }
+    require(agentRobotCount > 0, 'no agent hub robots found');
+
+    executePayload(vm, address(proposal));
+
+    IKeeperRegistry registry = IKeeperRegistry(CHAINLINK_REGISTRY);
+    uint256 delay = registry.getCancellationDelay();
+    address link = registry.getLinkAddress();
+    vm.roll(block.number + delay);
+
+    uint256 collectorLinkBefore = IERC20(link).balanceOf(address(AaveV3Polygon.COLLECTOR));
+
+    for (uint256 i = 0; i < agentRobotCount; i++) {
+      operator.withdrawLink(agentRobotIds[i]);
+    }
+
+    uint256 collectorLinkAfter = IERC20(link).balanceOf(address(AaveV3Polygon.COLLECTOR));
+    assertGt(collectorLinkAfter, collectorLinkBefore, 'LINK not returned to collector');
   }
 }

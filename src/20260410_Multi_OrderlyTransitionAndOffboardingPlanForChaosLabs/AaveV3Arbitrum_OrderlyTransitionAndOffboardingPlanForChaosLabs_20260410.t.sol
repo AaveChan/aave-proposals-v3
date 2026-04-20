@@ -1,11 +1,19 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import {AaveV3Arbitrum} from 'aave-address-book/AaveV3Arbitrum.sol';
+import {AaveV3Arbitrum, AaveV3ArbitrumAssets} from 'aave-address-book/AaveV3Arbitrum.sol';
+import {MiscArbitrum} from 'aave-address-book/MiscArbitrum.sol';
 
 import 'forge-std/Test.sol';
 import {ProtocolV3TestBase, ReserveConfig} from 'aave-helpers/src/ProtocolV3TestBase.sol';
 import {AaveV3Arbitrum_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410} from './AaveV3Arbitrum_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410.sol';
+import {IAaveCLRobotOperator} from '../interfaces/IAaveCLRobotOperator.sol';
+import {IERC20} from 'openzeppelin-contracts/contracts/token/ERC20/IERC20.sol';
+
+interface IKeeperRegistry {
+  // https://github.com/smartcontractkit/chainlink/blob/contracts-v1.3.0/contracts/src/v0.8/automation/v2_1/KeeperRegistryBase2_1.sol
+  function getCancellationDelay() external view returns (uint256);
+}
 
 /**
  * @dev Test for AaveV3Arbitrum_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410
@@ -18,6 +26,13 @@ contract AaveV3Arbitrum_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410
 
   function setUp() public {
     vm.createSelectFork(vm.rpcUrl('arbitrum'), 451063652);
+    // The Chainlink Automation Registry on Arbitrum calls the arbBlockNumber() precompile
+    // (0x0000...0064) inside cancelUpkeep. Foundry fork mode does not replicate Arbitrum
+    // native precompiles so the call hits INVALID (0xFE) — known limitation:
+    //   https://github.com/foundry-rs/foundry/issues/5085
+    //   https://github.com/foundry-rs/foundry/issues/7294
+    //   https://github.com/foundry-rs/foundry/issues/6035
+    // The proposal executes correctly on Arbitrum mainnet where the precompile is native.
     // The Chainlink Automation Registry on Arbitrum calls the arbBlockNumber() precompile
     // (0x0000...0064) inside cancelUpkeep. Foundry fork mode does not replicate Arbitrum
     // native precompiles so the call hits INVALID (0xFE) — known limitation:
@@ -42,5 +57,45 @@ contract AaveV3Arbitrum_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410
       AaveV3Arbitrum.POOL,
       address(proposal)
     );
+  }
+
+  function test_linkReturnedToCollectorAfterCancellation() public {
+    address CHAINLINK_REGISTRY = 0x37D9dC70bfcd8BC77Ec2858836B923c560E891D1; // not in address book
+
+    IAaveCLRobotOperator operator = IAaveCLRobotOperator(MiscArbitrum.AAVE_CL_ROBOT_OPERATOR);
+    uint256[] memory ids = operator.getKeepersList();
+
+    uint256[] memory agentRobotIds = new uint256[](ids.length);
+    uint256 agentRobotCount = 0;
+    for (uint256 i = 0; i < ids.length; i++) {
+      if (operator.getKeeperInfo(ids[i]).upkeep == MiscArbitrum.AGENT_HUB_AUTOMATION) {
+        agentRobotIds[agentRobotCount++] = ids[i];
+      }
+    }
+    require(agentRobotCount > 0, 'no agent hub robots found');
+
+    executePayload(vm, address(proposal));
+
+    // Cancel sets maxValidBlocknumber = arbBlockNumber() + delay = 451063652 + 50.
+    // Update the mock to simulate enough blocks have passed (vm.roll resets mocks in Foundry).
+    uint256 delay = IKeeperRegistry(CHAINLINK_REGISTRY).getCancellationDelay();
+    vm.mockCall(
+      address(0x0000000000000000000000000000000000000064),
+      abi.encodeWithSignature('arbBlockNumber()'),
+      abi.encode(uint256(451063652) + delay)
+    );
+
+    uint256 collectorLinkBefore = IERC20(AaveV3ArbitrumAssets.LINK_UNDERLYING).balanceOf(
+      address(AaveV3Arbitrum.COLLECTOR)
+    );
+
+    for (uint256 i = 0; i < agentRobotCount; i++) {
+      operator.withdrawLink(agentRobotIds[i]);
+    }
+
+    uint256 collectorLinkAfter = IERC20(AaveV3ArbitrumAssets.LINK_UNDERLYING).balanceOf(
+      address(AaveV3Arbitrum.COLLECTOR)
+    );
+    assertGt(collectorLinkAfter, collectorLinkBefore, 'LINK not returned to collector');
   }
 }
