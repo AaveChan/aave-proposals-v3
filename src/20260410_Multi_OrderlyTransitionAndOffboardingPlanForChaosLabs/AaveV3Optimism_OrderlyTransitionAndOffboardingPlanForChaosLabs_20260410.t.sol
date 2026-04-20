@@ -10,11 +10,7 @@ import {AaveV3Optimism_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410}
 import {IAgentHub} from '../interfaces/chaos-agents/IAgentHub.sol';
 import {IAaveCLRobotOperator} from '../interfaces/IAaveCLRobotOperator.sol';
 import {IERC20} from 'openzeppelin-contracts/contracts/token/ERC20/IERC20.sol';
-
-interface IKeeperRegistry {
-  // https://github.com/smartcontractkit/chainlink/blob/contracts-v1.3.0/contracts/src/v0.8/automation/v2_1/KeeperRegistryBase2_1.sol
-  function getCancellationDelay() external view returns (uint256);
-}
+import {IKeeperRegistry} from './IKeeperRegistry.sol';
 
 /**
  * @dev Test for AaveV3Optimism_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410
