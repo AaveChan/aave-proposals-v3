@@ -20,6 +20,7 @@ contract AaveV3Ethereum_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410
   address public constant CHAOS_LABS = 0xbC540e0729B732fb14afA240aA5A047aE9ba7dF0; // stream 100073 recipient
   uint256 public constant PREVIOUS_STREAM = 100073;
   uint256 public constant AMOUNT_PER_SECOND = 80859969558599695; // from stream 100073
+  uint256 public constant FORUM_POST_TIMESTAMP = 1775606400; // from stream 100073
 
   function execute() external {
     DelistAllAgents.delist(
@@ -31,18 +32,21 @@ contract AaveV3Ethereum_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410
     // chaos labs mentioned cutting the stream themselves
     try AaveV3EthereumLido.COLLECTOR.cancelStream(PREVIOUS_STREAM) {} catch {}
 
-    // bulk transfer
-    AaveV3EthereumLido.COLLECTOR.transfer(
-      IERC20(AaveV3EthereumLidoAssets.GHO_A_TOKEN),
-      CHAOS_LABS,
-      AMOUNT_PER_SECOND * 30 days
-    );
-
     // withdrawLink() is permissionless and can be called by anyone 50 blocks after execution
     // (CANCELLATION_DELAY constant in KeeperRegistryBase2_1: https://github.com/smartcontractkit/chainlink/blob/contracts-v1.3.0/contracts/src/v0.8/automation/v2_1/KeeperRegistryBase2_1.sol)
     CancelAgentRobots.cancel(
       MiscEthereum.AAVE_CL_ROBOT_OPERATOR,
       MiscEthereum.AGENT_HUB_AUTOMATION
     );
+
+    if ( FORUM_POST_TIMESTAMP + 30 days > block.timestamp ) {
+      uint256 second_left = (FORUM_POST_TIMESTAMP + 30 days) - block.timestamp;
+      // bulk transfer
+      AaveV3EthereumLido.COLLECTOR.transfer(
+        IERC20(AaveV3EthereumLidoAssets.GHO_A_TOKEN),
+        CHAOS_LABS,
+        AMOUNT_PER_SECOND * second_left
+      );
+    }
   }
 }
