@@ -33,7 +33,7 @@ It's a USDC based, yield bearing token whose principal and yield are backed by t
 Technical details: ERC-4626 token standard built on top of the Maple's smart contracts.
 High Yield. Maple has a track record of generating consistent high underlying yield of 7-15% net APY.
 
-Loans are fully collateralised by digital assets ensuring lending positions are protected, even if borrowers default or asset prices fall. More on: https://app.maple.finance/earn.
+Loans are fully collateralized by digital assets ensuring lending positions are protected, even if borrowers default or asset prices fall. More on: https://app.maple.finance/earn.
 
 The table below illustrates the configured risk parameters for **syrupUSDC**
 
@@ -85,7 +85,7 @@ The table below illustrates the configured risk parameters for **syrupUSDC**
 | Underlying oracle      | [USDC/USD](https://etherscan.io/address/0xB6557F02F0a5dA7b9D3C2d979cc19e00e756F6dA#readContract)                                   |
 | Minimum Snapshot delay | 7 days                                                                                                                             |
 | Max yearly growth      | 1994 (19.94%)                                                                                                                      |
-| Last Answer            | 116045418 ($1.16045418 on April 21th)                                                                                              |
+| Last Answer            | 116045418 ($1.16045418 on April 21st)                                                                                              |
 
 Additionally [0xac140648435d03f784879cd789130F22Ef588Fcd](https://etherscan.io/address/0xac140648435d03f784879cd789130F22Ef588Fcd) has been set as the emission admin for syrupUSDC and the corresponding aToken, vToken and underlying token.
 
