@@ -10,7 +10,7 @@ import {AaveV3Polygon_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410} 
 import {IAgentHub} from '../interfaces/chaos-agents/IAgentHub.sol';
 import {IAaveCLRobotOperator} from '../interfaces/IAaveCLRobotOperator.sol';
 import {IERC20} from 'openzeppelin-contracts/contracts/token/ERC20/IERC20.sol';
-import {IKeeperRegistry} from './IKeeperRegistry.sol';
+import {IKeeperRegistry} from '../interfaces/IKeeperRegistry.sol';
 
 /**
  * @dev Test for AaveV3Polygon_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410
