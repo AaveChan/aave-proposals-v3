@@ -20,7 +20,7 @@ contract AaveV3Ethereum_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410
   address public constant CHAOS_LABS = 0xbC540e0729B732fb14afA240aA5A047aE9ba7dF0; // stream 100073 recipient
   uint256 public constant PREVIOUS_STREAM = 100073;
   uint256 public constant AMOUNT_PER_SECOND = 80859969558599695; // from stream 100073
-  uint256 public constant FORUM_POST_TIMESTAMP = 1775606400; // from stream 100073
+  uint256 public constant FORUM_POST_TIMESTAMP = 1775606400;
 
   function execute() external {
     DelistAllAgents.delist(
@@ -39,7 +39,7 @@ contract AaveV3Ethereum_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410
       MiscEthereum.AGENT_HUB_AUTOMATION
     );
 
-    if ( FORUM_POST_TIMESTAMP + 30 days > block.timestamp ) {
+    if (FORUM_POST_TIMESTAMP + 30 days > block.timestamp) {
       uint256 second_left = (FORUM_POST_TIMESTAMP + 30 days) - block.timestamp;
       // bulk transfer
       AaveV3EthereumLido.COLLECTOR.transfer(

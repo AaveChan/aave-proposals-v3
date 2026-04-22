@@ -13,11 +13,11 @@ In contrast to recent service provider departures, Aave has a secondary risk pro
 
 As such, our intent is to complete this transition within 30 days. During that period, we will continue supporting the DAO in a clearly defined capacity, complete the handoff of ongoing responsibilities, and ensure that remaining operational dependencies are addressed in an orderly manner.
 
-As part of this transition, Chaos Labs will cancel its outstanding stream and transfer 30 days’ worth of stream funding from the Aave Treasury to Chaos Labs.
+As part of this transition, Chaos Labs will cancel its outstanding stream and transfer the remaining stream funding corresponding to the 30-day transition period starting from the forum post date (April 8, 2026).
 
 ## Transition Timeline
 
-The offboarding process will run for thirty days from the approval of this proposal.
+The offboarding process will run for thirty days from the date of the forum post (April 8, 2026).
 
 During the transition window, we will dedicate resources to completing outstanding analyses, finalizing any in-progress deliverables, preparing handoff materials, and supporting an orderly wind-down of responsibilities. Plasma PT oracles will be turned off on June 18th.
 
@@ -39,7 +39,7 @@ Parameter management for existing PT assets will be executed through LlamaRisk�
 
 Chaos Labs will immediately cancel its outstanding stream 100073. Stream 100015 is already being canceled due to a stream misconfiguration. We will refund the portion of AAVE tokens corresponding to the remaining stream duration.
 
-In connection with this transition, 30 days’ worth of stream will be transferred to Chaos Labs as the final compensation associated with the support and wind-down period described in this proposal. This is intended to align compensation with the defined transition window while avoiding a prolonged or ambiguous tail period.
+In connection with this transition, the remaining portion of the 30-day stream period (calculated from the forum post date of April 8, 2026) will be transferred to Chaos Labs as the final compensation associated with the support and wind-down period described in this proposal. This is intended to align compensation with the defined transition window while avoiding a prolonged or ambiguous tail period.
 
 ## Conclusion
 
