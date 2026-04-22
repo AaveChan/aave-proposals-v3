@@ -39,15 +39,20 @@ contract AaveV3Ethereum_OnboardSyrupUSDCToAaveV3CoreInstance_20260421_Test is Pr
     assertGe(IERC20(aTokenAddress).balanceOf(address(AaveV3Ethereum.DUST_BIN)), 100 * 10 ** 6);
   }
 
-  function test_syrupUSDCAdmin() public {
+  function test_syrupUSDCLMAdmin() public {
     GovV3Helpers.executePayload(vm, address(proposal));
     address asyrupUSDC = AaveV3Ethereum.POOL.getReserveAToken(proposal.syrupUSDC());
+    address vsyrupUSDC = AaveV3Ethereum.POOL.getReserveVariableDebtToken(proposal.syrupUSDC());
     assertEq(
       IEmissionManager(AaveV3Ethereum.EMISSION_MANAGER).getEmissionAdmin(proposal.syrupUSDC()),
       proposal.syrupUSDC_LM_ADMIN()
     );
     assertEq(
       IEmissionManager(AaveV3Ethereum.EMISSION_MANAGER).getEmissionAdmin(asyrupUSDC),
+      proposal.syrupUSDC_LM_ADMIN()
+    );
+    assertEq(
+      IEmissionManager(AaveV3Ethereum.EMISSION_MANAGER).getEmissionAdmin(vsyrupUSDC),
       proposal.syrupUSDC_LM_ADMIN()
     );
   }
