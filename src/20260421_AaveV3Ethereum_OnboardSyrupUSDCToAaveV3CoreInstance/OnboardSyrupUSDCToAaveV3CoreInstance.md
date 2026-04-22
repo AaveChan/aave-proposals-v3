@@ -7,9 +7,9 @@ snapshot: "https://snapshot.org/#/s:aavedao.eth/proposal/0xf5951af5d6d7d70be998a
 
 ## Simple Summary
 
-This proposal seeks to onboard syrupUSDC — a USDC-based yield-bearing token issued by Maple Finance — as a collateral asset on Aave V3 Core Instance. syrupUSDC is built on top of Maple's infrastructure and offers access to overcollateralized, fixed-rate institutional loans, providing high and consistent yields to DeFi users.
+This proposal seeks to onboard syrupUSDC — a USDC-based yield-bearing token issued by Maple Finance — as a collateral asset on Aave V3 Core Instance. syrupUSDC is built on top of Maple's infrastructure and offers access to overcollateralized, fixed-rate institutional loans, which provide high and consistent yields to DeFi users.
 
-Maple, launched in 2021, is an on-chain Asset Manager with decades of traditional finance and crypto experience. As of June 2025, Maple has $2.3b in AUM. Maple combines deep capital markets expertise with DeFi innovation to offer digital asset lending and yield products.
+Maple, launched in 2021, is an on-chain asset manager whose team has decades of traditional finance and crypto experience. As of June 2025, Maple has $2.3b in AUM. Maple combines deep capital markets expertise with DeFi innovation to offer digital asset lending and yield products.
 
 ## Motivation
 
@@ -23,15 +23,15 @@ Onboarding syrupUSDC to Aave V3 Core Instance provides:
 The Aave and Maple partnership will enable:
 
 - New Yield Opportunities: Commercial alignment with Maple's large institutional network, unlocking additional yield generation opportunities for Aave.
-- GHO Adoption: Maple can help with growing other strategic priorities for Aave, including GHO adoption. Eg GHO lending to institutions.
+- GHO Adoption: Maple can help with growing other strategic priorities for Aave, including GHO adoption. E.g., GHO lending to institutions.
 - Future Collaboration: Future asset listings, including the Maple liquid yielding Bitcoin asset.
 
 ## Specification
 
-It's a USDC based, yield bearing token whose principal and yield are backed by the secured lending strategy of Maple. (More details below).
+It's a USDC-based, yield-bearing token whose principal and yield are backed by the secured lending strategy of Maple. (More details below).
 
-Technical details: ERC-4626 token standard built on top of the Maple's smart contracts.
-High Yield. Maple has a track record of generating consistent high underlying yield of 7-15% net APY.
+Technical details: ERC-4626 token standard built on top of Maple's smart contracts.
+High Yield. Maple has a track record of generating consistently high underlying yields of 7-15% net APY.
 
 Loans are fully collateralized by digital assets ensuring lending positions are protected, even if borrowers default or asset prices fall. More on: https://app.maple.finance/earn.
 
