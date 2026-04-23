@@ -15,6 +15,6 @@ contract AaveV3Linea_OrderlyTransitionAndOffboardingPlanForChaosLabs_20260410 is
   IProposalGenericExecutor
 {
   function execute() external {
-	  DelistAllAgents.delist(MiscLinea.AGENT_HUB, address(AaveV3Linea.ACL_MANAGER));
+    DelistAllAgents.delist(MiscLinea.AGENT_HUB, address(AaveV3Linea.ACL_MANAGER));
   }
 }
